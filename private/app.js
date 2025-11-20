@@ -1,10 +1,3 @@
-/*************************************************************************
- *  obfuscator.io to generate the final and protected app.js
- * date: 11/20/25
- * 
- * 
- * 
- * **************************************************************************/ 
 // --- APPLICATION LOGIC ---
 
 const app = {
@@ -12,34 +5,36 @@ const app = {
         user: null,
         currentTrack: null,
         currentProblem: null,
-        currentFilter: 'All',
+        filterTopic: 'All',
+        filterDifficulty: 'All',
+        filterStatus: 'All',
+        solvedProblemIds: new Set(), 
         db: null,
         auth: null,
         mode: 'local'
     },
 
     async init() {
-        // 1. Initialize Theme
         themeManager.init();
+        const editorEl = document.getElementById('code-editor');
+        if(editorEl) {
+            this.editor = CodeMirror.fromTextArea(editorEl, {
+                lineNumbers: true, 
+                theme: themeManager.isDark() ? 'dracula' : 'eclipse',
+                tabSize: 4, 
+                indentUnit: 4, 
+                lineWrapping: true
+            });
+        }
 
-        // 2. Initialize Editor
-        this.editor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
-            lineNumbers: true, 
-            theme: themeManager.isDark() ? 'dracula' : 'eclipse',
-            tabSize: 4, 
-            indentUnit: 4, 
-            lineWrapping: true
-        });
-
-        // 3. Load Problems
         try {
-            document.getElementById('problem-list').innerHTML = '<div class="text-gray-500 p-4">Loading problems...</div>';
+            if(document.getElementById('problem-list')) document.getElementById('problem-list').innerHTML = '<div class="text-gray-500 p-4">Loading...</div>';
             const response = await fetch(GOOGLE_SHEET_API);
             problemsDB = await response.json();
             this.updateLandingCounts();
         } catch (e) {
             console.error("Failed", e);
-            document.getElementById('problem-list').innerHTML = '<div class="text-red-500 p-4">Error loading problems.</div>';
+            if(document.getElementById('problem-list')) document.getElementById('problem-list').innerHTML = '<div class="text-red-500 p-4">Error loading data.</div>';
         }
 
         this.initEngines();
@@ -58,7 +53,7 @@ const app = {
     },
 
     initAuth() {
-        if (firebaseConfig.apiKey && window.firebaseModules) {
+        if (typeof firebaseConfig !== 'undefined' && firebaseConfig.apiKey && window.firebaseModules) {
             try {
                 const fb = window.firebaseModules;
                 const appInst = fb.initializeApp(firebaseConfig);
@@ -68,10 +63,33 @@ const app = {
                 fb.onAuthStateChanged(this.state.auth, (user) => {
                     this.state.user = user;
                     authManager.updateUI(user);
+                    if(user) this.fetchUserProgress();
                 });
             } catch(e) { console.error("Firebase Init Failed:", e); }
         } else {
             authManager.checkLocalAuth();
+        }
+    },
+
+    // FIXED: Added logs to debug data fetching
+    async fetchUserProgress() {
+        if (!this.state.user) return;
+        console.log("Fetching progress for:", this.state.user.uid);
+        try {
+            const history = await persistence.getHistory(this.state.user.uid);
+            console.log("Found history items:", history.length);
+            
+            const solved = new Set();
+            history.forEach(sub => {
+                if (sub.status === 'Passed') solved.add(sub.problemId);
+            });
+            this.state.solvedProblemIds = solved;
+            console.log("Solved IDs:", Array.from(solved));
+            
+            // Refresh UI if sidebar is active
+            if(this.state.currentTrack) this.applyFilters();
+        } catch(e) {
+            console.error("Error fetching progress", e);
         }
     },
 
@@ -83,17 +101,68 @@ const app = {
 
     selectTrack(track) {
         this.state.currentTrack = track;
+        
+        this.state.filterTopic = 'All';
+        this.state.filterDifficulty = 'All';
+        this.state.filterStatus = 'All';
+        
+        const navDiff = document.getElementById('nav-difficulty');
+        if(navDiff) navDiff.value = 'All';
+        
         this.renderTopicFilters(); 
-        this.filterProblems('All'); 
-        if(this.getFilteredProblems('All').length > 0) {
-            this.loadProblem(this.getFilteredProblems('All')[0].id);
+        this.applyFilters(); 
+        
+        const filtered = this.getFilteredProblems();
+        if(filtered.length > 0) {
+            this.loadProblem(filtered[0].id);
         }
+        
         router.navigate('playground');
         setTimeout(() => { if(this.editor) this.editor.refresh(); }, 100);
     },
 
+    setDifficulty(level) {
+        this.state.filterDifficulty = level;
+        this.applyFilters();
+    },
+
+    setTopic(topic) {
+        this.state.filterTopic = topic;
+        this.applyFilters();
+        
+        document.querySelectorAll('.topic-tag').forEach(b => b.classList.remove('active'));
+        const activeBtn = Array.from(document.querySelectorAll('.topic-tag')).find(b => b.innerText === topic);
+        if (activeBtn) activeBtn.classList.add('active');
+    },
+
+    setStatus(status) {
+        this.state.filterStatus = status;
+        this.applyFilters();
+    },
+
+    applyFilters() {
+        const problems = this.getFilteredProblems();
+        this.renderSidebar(problems);
+    },
+
+    getFilteredProblems() {
+        return problemsDB.filter(p => {
+            const matchType = p.type === this.state.currentTrack;
+            const matchDiff = this.state.filterDifficulty === 'All' || p.difficulty === this.state.filterDifficulty;
+            const matchTopic = this.state.filterTopic === 'All' || p.topic === this.state.filterTopic;
+            
+            let matchStatus = true;
+            const isSolved = this.state.solvedProblemIds.has(p.id);
+            if (this.state.filterStatus === 'Solved') matchStatus = isSolved;
+            if (this.state.filterStatus === 'Unsolved') matchStatus = !isSolved;
+
+            return matchType && matchDiff && matchTopic && matchStatus;
+        });
+    },
+
     renderTopicFilters() {
         const container = document.getElementById('topic-filters');
+        if(!container) return;
         container.innerHTML = '';
         const trackProblems = problemsDB.filter(p => p.type === this.state.currentTrack);
         const topics = new Set(['All']);
@@ -101,35 +170,20 @@ const app = {
 
         topics.forEach(topic => {
             const btn = document.createElement('button');
-            btn.className = `topic-tag px-2 py-1 text-[10px] border border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-500 hover:text-blue-600 dark:hover:text-white transition mb-1 mr-1`;
+            btn.className = `topic-tag px-3 py-1 text-[10px] border border-gray-200 dark:border-gray-700 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-500 hover:text-blue-600 dark:hover:text-white transition whitespace-nowrap`;
             btn.innerText = topic;
-            btn.onclick = () => {
-                document.querySelectorAll('.topic-tag').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                app.filterProblems(topic);
-            };
+            btn.onclick = () => app.setTopic(topic);
             if (topic === 'All') btn.classList.add('active');
             container.appendChild(btn);
         });
     },
 
-    getFilteredProblems(filter) {
-        let p = problemsDB.filter(p => p.type === this.state.currentTrack);
-        if (filter !== 'All') p = p.filter(p => p.topic === filter);
-        return p;
-    },
-
-    filterProblems(filter) {
-        this.state.currentFilter = filter;
-        const problems = this.getFilteredProblems(filter);
-        this.renderSidebar(problems);
-    },
-
     renderSidebar(problems) {
         const list = document.getElementById('problem-list');
+        if(!list) return;
         list.innerHTML = '';
         if (problems.length === 0) {
-            list.innerHTML = '<div class="p-4 text-xs text-gray-500 italic">No problems found.</div>';
+            list.innerHTML = '<div class="p-4 text-xs text-gray-500 italic">No problems match filters.</div>';
             return;
         }
         problems.forEach(p => {
@@ -148,12 +202,20 @@ const app = {
             if(p.difficulty === 'Medium') diffColor = 'bg-yellow-500';
             if(p.difficulty === 'Hard') diffColor = 'bg-red-500';
 
+            const isSolved = this.state.solvedProblemIds.has(p.id);
+            const iconHtml = isSolved 
+                ? '<i class="fa-solid fa-circle-check text-green-500 mr-2"></i>' 
+                : '<i class="fa-regular fa-circle text-gray-400 mr-2 text-[10px]"></i>';
+
             item.innerHTML = `
-                <div class="flex justify-between items-center">
-                    <span>${p.title}</span>
-                    <span class="w-2 h-2 rounded-full ${diffColor}" title="${p.difficulty}"></span>
+                <div class="flex justify-between items-start">
+                    <div class="flex items-center overflow-hidden">
+                        ${iconHtml}
+                        <span class="truncate w-32">${p.title}</span>
+                    </div>
+                    <span class="w-2 h-2 rounded-full ${diffColor} flex-shrink-0 mt-1" title="${p.difficulty}"></span>
                 </div>
-                <div class="text-[10px] text-gray-400 dark:text-gray-500 mt-1">${p.topic || 'General'}</div>
+                <div class="text-[10px] text-gray-400 dark:text-gray-500 mt-1 ml-5 truncate">${p.topic || 'General'}</div>
             `;
             item.onclick = () => this.loadProblem(p.id);
             list.appendChild(item);
@@ -162,6 +224,8 @@ const app = {
 
     loadProblem(id) {
         const problem = problemsDB.find(p => String(p.id) === String(id)); 
+        if(!problem) return;
+        
         this.state.currentProblem = problem;
         this.updateSidebarSelection(id);
         
@@ -178,15 +242,18 @@ const app = {
             htmlContent += schemaUtils.generateHTML(problem.setup_sql);
         }
 
-        document.getElementById('problem-desc-container').innerHTML = htmlContent;
+        const container = document.getElementById('problem-desc-container');
+        if(container) container.innerHTML = htmlContent;
 
-        this.editor.setValue(problem.starter);
-        const mode = problem.type === 'sql' ? 'text/x-sql' : 'python';
-        this.editor.setOption('mode', mode);
+        if(this.editor) {
+            this.editor.setValue(problem.starter);
+            const mode = problem.type === 'sql' ? 'text/x-sql' : 'python';
+            this.editor.setOption('mode', mode);
+        }
         
-        document.getElementById('lang-indicator').innerText = problem.type.toUpperCase();
-        document.getElementById('console-output').innerHTML = '';
-        document.getElementById('save-status').innerText = '';
+        if(document.getElementById('lang-indicator')) document.getElementById('lang-indicator').innerText = problem.type.toUpperCase();
+        if(document.getElementById('console-output')) document.getElementById('console-output').innerHTML = '';
+        if(document.getElementById('save-status')) document.getElementById('save-status').innerText = '';
     },
 
     updateSidebarSelection(activeId) {
@@ -200,7 +267,6 @@ const app = {
     }
 };
 
-// --- THEME MANAGER ---
 const themeManager = {
     init() {
         const savedTheme = localStorage.getItem('theme');
@@ -231,7 +297,6 @@ const themeManager = {
     }
 };
 
-// --- SCHEMA UTILS ---
 const schemaUtils = {
     generateHTML(sql) {
         const tableRegex = /CREATE\s+TABLE\s+(\w+)\s*\(([^)]+)\)/gi;
@@ -269,29 +334,30 @@ const schemaUtils = {
     }
 };
 
-// --- UI MANAGER ---
 const ui = {
     sidebarOpen: true,
     consoleOpen: true,
     toggleSidebar() {
         const sidebar = document.getElementById('app-sidebar');
+        if(!sidebar) return;
         this.sidebarOpen = !this.sidebarOpen;
         if (this.sidebarOpen) {
             sidebar.style.width = '250px'; sidebar.classList.remove('w-0', 'p-0'); sidebar.classList.add('p-4', 'border-r');
         } else {
             sidebar.style.width = '0px'; sidebar.classList.add('w-0', 'p-0'); sidebar.classList.remove('p-4', 'border-r');
         }
-        setTimeout(() => app.editor.refresh(), 300);
+        setTimeout(() => app.editor && app.editor.refresh(), 300);
     },
     toggleConsole() {
         const panel = document.getElementById('console-panel');
+        if(!panel) return;
         this.consoleOpen = !this.consoleOpen;
         panel.style.height = this.consoleOpen ? '200px' : '40px';
     },
     initResizers() {
         const resizerConsole = document.getElementById('resizer-console');
         const consolePanel = document.getElementById('console-panel');
-        if(resizerConsole) {
+        if(resizerConsole && consolePanel) {
             resizerConsole.addEventListener('mousedown', (e) => {
                 e.preventDefault();
                 document.body.style.cursor = 'row-resize';
@@ -305,7 +371,7 @@ const ui = {
                     document.body.style.cursor = 'default';
                     window.removeEventListener('mousemove', onMouseMove);
                     window.removeEventListener('mouseup', onMouseUp);
-                    app.editor.refresh();
+                    if(app.editor) app.editor.refresh();
                 };
                 window.addEventListener('mousemove', onMouseMove);
                 window.addEventListener('mouseup', onMouseUp);
@@ -327,7 +393,7 @@ const ui = {
                     document.body.style.cursor = 'default';
                     window.removeEventListener('mousemove', onMouseMove);
                     window.removeEventListener('mouseup', onMouseUp);
-                    app.editor.refresh();
+                    if(app.editor) app.editor.refresh();
                 };
                 window.addEventListener('mousemove', onMouseMove);
                 window.addEventListener('mouseup', onMouseUp);
@@ -349,7 +415,7 @@ const ui = {
                     document.body.style.cursor = 'default';
                     window.removeEventListener('mousemove', onMouseMove);
                     window.removeEventListener('mouseup', onMouseUp);
-                    app.editor.refresh();
+                    if(app.editor) app.editor.refresh();
                 };
                 window.addEventListener('mousemove', onMouseMove);
                 window.addEventListener('mouseup', onMouseUp);
@@ -358,18 +424,19 @@ const ui = {
     }
 };
 
-// --- ROUTER ---
 const router = {
     navigate(viewId) {
         ['view-landing', 'view-playground', 'view-profile'].forEach(id => {
-            document.getElementById(id).classList.add('hidden-view');
+            const el = document.getElementById(id);
+            if(el) el.classList.add('hidden-view');
         });
-        document.getElementById(`view-${viewId}`).classList.remove('hidden-view');
+        const target = document.getElementById(`view-${viewId}`);
+        if(target) target.classList.remove('hidden-view');
         if(viewId === 'profile') authManager.loadProfileData();
     }
 };
 
-// --- AUTH MANAGER ---
+// --- AUTH MANAGER (Fixed Avatar Logic) ---
 const authManager = {
     login() {
         if (app.state.mode === 'firebase') {
@@ -405,9 +472,17 @@ const authManager = {
             document.getElementById('btn-login').classList.add('hidden');
             document.getElementById('user-profile-menu').classList.remove('hidden');
             document.getElementById('user-profile-menu').classList.add('flex');
-            document.getElementById('user-name').innerText = user.displayName || "Student";
-            const avatarUrl = user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=random`;
-            document.getElementById('user-avatar').src = avatarUrl;
+            
+            const container = document.getElementById('user-avatar-container');
+            if(container) {
+                // If photo URL exists and is valid string, use it
+                if (user.photoURL && user.photoURL.length > 5) {
+                    container.innerHTML = `<img src="${user.photoURL}" referrerpolicy="no-referrer" class="w-full h-full object-cover" onerror="this.onerror=null;this.parentNode.innerHTML='<i class=\\'fa-solid fa-user text-xs\\'></i>';">`;
+                } else {
+                    // Fallback to Icon
+                    container.innerHTML = `<i class="fa-solid fa-user text-xs"></i>`;
+                }
+            }
         } else {
             document.getElementById('btn-login').classList.remove('hidden');
             document.getElementById('user-profile-menu').classList.add('hidden');
@@ -422,19 +497,25 @@ const authManager = {
         }
         const user = app.state.user;
         const avatarUrl = user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=random`;
-        document.getElementById('profile-view-name').innerText = user.displayName;
-        document.getElementById('profile-view-avatar').src = avatarUrl;
+        
+        // Safer check for profile elements
+        if(document.getElementById('profile-view-name')) document.getElementById('profile-view-name').innerText = user.displayName;
+        if(document.getElementById('profile-view-avatar')) document.getElementById('profile-view-avatar').src = avatarUrl;
 
         const history = await persistence.getHistory(app.state.user.uid);
         const uniqueSolved = new Set(history.filter(h => h.status === 'Passed').map(h => h.problemId)).size;
-        document.getElementById('stat-solved').innerText = uniqueSolved;
-        document.getElementById('stat-rate').innerText = Math.round((uniqueSolved / problemsDB.length) * 100) + '%';
+        
+        if(document.getElementById('stat-solved')) document.getElementById('stat-solved').innerText = uniqueSolved;
+        if(document.getElementById('stat-rate')) document.getElementById('stat-rate').innerText = Math.round((uniqueSolved / problemsDB.length) * 100) + '%';
+        
         const tbody = document.getElementById('history-table-body');
+        if(!tbody) return;
+        
         tbody.innerHTML = '';
         if(history.length === 0) {
-            document.getElementById('empty-history').classList.remove('hidden');
+            if(document.getElementById('empty-history')) document.getElementById('empty-history').classList.remove('hidden');
         } else {
-            document.getElementById('empty-history').classList.add('hidden');
+            if(document.getElementById('empty-history')) document.getElementById('empty-history').classList.add('hidden');
             history.sort((a,b) => b.timestamp - a.timestamp).forEach(h => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-gray-100 dark:hover:bg-gray-800 transition";
@@ -452,7 +533,6 @@ const authManager = {
     }
 };
 
-// --- VERIFIER ---
 const verifier = {
     normalizeSQL(result) {
         if (!Array.isArray(result)) return [];
@@ -471,7 +551,6 @@ const verifier = {
     }
 };
 
-// --- RUNNER ---
 const runner = {
     log(msg, isError = false, customClass = '') {
         const div = document.getElementById('console-output');
@@ -513,11 +592,9 @@ const runner = {
         if (!btn) return;
         if (isLoading) {
             btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i>Running...';
             btn.classList.add('opacity-50', 'cursor-not-allowed');
         } else {
             btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-play mr-1"></i> Run';
             btn.classList.remove('opacity-50', 'cursor-not-allowed');
         }
     },
@@ -548,6 +625,12 @@ const runner = {
                         timestamp: Date.now()
                     });
                     document.getElementById('save-status').innerText = "Saved to Portal";
+                    
+                    // Update local state
+                    if (passed) {
+                        app.state.solvedProblemIds.add(problem.id);
+                        app.applyFilters(); 
+                    }
                 } else {
                     alert("Please login to save your progress!");
                 }
@@ -617,7 +700,6 @@ const runner = {
     }
 };
 
-// --- PERSISTENCE ---
 const persistence = {
     async saveSubmission(data) {
         if (app.state.mode === 'firebase') {
