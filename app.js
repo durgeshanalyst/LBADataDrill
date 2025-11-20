@@ -15,10 +15,10 @@ const app = {
         // 1. Initialize Theme
         themeManager.init();
 
-        // 2. Initialize Editor (Theme determined by manager)
+        // 2. Initialize Editor
         this.editor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
             lineNumbers: true, 
-            theme: themeManager.isDark() ? 'dracula' : 'eclipse', // Dynamic Theme
+            theme: themeManager.isDark() ? 'dracula' : 'eclipse',
             tabSize: 4, 
             indentUnit: 4, 
             lineWrapping: true
@@ -130,8 +130,6 @@ const app = {
             item.id = `prob-item-${p.id}`;
             
             const isActive = this.state.currentProblem && this.state.currentProblem.id === p.id;
-            
-            // Sidebar Item Styles (Light & Dark)
             const baseStyles = 'p-3 cursor-pointer border-l-2 transition text-sm mb-1';
             const inactiveStyles = 'border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-yellow-500 hover:text-black dark:hover:text-white';
             const activeStyles = 'bg-gray-100 dark:bg-gray-800 border-yellow-500 text-black dark:text-white font-medium';
@@ -195,44 +193,26 @@ const app = {
     }
 };
 
-// --- THEME MANAGER (NEW) ---
+// --- THEME MANAGER ---
 const themeManager = {
     init() {
-        // Check local storage or system pref
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            this.setLight();
-        } else {
-            this.setDark();
-        }
+        if (savedTheme === 'light') { this.setLight(); } else { this.setDark(); }
     },
-
-    isDark() {
-        return document.documentElement.classList.contains('dark');
-    },
-
+    isDark() { return document.documentElement.classList.contains('dark'); },
     setDark() {
         document.documentElement.classList.add('dark');
         localStorage.setItem('theme', 'dark');
         this.updateButton(true);
         if(app.editor) app.editor.setOption('theme', 'dracula');
     },
-
     setLight() {
         document.documentElement.classList.remove('dark');
         localStorage.setItem('theme', 'light');
         this.updateButton(false);
         if(app.editor) app.editor.setOption('theme', 'eclipse');
     },
-
-    toggle() {
-        if (this.isDark()) {
-            this.setLight();
-        } else {
-            this.setDark();
-        }
-    },
-
+    toggle() { if (this.isDark()) { this.setLight(); } else { this.setDark(); } },
     updateButton(isDark) {
         const btn = document.getElementById('theme-btn');
         if(btn) {
@@ -244,7 +224,7 @@ const themeManager = {
     }
 };
 
-// --- SCHEMA UTILS (Updated Styles) ---
+// --- SCHEMA UTILS ---
 const schemaUtils = {
     generateHTML(sql) {
         const tableRegex = /CREATE\s+TABLE\s+(\w+)\s*\(([^)]+)\)/gi;
@@ -256,12 +236,10 @@ const schemaUtils = {
             found = true;
             const tableName = match[1];
             const columnsStr = match[2];
-            
             const columns = columnsStr.split(',').map(c => {
                 const parts = c.trim().split(/\s+/);
                 return { name: parts[0], type: parts.slice(1).join(' ') };
             });
-
             html += `
                 <div class="mb-4 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900/50 p-4">
                     <div class="flex items-center gap-2 mb-3 border-b border-gray-200 dark:border-gray-700 pb-2">
@@ -288,31 +266,22 @@ const schemaUtils = {
 const ui = {
     sidebarOpen: true,
     consoleOpen: true,
-
     toggleSidebar() {
         const sidebar = document.getElementById('app-sidebar');
         this.sidebarOpen = !this.sidebarOpen;
         if (this.sidebarOpen) {
-            sidebar.style.width = '250px';
-            sidebar.classList.remove('w-0', 'p-0');
-            sidebar.classList.add('p-4', 'border-r');
+            sidebar.style.width = '250px'; sidebar.classList.remove('w-0', 'p-0'); sidebar.classList.add('p-4', 'border-r');
         } else {
-            sidebar.style.width = '0px';
-            sidebar.classList.add('w-0', 'p-0');
-            sidebar.classList.remove('p-4', 'border-r');
+            sidebar.style.width = '0px'; sidebar.classList.add('w-0', 'p-0'); sidebar.classList.remove('p-4', 'border-r');
         }
         setTimeout(() => app.editor.refresh(), 300);
     },
-
     toggleConsole() {
         const panel = document.getElementById('console-panel');
         this.consoleOpen = !this.consoleOpen;
         panel.style.height = this.consoleOpen ? '200px' : '40px';
     },
-
     initResizers() {
-        // (Resizer logic identical to previous version)
-        // ... (omitted for brevity, use previous logic)
         const resizerConsole = document.getElementById('resizer-console');
         const consolePanel = document.getElementById('console-panel');
         if(resizerConsole) {
@@ -335,7 +304,6 @@ const ui = {
                 window.addEventListener('mouseup', onMouseUp);
             });
         }
-        // Sidebar Resizer
         const resizerSidebar = document.getElementById('resizer-sidebar');
         const sidebar = document.getElementById('app-sidebar');
         if(resizerSidebar) {
@@ -358,7 +326,6 @@ const ui = {
                 window.addEventListener('mouseup', onMouseUp);
             });
         }
-        // Desc Resizer
         const resizerDesc = document.getElementById('resizer-desc');
         const descPanel = document.getElementById('desc-panel');
         if(resizerDesc) {
@@ -384,164 +351,7 @@ const ui = {
     }
 };
 
-// --- RUNNER (Updated for Light/Dark Text) ---
-const runner = {
-    log(msg, isError = false, customClass = '') {
-        const div = document.getElementById('console-output');
-        if (div) {
-            let colorClass = isError ? 'text-red-500 dark:text-red-400' : 'text-gray-700 dark:text-gray-300';
-            if (customClass) colorClass = customClass;
-            
-            div.innerHTML += `<div class="${colorClass} border-b border-gray-200 dark:border-gray-800 py-1 font-mono text-xs">> ${msg}</div>`;
-            div.scrollTop = div.scrollHeight;
-        }
-    },
-
-    logTable(data) {
-        const div = document.getElementById('console-output');
-        if (!div || !Array.isArray(data) || data.length === 0) return;
-
-        const limit = 10;
-        const slicedData = data.slice(0, limit);
-        const headers = Object.keys(slicedData[0]);
-
-        let html = `
-            <div class="overflow-x-auto my-2 border border-gray-300 dark:border-gray-700 rounded">
-                <table class="min-w-full text-xs text-left text-gray-700 dark:text-gray-300">
-                    <thead class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 uppercase font-medium">
-                        <tr>${headers.map(h => `<th class="px-4 py-2 border-b border-gray-300 dark:border-gray-700">${h}</th>`).join('')}</tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-                        ${slicedData.map(row => `
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                                ${headers.map(h => `<td class="px-4 py-2 whitespace-nowrap font-mono">${row[h] !== null ? row[h] : '<span class="text-gray-400 dark:text-gray-600">NULL</span>'}</td>`).join('')}
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            </div>
-        `;
-        if (data.length > limit) html += `<div class="text-[10px] text-gray-500 italic px-2 pb-2">... showing first ${limit} of ${data.length} rows</div>`;
-        div.innerHTML += html;
-        div.scrollTop = div.scrollHeight;
-    },
-
-    setLoading(isLoading) {
-        const btn = document.getElementById('run-btn');
-        if (!btn) return;
-        if (isLoading) {
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i>Running...';
-            btn.classList.add('opacity-50', 'cursor-not-allowed');
-        } else {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-play mr-1"></i> Run';
-            btn.classList.remove('opacity-50', 'cursor-not-allowed');
-        }
-    },
-
-    async run(isSubmission = false) {
-        if (!app.state.currentProblem) { alert("No problem loaded!"); return; }
-        this.setLoading(true);
-        document.getElementById('console-output').innerHTML = ''; 
-        document.getElementById('save-status').innerText = '';
-        const code = app.editor.getValue();
-        const problem = app.state.currentProblem;
-        try {
-            let passed = false;
-            if (problem.type === 'python') {
-                passed = await this.runPython(code, problem, isSubmission);
-            } else {
-                passed = this.runSQL(code, problem, isSubmission);
-            }
-            if (isSubmission) {
-                if (app.state.user) {
-                    document.getElementById('save-status').innerText = "Saving...";
-                    await persistence.saveSubmission({
-                        userId: app.state.user.uid,
-                        problemId: problem.id,
-                        problemTitle: problem.title,
-                        track: problem.type,
-                        code: code,
-                        status: passed ? 'Passed' : 'Failed',
-                        timestamp: Date.now()
-                    });
-                    document.getElementById('save-status').innerText = "Saved to Portal";
-                } else {
-                    alert("Please login to save your progress!");
-                }
-            }
-        } catch (e) {
-            console.error(e); 
-            this.log("System Error: " + e.message, true);
-        } finally {
-            this.setLoading(false);
-        }
-    },
-
-    submit() { this.run(true); },
-
-    async runPython(code, problem, isSubmission) {
-        if (!window.pyodide && typeof loadPyodide !== 'undefined') { try { window.pyodide = await loadPyodide(); } catch (e) {} }
-        if (!window.pyodide) { this.log("⚠️ Python engine is still loading... wait 5s", true); return false; }
-        try {
-            let outputCaptured = false;
-            window.pyodide.setStdout({ batched: (msg) => { this.log(msg); outputCaptured = true; }});
-            const result = await window.pyodide.runPythonAsync(code); 
-            if (!isSubmission) {
-                if (result !== undefined) {
-                    this.log("Result: " + result, false, "text-blue-600 dark:text-blue-400 font-bold");
-                } else if (!outputCaptured) {
-                    this.log("ℹ️ Code ran successfully.", false, "text-yellow-600 dark:text-yellow-500");
-                    this.log("   (Tip: Use print() to see output)", false, "text-yellow-700 dark:text-yellow-600 italic");
-                }
-            }
-            if (isSubmission) {
-                this.log("\n--- Verifying Solution ---");
-                if (!problem.test_code) { this.log("⚠️ No test code found.", true); return false; }
-                await window.pyodide.runPythonAsync(code + "\n" + problem.test_code);
-                const output = document.getElementById('console-output').innerText;
-                return output.includes("✅ Passed");
-            }
-            return true; 
-        } catch (err) {
-            this.log(err, true);
-            return false;
-        }
-    },
-
-    runSQL(code, problem, isSubmission) {
-        if (typeof alasql === 'undefined') { this.log("⚠️ SQL Engine not loaded.", true); return false; }
-        try { alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb'); } catch (e) { this.log("System Error (DB Init): " + e.message, true); return false; }
-        if (problem.setup_sql) { try { alasql(problem.setup_sql); } catch (e) { this.log("Setup Error: " + e.message, true); return false; } }
-        try {
-            const userResult = alasql(code);
-            if(Array.isArray(userResult)) {
-                if(userResult.length === 0) { this.log("Query executed. Result: [] (Empty)"); } 
-                else { this.log("Query Result:", false, "text-blue-600 dark:text-blue-400"); this.logTable(userResult); }
-            } else {
-                this.log("Query Executed Successfully.");
-            }
-            if(isSubmission) {
-                this.log("\n--- Verifying Solution ---");
-                alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb');
-                if (problem.setup_sql) alasql(problem.setup_sql);
-                let expectedResult;
-                try { expectedResult = alasql(problem.solution_sql); } catch(e) { this.log("Configuration Error: Solution SQL is invalid.", true); return false; }
-                alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb');
-                if (problem.setup_sql) alasql(problem.setup_sql);
-                const actualResult = alasql(code);
-                if (verifier.compare(actualResult, expectedResult)) { this.log("✅ Passed! Good job."); return true; } 
-                else { this.log("❌ Failed. Result does not match expected output.", true); return false; }
-            }
-            return true;
-        } catch(e) { this.log("SQL Error: " + e.message, true); return false; }
-    }
-};
-
-// Auth and Router objects remain the same (omitted for brevity, copy them from previous turns or keep existing)
-// ... (Paste authManager, router, persistence from previous turns) ...
-
+// --- ROUTER ---
 const router = {
     navigate(viewId) {
         ['view-landing', 'view-playground', 'view-profile'].forEach(id => {
@@ -552,6 +362,7 @@ const router = {
     }
 };
 
+// --- AUTH MANAGER ---
 const authManager = {
     login() {
         if (app.state.mode === 'firebase') {
@@ -630,6 +441,196 @@ const authManager = {
                 `;
                 tbody.appendChild(tr);
             });
+        }
+    }
+};
+
+// --- VERIFIER ---
+const verifier = {
+    normalizeSQL(result) {
+        if (!Array.isArray(result)) return [];
+        const sortedKeys = result.map(row => {
+            return Object.keys(row).sort().reduce((obj, key) => {
+                obj[key] = row[key];
+                return obj;
+            }, {});
+        });
+        return sortedKeys.sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)));
+    },
+    compare(actual, expected) {
+        const normActual = this.normalizeSQL(actual);
+        const normExpected = this.normalizeSQL(expected);
+        return JSON.stringify(normActual) === JSON.stringify(normExpected);
+    }
+};
+
+// --- RUNNER ---
+const runner = {
+    log(msg, isError = false, customClass = '') {
+        const div = document.getElementById('console-output');
+        if (div) {
+            let colorClass = isError ? 'text-red-500 dark:text-red-400' : 'text-gray-700 dark:text-gray-300';
+            if (customClass) colorClass = customClass;
+            div.innerHTML += `<div class="${colorClass} border-b border-gray-200 dark:border-gray-800 py-1 font-mono text-xs">> ${msg}</div>`;
+            div.scrollTop = div.scrollHeight;
+        }
+    },
+    logTable(data) {
+        const div = document.getElementById('console-output');
+        if (!div || !Array.isArray(data) || data.length === 0) return;
+        const limit = 10;
+        const slicedData = data.slice(0, limit);
+        const headers = Object.keys(slicedData[0]);
+        let html = `
+            <div class="overflow-x-auto my-2 border border-gray-300 dark:border-gray-700 rounded">
+                <table class="min-w-full text-xs text-left text-gray-700 dark:text-gray-300">
+                    <thead class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 uppercase font-medium">
+                        <tr>${headers.map(h => `<th class="px-4 py-2 border-b border-gray-300 dark:border-gray-700">${h}</th>`).join('')}</tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+                        ${slicedData.map(row => `
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                                ${headers.map(h => `<td class="px-4 py-2 whitespace-nowrap font-mono">${row[h] !== null ? row[h] : '<span class="text-gray-400 dark:text-gray-600">NULL</span>'}</td>`).join('')}
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `;
+        if (data.length > limit) html += `<div class="text-[10px] text-gray-500 italic px-2 pb-2">... showing first ${limit} of ${data.length} rows</div>`;
+        div.innerHTML += html;
+        div.scrollTop = div.scrollHeight;
+    },
+    setLoading(isLoading) {
+        const btn = document.getElementById('run-btn');
+        if (!btn) return;
+        if (isLoading) {
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i>Running...';
+            btn.classList.add('opacity-50', 'cursor-not-allowed');
+        } else {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-play mr-1"></i> Run';
+            btn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+    },
+    async run(isSubmission = false) {
+        if (!app.state.currentProblem) { alert("No problem loaded!"); return; }
+        this.setLoading(true);
+        document.getElementById('console-output').innerHTML = ''; 
+        document.getElementById('save-status').innerText = '';
+        const code = app.editor.getValue();
+        const problem = app.state.currentProblem;
+        try {
+            let passed = false;
+            if (problem.type === 'python') {
+                passed = await this.runPython(code, problem, isSubmission);
+            } else {
+                passed = this.runSQL(code, problem, isSubmission);
+            }
+            if (isSubmission) {
+                if (app.state.user) {
+                    document.getElementById('save-status').innerText = "Saving...";
+                    await persistence.saveSubmission({
+                        userId: app.state.user.uid,
+                        problemId: problem.id,
+                        problemTitle: problem.title,
+                        track: problem.type,
+                        code: code,
+                        status: passed ? 'Passed' : 'Failed',
+                        timestamp: Date.now()
+                    });
+                    document.getElementById('save-status').innerText = "Saved to Portal";
+                } else {
+                    alert("Please login to save your progress!");
+                }
+            }
+        } catch (e) {
+            console.error(e); 
+            this.log("System Error: " + e.message, true);
+        } finally {
+            this.setLoading(false);
+        }
+    },
+    submit() { this.run(true); },
+    async runPython(code, problem, isSubmission) {
+        if (!window.pyodide && typeof loadPyodide !== 'undefined') { try { window.pyodide = await loadPyodide(); } catch (e) {} }
+        if (!window.pyodide) { this.log("⚠️ Python engine is still loading... wait 5s", true); return false; }
+        try {
+            let outputCaptured = false;
+            window.pyodide.setStdout({ batched: (msg) => { this.log(msg); outputCaptured = true; }});
+            const result = await window.pyodide.runPythonAsync(code); 
+            if (!isSubmission) {
+                if (result !== undefined) {
+                    this.log("Result: " + result, false, "text-blue-600 dark:text-blue-400 font-bold");
+                } else if (!outputCaptured) {
+                    this.log("ℹ️ Code ran successfully.", false, "text-yellow-600 dark:text-yellow-500");
+                    this.log("   (Tip: Use print() to see output)", false, "text-yellow-700 dark:text-yellow-600 italic");
+                }
+            }
+            if (isSubmission) {
+                this.log("\n--- Verifying Solution ---");
+                if (!problem.test_code) { this.log("⚠️ No test code found.", true); return false; }
+                await window.pyodide.runPythonAsync(code + "\n" + problem.test_code);
+                const output = document.getElementById('console-output').innerText;
+                return output.includes("✅ Passed");
+            }
+            return true; 
+        } catch (err) {
+            this.log(err, true);
+            return false;
+        }
+    },
+    runSQL(code, problem, isSubmission) {
+        if (typeof alasql === 'undefined') { this.log("⚠️ SQL Engine not loaded.", true); return false; }
+        try { alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb'); } catch (e) { this.log("System Error (DB Init): " + e.message, true); return false; }
+        if (problem.setup_sql) { try { alasql(problem.setup_sql); } catch (e) { this.log("Setup Error: " + e.message, true); return false; } }
+        try {
+            const userResult = alasql(code);
+            if(Array.isArray(userResult)) {
+                if(userResult.length === 0) { this.log("Query executed. Result: [] (Empty)"); } 
+                else { this.log("Query Result:", false, "text-blue-600 dark:text-blue-400"); this.logTable(userResult); }
+            } else {
+                this.log("Query Executed Successfully.");
+            }
+            if(isSubmission) {
+                this.log("\n--- Verifying Solution ---");
+                alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb');
+                if (problem.setup_sql) alasql(problem.setup_sql);
+                let expectedResult;
+                try { expectedResult = alasql(problem.solution_sql); } catch(e) { this.log("Configuration Error: Solution SQL is invalid.", true); return false; }
+                alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb');
+                if (problem.setup_sql) alasql(problem.setup_sql);
+                const actualResult = alasql(code);
+                if (verifier.compare(actualResult, expectedResult)) { this.log("✅ Passed! Good job."); return true; } 
+                else { this.log("❌ Failed. Result does not match expected output.", true); return false; }
+            }
+            return true;
+        } catch(e) { this.log("SQL Error: " + e.message, true); return false; }
+    }
+};
+
+// --- PERSISTENCE ---
+const persistence = {
+    async saveSubmission(data) {
+        if (app.state.mode === 'firebase') {
+            const fb = window.firebaseModules;
+            await fb.addDoc(fb.collection(app.state.db, "submissions"), data);
+        } else {
+            let history = JSON.parse(localStorage.getItem('polyglot_history') || '[]');
+            history.push(data);
+            localStorage.setItem('polyglot_history', JSON.stringify(history));
+        }
+    },
+    async getHistory(userId) {
+        if (app.state.mode === 'firebase') {
+            const fb = window.firebaseModules;
+            const q = fb.query(fb.collection(app.state.db, "submissions"), fb.where("userId", "==", userId));
+            const snapshot = await fb.getDocs(q);
+            return snapshot.docs.map(d => d.data());
+        } else {
+            let history = JSON.parse(localStorage.getItem('polyglot_history') || '[]');
+            return history.filter(h => h.userId === userId);
         }
     }
 };
