@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark"> <!-- Default to Dark Mode -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataDrill- Letsbeanalyst</title>
+    <title>DataDrill - Letsbeanalyst</title>
+    <meta name="keywords" content="Data Analytics, Data Engineering, SQL, Python, Machine Learning, Long Term Mentorship, Project Solution">
+    <link rel="canonical" href="https://www.letsbeanalyst.com/">
     
-    <!-- Tailwind CSS -->
+    <meta property="og:title" content="Data Analytics Mentorship & Courses | Let's Be Analyst">
+    <meta property="og:description" content="Join Let's Be Analyst to transform your career with expert-led data analytics mentorship and comprehensive courses in SQL, Python, Power BI, and more.">
+    <meta property="og:image" content="https://www.letsbeanalyst.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.letsbeanalyst.com">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Data Analytics Mentorship & Courses | Let's Be Analyst">
+    <meta name="twitter:description" content="Join Let's Be Analyst to transform your career with expert-led data analytics mentorship and comprehensive courses in SQL, Python, Power BI, and more.">
+    <meta name="twitter:image" content="https://www.letsbeanalyst.com/images/twitter-image.jpg">
+    <meta name="twitter:url" content="https://www.letsbeanalyst.com">
+    <link rel="icon" href="LBA.png" type="image/svg+xml">
+    <!-- Tailwind CSS (Configured for class-based Dark Mode) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable class-based dark mode
+            theme: { extend: {} }
+        }
+    </script>
     
     <!-- CodeMirror -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css"> <!-- Dark Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/eclipse.min.css"> <!-- Light Theme -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/sql/sql.min.js"></script>
@@ -19,13 +41,12 @@
     <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alasql@1.7.3/dist/alasql.min.js"></script>
 
-    <!-- Firebase (Modular SDKs via CDN for simple import usage) -->
+    <!-- Firebase -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, collection, query, where, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
         
-        // Make Firebase accessible globally for our vanilla JS structure
         window.firebaseModules = { initializeApp, getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, getFirestore, doc, setDoc, getDoc, collection, query, where, getDocs, addDoc };
     </script>
 
@@ -34,31 +55,36 @@
 
     <style>
         .CodeMirror { height: 100%; font-size: 14px; border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem; }
+        /* Custom Scrollbar (Adapts to mode) */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #1f2937; }
-        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-track { background: #1f2937; }
+        .dark ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        
+        ::-webkit-scrollbar-track { background: #f3f4f6; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+
         .hidden-view { display: none !important; }
         .fade-in { animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* Resizer Styles */
-        .resizer-v { width: 4px; cursor: col-resize; background: #374151; transition: background 0.2s; z-index: 10; }
-        .resizer-v:hover, .resizer-v.resizing { background: #3b82f6; }
+        .resizer-v { width: 4px; cursor: col-resize; background: #e5e7eb; transition: background 0.2s; z-index: 10; }
+        .dark .resizer-v { background: #374151; }
+        .resizer-v:hover, .resizer-v.resizing { background: #3b82f6 !important; }
         
-        .resizer-h { height: 4px; cursor: row-resize; background: #374151; transition: background 0.2s; z-index: 10; }
-        .resizer-h:hover, .resizer-h.resizing { background: #3b82f6; }
+        .resizer-h { height: 4px; cursor: row-resize; background: #e5e7eb; transition: background 0.2s; z-index: 10; }
+        .dark .resizer-h { background: #374151; }
+        .resizer-h:hover, .resizer-h.resizing { background: #3b82f6 !important; }
         
-        /* Topic Tag Styles */
         .topic-tag.active { background-color: #3b82f6; color: white; border-color: #3b82f6; }
     </style>
 </head>
-<body class="bg-gray-950 text-white h-screen flex flex-col overflow-hidden font-sans">
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-white h-screen flex flex-col overflow-hidden font-sans transition-colors duration-200">
 
-    <!-- --- 1. NAVBAR --- -->
-    <nav class="h-16 bg-gray-900 border-b border-gray-800 flex items-center justify-between px-6 shrink-0 z-20">
+    <!-- --- NAVBAR --- -->
+    <nav class="h-16 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-6 shrink-0 z-20 transition-colors duration-200">
         <div class="flex items-center gap-4">
-            <!-- Sidebar Toggle Button -->
-            <button onclick="ui.toggleSidebar()" class="text-gray-400 hover:text-white transition focus:outline-none">
+            <button onclick="ui.toggleSidebar()" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
@@ -70,24 +96,29 @@
             </div>
         </div>
         
-        <div class="flex items-center gap-6">
-            <button onclick="router.navigate('landing')" class="text-gray-400 hover:text-white text-sm font-medium transition">Tracks</button>
+        <div class="flex items-center gap-4 md:gap-6">
+            <button onclick="router.navigate('landing')" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white text-sm font-medium transition">Tracks</button>
             
+            <!-- THEME TOGGLE BUTTON -->
+            <button onclick="themeManager.toggle()" id="theme-btn" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-yellow-400 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
             <!-- Auth Section -->
             <div id="auth-section">
-                <button onclick="authManager.login()" id="btn-login" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-sm font-semibold transition shadow-lg shadow-blue-900/20">
+                <button onclick="authManager.login()" id="btn-login" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-semibold transition shadow-lg shadow-blue-900/20">
                     <i class="fa-brands fa-google mr-2"></i> Login
                 </button>
                 
                 <div id="user-profile-menu" class="hidden flex items-center gap-3">
-                    <button onclick="router.navigate('profile')" class="flex items-center gap-2 hover:bg-gray-800 px-3 py-1.5 rounded transition group">
-                        <img id="user-avatar" src="" class="w-8 h-8 rounded-full border border-gray-600 group-hover:border-gray-400">
+                    <button onclick="router.navigate('profile')" class="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800 px-3 py-1.5 rounded transition group">
+                        <img id="user-avatar" src="" class="w-8 h-8 rounded-full border border-gray-300 dark:border-gray-600 group-hover:border-gray-400">
                         <div class="text-right hidden md:block">
-                            <div id="user-name" class="text-sm font-medium text-gray-200"></div>
+                            <div id="user-name" class="text-sm font-medium text-gray-700 dark:text-gray-200"></div>
                             <div class="text-[10px] text-gray-500 uppercase tracking-wider">Student</div>
                         </div>
                     </button>
-                    <button onclick="authManager.logout()" class="text-gray-500 hover:text-red-400 transition ml-2" title="Logout">
+                    <button onclick="authManager.logout()" class="text-gray-500 hover:text-red-500 transition ml-2" title="Logout">
                         <i class="fa-solid fa-right-from-bracket"></i>
                     </button>
                 </div>
@@ -95,64 +126,62 @@
         </div>
     </nav>
 
-    <!-- --- 2. VIEWS --- -->
+    <!-- --- MAIN CONTENT --- -->
     <main class="flex-1 relative overflow-hidden">
 
         <!-- VIEW: LANDING PAGE -->
         <section id="view-landing" class="absolute inset-0 overflow-y-auto p-8 flex flex-col items-center fade-in">
             <div class="text-center mb-12 mt-8">
-                <h2 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">Choose Your Path</h2>
-                <p class="text-gray-400 max-w-lg mx-auto">Select a language track to begin practicing. Master SQL data manipulation or Python algorithms.</p>
+                <h2 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-500 dark:from-white dark:to-gray-400">Choose Your Path</h2>
+                <p class="text-gray-500 dark:text-gray-400 max-w-lg mx-auto">Select a language track to begin practicing. Master SQL data manipulation or Python algorithms.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl w-full">
                 <!-- Python Card -->
-                <div onclick="app.selectTrack('python')" class="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-blue-500/50 hover:bg-gray-800 cursor-pointer transition group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                <div onclick="app.selectTrack('python')" class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg dark:hover:border-blue-500/50 cursor-pointer transition group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 dark:bg-blue-600/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-400 text-2xl group-hover:scale-110 transition">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl group-hover:scale-110 transition">
                             <i class="fa-brands fa-python"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-white">Python Algorithms</h3>
-                            <p class="text-xs text-blue-400 font-mono">v1.0</p>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Python Algorithms</h3>
+                            <p class="text-xs text-blue-600 dark:text-blue-400 font-mono">v1.0</p>
                         </div>
                     </div>
-                    <p class="text-gray-400 text-sm mb-6">Practice data structures, string manipulation, and logic. Real Python running in your browser.</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">Practice data structures, string manipulation, and logic.</p>
                     <div class="flex items-center justify-between mt-auto">
-                        <!-- DYNAMIC COUNT ID ADDED HERE -->
                         <span id="python-count" class="text-xs text-gray-500">Loading...</span>
-                        <span class="text-blue-400 text-sm font-semibold group-hover:translate-x-1 transition">Start Coding <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        <span class="text-blue-600 dark:text-blue-400 text-sm font-semibold group-hover:translate-x-1 transition">Start Coding <i class="fa-solid fa-arrow-right ml-1"></i></span>
                     </div>
                 </div>
 
                 <!-- SQL Card -->
-                <div onclick="app.selectTrack('sql')" class="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-orange-500/50 hover:bg-gray-800 cursor-pointer transition group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-600/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                <div onclick="app.selectTrack('sql')" class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 hover:border-orange-500 hover:shadow-lg dark:hover:border-orange-500/50 cursor-pointer transition group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-100 dark:bg-orange-600/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-orange-900/30 rounded-lg flex items-center justify-center text-orange-400 text-2xl group-hover:scale-110 transition">
+                        <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center text-orange-600 dark:text-orange-400 text-2xl group-hover:scale-110 transition">
                             <i class="fa-solid fa-database"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-white">SQL Querying</h3>
-                            <p class="text-xs text-orange-400 font-mono">v1.0</p>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">SQL Querying</h3>
+                            <p class="text-xs text-orange-600 dark:text-orange-400 font-mono">v1.0</p>
                         </div>
                     </div>
-                    <p class="text-gray-400 text-sm mb-6">Master SELECT, JOINs, and Aggregations. In-memory database simulation.</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">Master SELECT, JOINs, and Aggregations.</p>
                     <div class="flex items-center justify-between mt-auto">
-                        <!-- DYNAMIC COUNT ID ADDED HERE -->
                         <span id="sql-count" class="text-xs text-gray-500">Loading...</span>
-                        <span class="text-orange-400 text-sm font-semibold group-hover:translate-x-1 transition">Start Coding <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        <span class="text-orange-600 dark:text-orange-400 text-sm font-semibold group-hover:translate-x-1 transition">Start Coding <i class="fa-solid fa-arrow-right ml-1"></i></span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- VIEW: PLAYGROUND (Same as before) -->
-        <section id="view-playground" class="absolute inset-0 flex hidden-view bg-gray-950">
+        <!-- VIEW: PLAYGROUND -->
+        <section id="view-playground" class="absolute inset-0 flex hidden-view bg-gray-50 dark:bg-gray-950">
             <!-- Sidebar -->
-            <aside id="app-sidebar" class="w-64 bg-gray-900 flex flex-col shrink-0 transition-all duration-300 overflow-hidden" style="width: 250px;">
-                <div class="p-4 border-b border-gray-800">
+            <aside id="app-sidebar" class="w-64 bg-white dark:bg-gray-900 flex flex-col shrink-0 transition-all duration-300 overflow-hidden border-r border-gray-200 dark:border-gray-800" style="width: 250px;">
+                <div class="p-4 border-b border-gray-200 dark:border-gray-800">
                     <h2 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Filter by Topic</h2>
                     <div id="topic-filters" class="flex flex-wrap gap-1 mb-2"></div>
                 </div>
@@ -165,21 +194,21 @@
             <div class="flex-1 flex flex-col min-w-0">
                 <div class="flex-1 flex overflow-hidden">
                     <!-- Description -->
-                    <div class="w-1/3 min-w-[300px] border-r border-gray-800 bg-gray-900/50 flex flex-col" id="desc-panel">
-                        <div class="p-6 overflow-y-auto flex-1 prose prose-invert prose-sm max-w-none" id="problem-desc-container"></div>
+                    <div class="w-1/3 min-w-[300px] border-r border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 flex flex-col" id="desc-panel">
+                        <div class="p-6 overflow-y-auto flex-1 prose prose-sm max-w-none dark:prose-invert" id="problem-desc-container"></div>
                     </div>
 
                     <div class="resizer-v hidden md:block" id="resizer-desc"></div>
 
                     <!-- Editor & Console -->
-                    <div class="flex-1 flex flex-col bg-gray-950 min-w-[300px]">
-                        <div class="h-12 bg-gray-900 border-b border-gray-800 flex items-center justify-between px-4 shrink-0">
+                    <div class="flex-1 flex flex-col bg-white dark:bg-gray-950 min-w-[300px]">
+                        <div class="h-12 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 shrink-0">
                             <div class="flex items-center gap-3">
-                                <span id="lang-indicator" class="text-xs font-bold px-2 py-1 rounded bg-gray-800 text-gray-300">LOADING</span>
+                                <span id="lang-indicator" class="text-xs font-bold px-2 py-1 rounded bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300">LOADING</span>
                                 <span id="save-status" class="text-xs text-gray-500 italic"></span>
                             </div>
                             <div class="flex gap-2">
-                                <button id="run-btn" onclick="runner.run()" class="px-4 py-1.5 rounded text-sm bg-gray-800 hover:bg-gray-700 text-gray-200 transition border border-gray-700">
+                                <button id="run-btn" onclick="runner.run()" class="px-4 py-1.5 rounded text-sm bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 transition border border-gray-300 dark:border-gray-700">
                                     <i class="fa-solid fa-play mr-1"></i> Run
                                 </button>
                                 <button id="submit-btn" onclick="runner.submit()" class="px-4 py-1.5 rounded text-sm bg-green-600 hover:bg-green-700 text-white font-medium transition shadow-lg shadow-green-900/20">
@@ -194,15 +223,15 @@
 
                         <div class="resizer-h" id="resizer-console"></div>
 
-                        <div id="console-panel" class="bg-gray-900 flex flex-col shrink-0" style="height: 200px; min-height: 40px;">
-                            <div class="h-8 bg-gray-800/50 flex items-center justify-between px-4 border-b border-gray-800 select-none">
+                        <div id="console-panel" class="bg-white dark:bg-gray-900 flex flex-col shrink-0" style="height: 200px; min-height: 40px;">
+                            <div class="h-8 bg-gray-50 dark:bg-gray-800/50 flex items-center justify-between px-4 border-b border-gray-200 dark:border-gray-800 select-none">
                                 <span class="text-xs font-mono text-gray-500">CONSOLE / RESULTS</span>
                                 <div class="flex gap-3">
-                                    <button onclick="ui.toggleConsole()" class="text-xs text-gray-500 hover:text-white"><i class="fa-solid fa-chevron-down"></i></button>
-                                    <button onclick="document.getElementById('console-output').innerHTML=''" class="text-xs text-gray-500 hover:text-white">Clear</button>
+                                    <button onclick="ui.toggleConsole()" class="text-xs text-gray-500 hover:text-black dark:hover:text-white"><i class="fa-solid fa-chevron-down"></i></button>
+                                    <button onclick="document.getElementById('console-output').innerHTML=''" class="text-xs text-gray-500 hover:text-black dark:hover:text-white">Clear</button>
                                 </div>
                             </div>
-                            <div id="console-output" class="flex-1 p-4 font-mono text-sm overflow-y-auto text-gray-300 whitespace-pre-wrap"></div>
+                            <div id="console-output" class="flex-1 p-4 font-mono text-sm overflow-y-auto text-gray-800 dark:text-gray-300 whitespace-pre-wrap bg-white dark:bg-gray-900 transition-colors duration-200"></div>
                         </div>
                     </div>
                 </div>
@@ -210,35 +239,35 @@
         </section>
 
         <!-- VIEW: PROFILE -->
-        <section id="view-profile" class="absolute inset-0 overflow-y-auto p-8 hidden-view fade-in bg-gray-950">
+        <section id="view-profile" class="absolute inset-0 overflow-y-auto p-8 hidden-view fade-in bg-gray-50 dark:bg-gray-950">
             <div class="max-w-4xl mx-auto w-full">
                 <div class="mb-8 flex items-end gap-4">
-                    <img id="profile-view-avatar" class="w-24 h-24 rounded-full border-4 border-gray-800 shadow-2xl">
+                    <img id="profile-view-avatar" class="w-24 h-24 rounded-full border-4 border-white dark:border-gray-800 shadow-2xl">
                     <div class="mb-2">
-                        <h2 id="profile-view-name" class="text-3xl font-bold">Student Name</h2>
-                        <p class="text-gray-400">Student Portal Dashboard</p>
+                        <h2 id="profile-view-name" class="text-3xl font-bold text-gray-900 dark:text-white">Student Name</h2>
+                        <p class="text-gray-500 dark:text-gray-400">Student Portal Dashboard</p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                    <div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
                         <div class="text-gray-500 text-sm uppercase tracking-wider mb-1">Problems Solved</div>
-                        <div class="text-3xl font-bold text-white" id="stat-solved">0</div>
+                        <div class="text-3xl font-bold text-gray-900 dark:text-white" id="stat-solved">0</div>
                     </div>
-                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                    <div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
                         <div class="text-gray-500 text-sm uppercase tracking-wider mb-1">Completion Rate</div>
-                        <div class="text-3xl font-bold text-blue-400" id="stat-rate">0%</div>
+                        <div class="text-3xl font-bold text-blue-600 dark:text-blue-400" id="stat-rate">0%</div>
                     </div>
-                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                    <div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
                         <div class="text-gray-500 text-sm uppercase tracking-wider mb-1">Account Type</div>
                         <div class="text-3xl font-bold text-yellow-500">Student</div>
                     </div>
                 </div>
 
-                <h3 class="text-xl font-bold mb-4 border-b border-gray-800 pb-2">Submission History</h3>
-                <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                    <table class="w-full text-left text-sm text-gray-400">
-                        <thead class="bg-gray-800 text-gray-200 uppercase text-xs">
+                <h3 class="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-800 pb-2 text-gray-900 dark:text-white">Submission History</h3>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
+                    <table class="w-full text-left text-sm text-gray-600 dark:text-gray-400">
+                        <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 uppercase text-xs">
                             <tr>
                                 <th class="px-6 py-3">Problem</th>
                                 <th class="px-6 py-3">Track</th>
@@ -246,7 +275,7 @@
                                 <th class="px-6 py-3 text-right">Date</th>
                             </tr>
                         </thead>
-                        <tbody id="history-table-body" class="divide-y divide-gray-800"></tbody>
+                        <tbody id="history-table-body" class="divide-y divide-gray-200 dark:divide-gray-800"></tbody>
                     </table>
                     <div id="empty-history" class="p-8 text-center text-gray-500 hidden">No submissions yet. Go solve some problems!</div>
                 </div>
