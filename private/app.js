@@ -39,7 +39,37 @@ const app = {
             problemsDB = await response.json();
             this.updateLandingCounts();
             this.initDailyChallenge();
-            if(typeof starManager !== 'undefined') starManager.render();
+
+            // --- NEW: DEEP LINKING LOGIC ---
+            const hash = window.location.hash;
+            if (hash.startsWith('#problem=')) {
+                const id = hash.split('=')[1];
+                const problem = problemsDB.find(p => String(p.id) === String(id));
+                
+                if (problem) {
+                    // Manually setup track without auto-selecting first problem
+                    this.state.currentTrack = problem.type;
+                    this.state.filterTopic = 'All';
+                    this.state.filterDifficulty = 'All';
+                    this.state.filterStatus = 'All';
+                    
+                    // Render UI
+                    this.renderTopicFilters(); 
+                    this.applyFilters(); 
+                    
+                    // Load specific problem & Show View
+                    this.loadProblem(id);
+                    router.navigate('playground');
+                } else {
+                    router.navigate('landing');
+                }
+            } else {
+                // Standard Routing
+                if (hash === '#leaderboard') router.navigate('leaderboard');
+                else if (hash === '#profile') router.navigate('profile');
+                else router.navigate('landing');
+            }
+
         } catch (e) {
             console.error("Failed", e);
             if(document.getElementById('problem-list')) document.getElementById('problem-list').innerHTML = '<div class="text-red-500 p-4">Error loading data.</div>';
@@ -49,8 +79,6 @@ const app = {
         this.initAuth();
         ui.initResizers();
         ui.injectSidebarToggle(); 
-        
-        if(!window.location.hash) router.navigate('landing');
     },
 
     updateLandingCounts() {
@@ -298,7 +326,7 @@ const app = {
     loadProblem(id) {
         const problem = problemsDB.find(p => String(p.id) === String(id)); 
         if(!problem) return;
-        
+        window.location.hash = `problem=${id}`;
         this.state.currentProblem = problem;
         this.updateSidebarSelection(id);
         
@@ -754,6 +782,10 @@ const router = {
         if(target) target.classList.remove('hidden-view');
         if(viewId === 'profile') authManager.loadProfileData();
         if(viewId === 'leaderboard') authManager.loadLeaderboard();
+        // --- NEW: Sync URL hash for main pages ---
+        if (viewId === 'landing') window.location.hash = 'landing';
+        if (viewId === 'leaderboard') window.location.hash = 'leaderboard';
+        if (viewId === 'profile') window.location.hash = 'profile';
     }
 };
 
