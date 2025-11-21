@@ -1,1 +1,830 @@
-const _0x585094=_0x474a;(function(_0x1b5ccd,_0x30094d){const _0x1d9e2e=_0x474a,_0x1a2f34=_0x1b5ccd();while(!![]){try{const _0x3a773f=parseInt(_0x1d9e2e(0x168))/0x1+-parseInt(_0x1d9e2e(0x133))/0x2+parseInt(_0x1d9e2e(0x131))/0x3+parseInt(_0x1d9e2e(0x99))/0x4+parseInt(_0x1d9e2e(0x19d))/0x5+parseInt(_0x1d9e2e(0x175))/0x6+-parseInt(_0x1d9e2e(0x19e))/0x7;if(_0x3a773f===_0x30094d)break;else _0x1a2f34['push'](_0x1a2f34['shift']());}catch(_0x8a39ee){_0x1a2f34['push'](_0x1a2f34['shift']());}}}(_0x1f11,0x8cb73));function _0x474a(_0x9a81ea,_0x3e24cf){const _0x1f1151=_0x1f11();return _0x474a=function(_0x474a7c,_0x4021d5){_0x474a7c=_0x474a7c-0x97;let _0x1ea679=_0x1f1151[_0x474a7c];return _0x1ea679;},_0x474a(_0x9a81ea,_0x3e24cf);}function _0x1f11(){const _0x194226=['profile-view-avatar','⚠️\x20No\x20test\x20code\x20found.','firebase','getFirestore','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-gray-400\x20dark:text-gray-500\x20uppercase\x22>','<div\x20class=\x22text-gray-500\x20p-4\x22>Loading...</div>','Result:\x20','setLoading','has','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22px-6\x20py-4\x20font-medium\x20text-gray-900\x20dark:text-white\x22>','sql','default','getElementById','history-table-body','addDoc','logTable','active','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22px-6\x20py-4\x22><span\x20class=\x22px-2\x20py-1\x20rounded\x20text-xs\x20bg-gray-200\x20dark:bg-gray-700\x20uppercase\x22>','<span\x20class=\x22text-green-600\x20dark:text-green-400\x22><i\x20class=\x22fa-solid\x20fa-check\x22></i>\x20Passed</span>','view-profile','mousedown','generateHTML','view-playground','fetchUserProgress','playground','refresh','width','solvedProblemIds','push','signInWithPopup','Solved\x20IDs:','starter','photoURL','status','setOption','initEngines','track','.topic-tag','button','problemId','message','stringify','row-resize','bg-green-500','user-profile-menu','\x0a---\x20Verifying\x20Solution\x20---','updateUI','onAuthStateChanged','flex','className','loadProblem','console-output','empty-history','cursor','bg-red-500','<th\x20class=\x22px-4\x20py-2\x20border-b\x20border-gray-300\x20dark:border-gray-700\x22>','❌\x20Failed.\x20Result\x20does\x20not\x20match\x20expected\x20output.','contains','reduce','Passed','find','mousemove','cursor-not-allowed','</th>','where','runPython','updateButton','preventDefault','hover:bg-gray-100\x20dark:hover:bg-gray-800\x20transition','isArray','Query\x20Executed\x20Successfully.','USE\x20testdb','p-3\x20cursor-pointer\x20border-l-2\x20transition\x20text-sm\x20mb-1\x20border-transparent\x20text-gray-600\x20dark:text-gray-400\x20hover:bg-gray-100\x20dark:hover:bg-gray-800\x20hover:border-yellow-500\x20hover:text-black\x20dark:hover:text-white','runPythonAsync','⚠️\x20Python\x20engine\x20is\x20still\x20loading...\x20wait\x205s','currentTrack','scrollTop','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','compare','920097BozcAs','innerText','943354CrICXh','sidebarOpen','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22px-2\x20py-1\x20rounded\x20bg-blue-100\x20dark:bg-blue-900/50\x20text-xs\x20text-blue-600\x20dark:text-blue-300\x20border\x20border-blue-200\x20dark:border-blue-800\x22>','applyFilters','Please\x20login\x20to\x20view\x20profile','submissions','problem-desc-container','\x22\x20referrerpolicy=\x22no-referrer\x22\x20class=\x22w-full\x20h-full\x20object-cover\x22\x20onerror=\x22this.onerror=null;this.parentNode.innerHTML=\x27<i\x20class=\x5c\x27fa-solid\x20fa-user\x20text-xs\x5c\x27></i>\x27;\x22>','toUpperCase','<i\x20class=\x22fa-solid\x20fa-sun\x20text-orange-500\x22></i>','problemTitle','navigate','p-0','renderSidebar','console-panel','filterStatus','difficulty','topic-tag\x20px-3\x20py-1\x20text-[10px]\x20border\x20border-gray-200\x20dark:border-gray-700\x20rounded-full\x20bg-gray-100\x20dark:bg-gray-800\x20text-gray-600\x20dark:text-gray-400\x20hover:border-blue-500\x20hover:text-blue-600\x20dark:hover:text-white\x20transition\x20whitespace-nowrap','filterTopic','initializeApp','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','query','log','removeEventListener','<div\x20class=\x22mt-8\x20border-t\x20border-gray-200\x20dark:border-gray-700\x20pt-4\x22><h3\x20class=\x22text-sm\x20font-bold\x20text-gray-500\x20dark:text-gray-400\x20uppercase\x20mb-4\x22>Database\x20Schema</h3>','mockUser','collection','filter','getAuth','setStdout','classList','runSQL','Query\x20executed.\x20Result:\x20[]\x20(Empty)','filterDifficulty','firebaseModules','mode','save-status','test_code','add','clientX','userId','<td\x20class=\x22px-4\x20py-2\x20whitespace-nowrap\x20font-mono\x22>','Setup\x20Error:\x20','from','Found\x20history\x20items:','exec','Medium','Saved\x20to\x20Portal','w-8\x20h-8\x20rounded-full\x20bg-gray-800\x20text-yellow-400\x20flex\x20items-center\x20justify-center\x20hover:bg-gray-700\x20transition','\x20Problems','height','\x20\x20\x20(Tip:\x20Use\x20print()\x20to\x20see\x20output)','apiKey','615359gjUfmb','</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20gap-2\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22px-2\x20py-1\x20rounded\x20bg-gray-200\x20dark:bg-gray-700\x20text-xs\x20text-gray-700\x20dark:text-gray-300\x22>','lang-indicator','round','python-count','title','Firebase\x20Init\x20Failed:','nav-difficulty','editor','getComputedStyle','Demo\x20Student','setValue','localeCompare','3737046ADriPv','text-gray-700\x20dark:text-gray-300','parse','Please\x20login\x20to\x20save\x20your\x20progress!','createElement','border-r','scrollHeight','user','User','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-2xl\x20font-bold\x20mb-2\x20text-gray-900\x20dark:text-white\x22>','slice','now','topic','200px','landing','init','getItem','local-user-1','size','forEach','</div>','addEventListener','sql-count','DROP\x20DATABASE\x20IF\x20EXISTS\x20testdb','updateLandingCounts','System\x20Error\x20(DB\x20Init):\x20','checkLocalAuth','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','light','onclick','profile','consoleOpen','appendChild','toLocaleDateString','setItem','resizer-console','<div\x20class=\x22text-[10px]\x20text-gray-500\x20italic\x20px-2\x20pb-2\x22>...\x20showing\x20first\x20','join','clientY','normalizeSQL','5529880YmxURl','16085468KUXyKg','isDark','app-sidebar','resizer-sidebar','text-yellow-700\x20dark:text-yellow-600\x20italic','auth','timestamp','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22w-2\x20h-2\x20rounded-full\x20','stat-rate','Fetching\x20progress\x20for:','onload','querySelectorAll','\x20rows</div>','type','mouseup','bind','border-transparent\x20text-gray-600\x20dark:text-gray-400\x20hover:bg-gray-100\x20dark:hover:bg-gray-800\x20hover:border-yellow-500\x20hover:text-black\x20dark:hover:text-white','pyodide','profile-view-name','bg-gray-100\x20dark:bg-gray-800\x20border-yellow-500\x20text-black\x20dark:text-white\x20font-medium','data','<span\x20class=\x22text-gray-400\x20dark:text-gray-600\x22>NULL</span>','prob-item-','length','hidden-view','currentProblem','https://ui-avatars.com/api/?name=','trim','https://ui-avatars.com/api/?name=Demo+Student&background=random','dracula','dark','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-4\x20border-2\x20border-dashed\x20border-gray-300\x20dark:border-gray-700\x20rounded-lg\x20bg-white\x20dark:bg-gray-900/50\x20p-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-2\x20mb-3\x20border-b\x20border-gray-200\x20dark:border-gray-700\x20pb-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-solid\x20fa-table\x20text-blue-500\x20dark:text-blue-400\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-bold\x20text-gray-800\x20dark:text-white\x22>','renderTopicFilters','bg-yellow-500','keys','\x20border-b\x20border-gray-200\x20dark:border-gray-800\x20py-1\x20font-mono\x20text-xs\x22>>\x20','2780388NQLzve','&background=random','0px','run-btn','GoogleAuthProvider','uid','view-landing','getHistory','local','Easy','opacity-50','map','hidden','sort','No\x20problem\x20loaded!','error','saveSubmission','</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody\x20class=\x22divide-y\x20divide-gray-200\x20dark:divide-gray-800\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Hard','text-red-500\x20dark:text-red-400','p-3\x20cursor-pointer\x20border-l-2\x20transition\x20text-sm\x20mb-1\x20bg-gray-100\x20dark:bg-gray-800\x20border-yellow-500\x20text-black\x20dark:text-white\x20font-medium','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-4\x20text-gray-700\x20dark:text-gray-300\x20leading-relaxed\x22>','btn-login','updateSidebarSelection','Query\x20Result:','signOut','innerHTML','p-4','System\x20Error:\x20','disabled','undefined','setDark','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22px-6\x20py-4\x20text-right\x20text-gray-500\x22>','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','problem-list','state','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-start\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20overflow-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Failed','✅\x20Passed','theme-btn','getFilteredProblems','value','Saving...','setLight','user-avatar-container','theme','text-yellow-600\x20dark:text-yellow-500','documentElement','getValue','All','code-editor','loadProfileData','split','body','fromTextArea','description','<i\x20class=\x22fa-solid\x20fa-circle-check\x20text-green-500\x20mr-2\x22></i>','setup_sql','eclipse','General','col-resize','includes','Unsolved','<i\x20class=\x22fa-solid\x20fa-user\x20text-xs\x22></i>','polyglot_history','catch','w-8\x20h-8\x20rounded-full\x20bg-gray-200\x20text-orange-500\x20flex\x20items-center\x20justify-center\x20hover:bg-gray-300\x20transition','style','solution_sql','name','stat-solved','remove','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20'];_0x1f11=function(){return _0x194226;};return _0x1f11();}const app={'state':{'user':null,'currentTrack':null,'currentProblem':null,'filterTopic':_0x585094(0xca),'filterDifficulty':'All','filterStatus':_0x585094(0xca),'solvedProblemIds':new Set(),'db':null,'auth':null,'mode':_0x585094(0xa1)},async 'init'(){const _0x4358da=_0x585094;themeManager[_0x4358da(0x184)]();const _0x1a1ec3=document[_0x4358da(0xee)](_0x4358da(0xcb));_0x1a1ec3&&(this['editor']=CodeMirror[_0x4358da(0xcf)](_0x1a1ec3,{'lineNumbers':!![],'theme':themeManager['isDark']()?_0x4358da(0x1bb):_0x4358da(0xd3),'tabSize':0x4,'indentUnit':0x4,'lineWrapping':!![]}));try{if(document[_0x4358da(0xee)](_0x4358da(0xbb)))document[_0x4358da(0xee)](_0x4358da(0xbb))['innerHTML']=_0x4358da(0xe7);const _0x2d0a78=await fetch(GOOGLE_SHEET_API);problemsDB=await _0x2d0a78['json'](),this[_0x4358da(0x18d)]();}catch(_0x1cf9dd){console[_0x4358da(0xa8)](_0x4358da(0xbe),_0x1cf9dd);if(document[_0x4358da(0xee)]('problem-list'))document[_0x4358da(0xee)](_0x4358da(0xbb))['innerHTML']='<div\x20class=\x22text-red-500\x20p-4\x22>Error\x20loading\x20data.</div>';}this[_0x4358da(0x105)](),this['initAuth'](),ui['initResizers'](),router[_0x4358da(0x13e)](_0x4358da(0x183));},'updateLandingCounts'(){const _0x5df8b6=_0x585094,_0x55b484=problemsDB[_0x5df8b6(0x14e)](_0xe81e44=>_0xe81e44[_0x5df8b6(0x1ab)]==='python')[_0x5df8b6(0x1b5)],_0x36a6e9=problemsDB[_0x5df8b6(0x14e)](_0x18cd9e=>_0x18cd9e['type']==='sql')[_0x5df8b6(0x1b5)],_0xfdc5c0=document[_0x5df8b6(0xee)](_0x5df8b6(0x16c)),_0x40c245=document[_0x5df8b6(0xee)](_0x5df8b6(0x18b));if(_0xfdc5c0)_0xfdc5c0[_0x5df8b6(0x132)]=_0x55b484+'\x20Problems';if(_0x40c245)_0x40c245[_0x5df8b6(0x132)]=_0x36a6e9+_0x5df8b6(0x164);},'initAuth'(){const _0x5f4068=_0x585094;if(typeof firebaseConfig!==_0x5f4068(0xb7)&&firebaseConfig[_0x5f4068(0x167)]&&window[_0x5f4068(0x155)])try{const _0x450005=window[_0x5f4068(0x155)],_0x20b22d=_0x450005[_0x5f4068(0x146)](firebaseConfig);this[_0x5f4068(0xbc)]['auth']=_0x450005[_0x5f4068(0x14f)](_0x20b22d),this[_0x5f4068(0xbc)]['db']=_0x450005[_0x5f4068(0xe5)](_0x20b22d),this[_0x5f4068(0xbc)][_0x5f4068(0x156)]=_0x5f4068(0xe4),_0x450005[_0x5f4068(0x111)](this[_0x5f4068(0xbc)][_0x5f4068(0x1a3)],_0x5afa57=>{const _0x3d5f28=_0x5f4068;this['state'][_0x3d5f28(0x17c)]=_0x5afa57,authManager[_0x3d5f28(0x110)](_0x5afa57);if(_0x5afa57)this[_0x3d5f28(0xf9)]();});}catch(_0x1731c9){console[_0x5f4068(0xa8)](_0x5f4068(0x16e),_0x1731c9);}else authManager[_0x5f4068(0x18f)]();},async 'fetchUserProgress'(){const _0x553ade=_0x585094;if(!this[_0x553ade(0xbc)]['user'])return;console[_0x553ade(0x149)](_0x553ade(0x1a7),this[_0x553ade(0xbc)][_0x553ade(0x17c)][_0x553ade(0x9e)]);try{const _0x1817f1=await persistence[_0x553ade(0xa0)](this['state'][_0x553ade(0x17c)][_0x553ade(0x9e)]);console[_0x553ade(0x149)](_0x553ade(0x15f),_0x1817f1[_0x553ade(0x1b5)]);const _0x3fc8b8=new Set();_0x1817f1[_0x553ade(0x188)](_0x4a9b24=>{const _0x538519=_0x553ade;if(_0x4a9b24[_0x538519(0x103)]===_0x538519(0x11d))_0x3fc8b8[_0x538519(0x159)](_0x4a9b24[_0x538519(0x109)]);}),this['state'][_0x553ade(0xfd)]=_0x3fc8b8,console[_0x553ade(0x149)](_0x553ade(0x100),Array[_0x553ade(0x15e)](_0x3fc8b8));if(this[_0x553ade(0xbc)]['currentTrack'])this[_0x553ade(0x136)]();}catch(_0x6024b){console[_0x553ade(0xa8)]('Error\x20fetching\x20progress',_0x6024b);}},async 'initEngines'(){const _0x17e0be=_0x585094;if(!window[_0x17e0be(0x1af)]&&typeof loadPyodide!=='undefined')try{window['pyodide']=await loadPyodide();}catch(_0x19807d){}},'selectTrack'(_0x4a8016){const _0x575b0d=_0x585094;this['state'][_0x575b0d(0x12d)]=_0x4a8016,this[_0x575b0d(0xbc)][_0x575b0d(0x145)]=_0x575b0d(0xca),this['state']['filterDifficulty']='All',this[_0x575b0d(0xbc)]['filterStatus']=_0x575b0d(0xca);const _0x190e69=document[_0x575b0d(0xee)](_0x575b0d(0x16f));if(_0x190e69)_0x190e69[_0x575b0d(0xc2)]=_0x575b0d(0xca);this[_0x575b0d(0x1be)](),this[_0x575b0d(0x136)]();const _0xe856f8=this[_0x575b0d(0xc1)]();_0xe856f8[_0x575b0d(0x1b5)]>0x0&&this[_0x575b0d(0x114)](_0xe856f8[0x0]['id']),router[_0x575b0d(0x13e)](_0x575b0d(0xfa)),setTimeout(()=>{const _0x5cce86=_0x575b0d;if(this[_0x5cce86(0x170)])this[_0x5cce86(0x170)][_0x5cce86(0xfb)]();},0x64);},'setDifficulty'(_0x55ddcf){const _0x1f5d66=_0x585094;this[_0x1f5d66(0xbc)]['filterDifficulty']=_0x55ddcf,this['applyFilters']();},'setTopic'(_0x5406be){const _0x248c69=_0x585094;this[_0x248c69(0xbc)][_0x248c69(0x145)]=_0x5406be,this[_0x248c69(0x136)](),document[_0x248c69(0x1a9)](_0x248c69(0x107))[_0x248c69(0x188)](_0x4e013f=>_0x4e013f[_0x248c69(0x151)][_0x248c69(0xe0)](_0x248c69(0xf2)));const _0x49c969=Array[_0x248c69(0x15e)](document[_0x248c69(0x1a9)](_0x248c69(0x107)))[_0x248c69(0x11e)](_0x3e877b=>_0x3e877b[_0x248c69(0x132)]===_0x5406be);if(_0x49c969)_0x49c969[_0x248c69(0x151)]['add']('active');},'setStatus'(_0xb9652c){const _0x1231bf=_0x585094;this['state'][_0x1231bf(0x142)]=_0xb9652c,this['applyFilters']();},'applyFilters'(){const _0x24b98f=_0x585094,_0x54ebbd=this[_0x24b98f(0xc1)]();this[_0x24b98f(0x140)](_0x54ebbd);},'getFilteredProblems'(){const _0x481410=_0x585094;return problemsDB[_0x481410(0x14e)](_0x2a86b6=>{const _0x426c10=_0x481410,_0x1a96bc=_0x2a86b6[_0x426c10(0x1ab)]===this[_0x426c10(0xbc)][_0x426c10(0x12d)],_0x481249=this[_0x426c10(0xbc)][_0x426c10(0x154)]===_0x426c10(0xca)||_0x2a86b6['difficulty']===this[_0x426c10(0xbc)][_0x426c10(0x154)],_0x53b433=this[_0x426c10(0xbc)][_0x426c10(0x145)]===_0x426c10(0xca)||_0x2a86b6['topic']===this[_0x426c10(0xbc)][_0x426c10(0x145)];let _0x794278=!![];const _0x5ca103=this[_0x426c10(0xbc)][_0x426c10(0xfd)][_0x426c10(0xea)](_0x2a86b6['id']);if(this['state'][_0x426c10(0x142)]==='Solved')_0x794278=_0x5ca103;if(this['state'][_0x426c10(0x142)]===_0x426c10(0xd7))_0x794278=!_0x5ca103;return _0x1a96bc&&_0x481249&&_0x53b433&&_0x794278;});},'renderTopicFilters'(){const _0x55e5eb=_0x585094,_0x20478b=document['getElementById']('topic-filters');if(!_0x20478b)return;_0x20478b['innerHTML']='';const _0x2f826a=problemsDB[_0x55e5eb(0x14e)](_0x2f05c6=>_0x2f05c6[_0x55e5eb(0x1ab)]===this[_0x55e5eb(0xbc)][_0x55e5eb(0x12d)]),_0x2948af=new Set([_0x55e5eb(0xca)]);_0x2f826a[_0x55e5eb(0x188)](_0x37113a=>{const _0x353b7e=_0x55e5eb;if(_0x37113a[_0x353b7e(0x181)])_0x2948af[_0x353b7e(0x159)](_0x37113a[_0x353b7e(0x181)]);}),_0x2948af['forEach'](_0x1c521b=>{const _0x36f71e=_0x55e5eb,_0x53b556=document[_0x36f71e(0x179)](_0x36f71e(0x108));_0x53b556[_0x36f71e(0x113)]=_0x36f71e(0x144),_0x53b556[_0x36f71e(0x132)]=_0x1c521b,_0x53b556[_0x36f71e(0x192)]=()=>app['setTopic'](_0x1c521b);if(_0x1c521b==='All')_0x53b556[_0x36f71e(0x151)][_0x36f71e(0x159)](_0x36f71e(0xf2));_0x20478b[_0x36f71e(0x195)](_0x53b556);});},'renderSidebar'(_0xe1aa8a){const _0x5d00cb=_0x585094,_0x3d4da8=document[_0x5d00cb(0xee)](_0x5d00cb(0xbb));if(!_0x3d4da8)return;_0x3d4da8[_0x5d00cb(0xb3)]='';if(_0xe1aa8a[_0x5d00cb(0x1b5)]===0x0){_0x3d4da8[_0x5d00cb(0xb3)]='<div\x20class=\x22p-4\x20text-xs\x20text-gray-500\x20italic\x22>No\x20problems\x20match\x20filters.</div>';return;}_0xe1aa8a[_0x5d00cb(0x188)](_0x29a283=>{const _0xdb24e7=_0x5d00cb,_0x67d1ea=document[_0xdb24e7(0x179)]('div');_0x67d1ea['id']=_0xdb24e7(0x1b4)+_0x29a283['id'];const _0x3979e4=this['state']['currentProblem']&&this['state'][_0xdb24e7(0x1b7)]['id']===_0x29a283['id'],_0x36719a='p-3\x20cursor-pointer\x20border-l-2\x20transition\x20text-sm\x20mb-1',_0x1fa6f1=_0xdb24e7(0x1ae),_0x35cfcb=_0xdb24e7(0x1b1);_0x67d1ea[_0xdb24e7(0x113)]=_0x36719a+'\x20'+(_0x3979e4?_0x35cfcb:_0x1fa6f1);let _0x410514='bg-gray-400';if(_0x29a283[_0xdb24e7(0x143)]===_0xdb24e7(0xa2))_0x410514=_0xdb24e7(0x10d);if(_0x29a283[_0xdb24e7(0x143)]===_0xdb24e7(0x161))_0x410514=_0xdb24e7(0x1bf);if(_0x29a283[_0xdb24e7(0x143)]===_0xdb24e7(0xab))_0x410514=_0xdb24e7(0x118);const _0x32067c=this['state'][_0xdb24e7(0xfd)][_0xdb24e7(0xea)](_0x29a283['id']),_0x2140f6=_0x32067c?_0xdb24e7(0xd1):'<i\x20class=\x22fa-regular\x20fa-circle\x20text-gray-400\x20mr-2\x20text-[10px]\x22></i>';_0x67d1ea[_0xdb24e7(0xb3)]=_0xdb24e7(0xbd)+_0x2140f6+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22truncate\x20w-32\x22>'+_0x29a283[_0xdb24e7(0x16d)]+_0xdb24e7(0x1a5)+_0x410514+'\x20flex-shrink-0\x20mt-1\x22\x20title=\x22'+_0x29a283[_0xdb24e7(0x143)]+'\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-[10px]\x20text-gray-400\x20dark:text-gray-500\x20mt-1\x20ml-5\x20truncate\x22>'+(_0x29a283[_0xdb24e7(0x181)]||_0xdb24e7(0xd4))+_0xdb24e7(0x147),_0x67d1ea[_0xdb24e7(0x192)]=()=>this[_0xdb24e7(0x114)](_0x29a283['id']),_0x3d4da8['appendChild'](_0x67d1ea);});},'loadProblem'(_0x20c618){const _0x47ff20=_0x585094,_0x24d25a=problemsDB[_0x47ff20(0x11e)](_0x65d53d=>String(_0x65d53d['id'])===String(_0x20c618));if(!_0x24d25a)return;this[_0x47ff20(0xbc)][_0x47ff20(0x1b7)]=_0x24d25a,this[_0x47ff20(0xb0)](_0x20c618);let _0x5269ff=_0x47ff20(0x17e)+_0x24d25a[_0x47ff20(0x16d)]+_0x47ff20(0x169)+_0x24d25a['difficulty']+_0x47ff20(0x135)+(_0x24d25a[_0x47ff20(0x181)]||'General')+_0x47ff20(0xae)+_0x24d25a[_0x47ff20(0xd0)]+_0x47ff20(0xe1);_0x24d25a[_0x47ff20(0x1ab)]==='sql'&&_0x24d25a[_0x47ff20(0xd2)]&&(_0x5269ff+=schemaUtils[_0x47ff20(0xf7)](_0x24d25a[_0x47ff20(0xd2)]));const _0x29a49=document[_0x47ff20(0xee)](_0x47ff20(0x139));if(_0x29a49)_0x29a49['innerHTML']=_0x5269ff;if(this[_0x47ff20(0x170)]){this[_0x47ff20(0x170)][_0x47ff20(0x173)](_0x24d25a[_0x47ff20(0x101)]);const _0x20f33a=_0x24d25a['type']===_0x47ff20(0xec)?'text/x-sql':'python';this[_0x47ff20(0x170)][_0x47ff20(0x104)]('mode',_0x20f33a);}if(document['getElementById'](_0x47ff20(0x16a)))document[_0x47ff20(0xee)]('lang-indicator')[_0x47ff20(0x132)]=_0x24d25a[_0x47ff20(0x1ab)][_0x47ff20(0x13b)]();if(document[_0x47ff20(0xee)](_0x47ff20(0x115)))document[_0x47ff20(0xee)](_0x47ff20(0x115))[_0x47ff20(0xb3)]='';if(document[_0x47ff20(0xee)](_0x47ff20(0x157)))document['getElementById'](_0x47ff20(0x157))[_0x47ff20(0x132)]='';},'updateSidebarSelection'(_0x13045a){const _0x1302dc=_0x585094;document[_0x1302dc(0x1a9)]('#problem-list\x20>\x20div')[_0x1302dc(0x188)](_0x502393=>{const _0x268962=_0x1302dc;_0x502393[_0x268962(0x113)]=_0x268962(0x12a);});const _0x485ba9=document[_0x1302dc(0xee)](_0x1302dc(0x1b4)+_0x13045a);_0x485ba9&&(_0x485ba9['className']=_0x1302dc(0xad));}},themeManager={'init'(){const _0x58b9ba=_0x585094,_0x7de3e2=localStorage[_0x58b9ba(0x185)]('theme');_0x7de3e2===_0x58b9ba(0x191)?this[_0x58b9ba(0xc4)]():this[_0x58b9ba(0xb8)]();},'isDark'(){const _0xd9e346=_0x585094;return document[_0xd9e346(0xc8)]['classList'][_0xd9e346(0x11b)](_0xd9e346(0x1bc));},'setDark'(){const _0x3e27ae=_0x585094;document[_0x3e27ae(0xc8)]['classList']['add'](_0x3e27ae(0x1bc)),localStorage[_0x3e27ae(0x197)](_0x3e27ae(0xc6),_0x3e27ae(0x1bc)),this[_0x3e27ae(0x124)](!![]);if(app[_0x3e27ae(0x170)])app['editor']['setOption'](_0x3e27ae(0xc6),_0x3e27ae(0x1bb));},'setLight'(){const _0x34d861=_0x585094;document[_0x34d861(0xc8)][_0x34d861(0x151)][_0x34d861(0xe0)]('dark'),localStorage[_0x34d861(0x197)](_0x34d861(0xc6),_0x34d861(0x191)),this['updateButton'](![]);if(app[_0x34d861(0x170)])app[_0x34d861(0x170)]['setOption'](_0x34d861(0xc6),_0x34d861(0xd3));},'toggle'(){const _0x4f2ee6=_0x585094;this[_0x4f2ee6(0x19f)]()?this[_0x4f2ee6(0xc4)]():this[_0x4f2ee6(0xb8)]();},'updateButton'(_0x145331){const _0x418791=_0x585094,_0x3aeeda=document[_0x418791(0xee)](_0x418791(0xc0));_0x3aeeda&&(_0x3aeeda['innerHTML']=_0x145331?'<i\x20class=\x22fa-solid\x20fa-moon\x22></i>':_0x418791(0x13c),_0x3aeeda[_0x418791(0x113)]=_0x145331?_0x418791(0x163):_0x418791(0xdb));}},schemaUtils={'generateHTML'(_0x1bcc51){const _0x1884aa=_0x585094,_0x2e837e=/CREATE\s+TABLE\s+(\w+)\s*\(([^)]+)\)/gi;let _0x128f06,_0x16b6ee=_0x1884aa(0x14b),_0x130a1f=![];while((_0x128f06=_0x2e837e[_0x1884aa(0x160)](_0x1bcc51))!==null){_0x130a1f=!![];const _0x8a98ce=_0x128f06[0x1],_0x13e582=_0x128f06[0x2],_0x40b80b=_0x13e582[_0x1884aa(0xcd)](',')[_0x1884aa(0xa4)](_0x57cab4=>{const _0x276882=_0x1884aa,_0x2f12f7=_0x57cab4[_0x276882(0x1b9)]()[_0x276882(0xcd)](/\s+/);return{'name':_0x2f12f7[0x0],'type':_0x2f12f7[_0x276882(0x17f)](0x1)['join']('\x20')};});_0x16b6ee+=_0x1884aa(0x1bd)+_0x8a98ce+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-1\x20gap-y-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x40b80b[_0x1884aa(0xa4)](_0x350b5a=>'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20text-xs\x20font-mono\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-gray-600\x20dark:text-gray-300\x22>'+_0x350b5a[_0x1884aa(0xde)]+_0x1884aa(0xe6)+_0x350b5a[_0x1884aa(0x1ab)]+_0x1884aa(0x12f))[_0x1884aa(0x19a)]('')+_0x1884aa(0x190);}return _0x16b6ee+=_0x1884aa(0x189),_0x130a1f?_0x16b6ee:'';}},ui={'sidebarOpen':!![],'consoleOpen':!![],'toggleSidebar'(){const _0x3faf16=_0x585094,_0x4330ab=document[_0x3faf16(0xee)](_0x3faf16(0x1a0));if(!_0x4330ab)return;this[_0x3faf16(0x134)]=!this[_0x3faf16(0x134)],this[_0x3faf16(0x134)]?(_0x4330ab[_0x3faf16(0xdc)][_0x3faf16(0xfc)]='250px',_0x4330ab[_0x3faf16(0x151)][_0x3faf16(0xe0)]('w-0',_0x3faf16(0x13f)),_0x4330ab[_0x3faf16(0x151)][_0x3faf16(0x159)](_0x3faf16(0xb4),_0x3faf16(0x17a))):(_0x4330ab[_0x3faf16(0xdc)]['width']=_0x3faf16(0x9b),_0x4330ab[_0x3faf16(0x151)][_0x3faf16(0x159)]('w-0',_0x3faf16(0x13f)),_0x4330ab[_0x3faf16(0x151)][_0x3faf16(0xe0)]('p-4',_0x3faf16(0x17a))),setTimeout(()=>app[_0x3faf16(0x170)]&&app[_0x3faf16(0x170)]['refresh'](),0x12c);},'toggleConsole'(){const _0x2513d6=_0x585094,_0x4c5b7b=document[_0x2513d6(0xee)](_0x2513d6(0x141));if(!_0x4c5b7b)return;this[_0x2513d6(0x194)]=!this['consoleOpen'],_0x4c5b7b['style'][_0x2513d6(0x165)]=this[_0x2513d6(0x194)]?_0x2513d6(0x182):'40px';},'initResizers'(){const _0x430dfe=_0x585094,_0x312137=document[_0x430dfe(0xee)](_0x430dfe(0x198)),_0x24d9de=document[_0x430dfe(0xee)](_0x430dfe(0x141));_0x312137&&_0x24d9de&&_0x312137[_0x430dfe(0x18a)]('mousedown',_0x4f5221=>{const _0x188640=_0x430dfe;_0x4f5221[_0x188640(0x125)](),document[_0x188640(0xce)][_0x188640(0xdc)]['cursor']=_0x188640(0x10c);const _0x1c9b2a=_0x4f5221['clientY'],_0x47118c=parseInt(window[_0x188640(0x171)](_0x24d9de)[_0x188640(0x165)],0xa),_0x15e3b3=_0x5137ab=>{const _0x61a4de=_0x188640,_0x1557ac=_0x47118c-(_0x5137ab[_0x61a4de(0x19b)]-_0x1c9b2a);if(_0x1557ac>0x28&&_0x1557ac<0x258)_0x24d9de[_0x61a4de(0xdc)][_0x61a4de(0x165)]=_0x1557ac+'px';},_0x4e31b0=()=>{const _0x1703c4=_0x188640;document['body'][_0x1703c4(0xdc)][_0x1703c4(0x117)]=_0x1703c4(0xed),window[_0x1703c4(0x14a)](_0x1703c4(0x11f),_0x15e3b3),window['removeEventListener'](_0x1703c4(0x1ac),_0x4e31b0);if(app[_0x1703c4(0x170)])app['editor'][_0x1703c4(0xfb)]();};window['addEventListener']('mousemove',_0x15e3b3),window['addEventListener'](_0x188640(0x1ac),_0x4e31b0);});const _0x36f872=document[_0x430dfe(0xee)](_0x430dfe(0x1a1)),_0x13caea=document[_0x430dfe(0xee)](_0x430dfe(0x1a0));_0x36f872&&_0x36f872[_0x430dfe(0x18a)]('mousedown',_0xa5a56=>{const _0xcf8007=_0x430dfe;_0xa5a56[_0xcf8007(0x125)](),document[_0xcf8007(0xce)]['style'][_0xcf8007(0x117)]=_0xcf8007(0xd5);const _0x478a81=_0xa5a56[_0xcf8007(0x15a)],_0x5b3ac0=parseInt(window[_0xcf8007(0x171)](_0x13caea)[_0xcf8007(0xfc)],0xa),_0x3ee528=_0x261ce9=>{const _0x9f3729=_0xcf8007,_0x5e0cc4=_0x5b3ac0+(_0x261ce9[_0x9f3729(0x15a)]-_0x478a81);if(_0x5e0cc4>0x96&&_0x5e0cc4<0x1f4)_0x13caea[_0x9f3729(0xdc)][_0x9f3729(0xfc)]=_0x5e0cc4+'px';},_0x1be969=()=>{const _0x58b978=_0xcf8007;document[_0x58b978(0xce)][_0x58b978(0xdc)]['cursor']=_0x58b978(0xed),window[_0x58b978(0x14a)]('mousemove',_0x3ee528),window[_0x58b978(0x14a)](_0x58b978(0x1ac),_0x1be969);if(app[_0x58b978(0x170)])app[_0x58b978(0x170)][_0x58b978(0xfb)]();};window['addEventListener'](_0xcf8007(0x11f),_0x3ee528),window['addEventListener'](_0xcf8007(0x1ac),_0x1be969);});const _0x3d8973=document[_0x430dfe(0xee)]('resizer-desc'),_0x1838fe=document[_0x430dfe(0xee)]('desc-panel');_0x3d8973&&_0x3d8973[_0x430dfe(0x18a)](_0x430dfe(0xf6),_0x56bb1b=>{const _0x178486=_0x430dfe;_0x56bb1b['preventDefault'](),document[_0x178486(0xce)][_0x178486(0xdc)][_0x178486(0x117)]=_0x178486(0xd5);const _0x3ec6ef=_0x56bb1b[_0x178486(0x15a)],_0x1c6c7d=parseInt(window[_0x178486(0x171)](_0x1838fe)[_0x178486(0xfc)],0xa),_0x868163=_0x2f032c=>{const _0xd6c042=_0x178486,_0x3de1bb=_0x1c6c7d+(_0x2f032c[_0xd6c042(0x15a)]-_0x3ec6ef);if(_0x3de1bb>0xc8&&_0x3de1bb<0x320)_0x1838fe[_0xd6c042(0xdc)][_0xd6c042(0xfc)]=_0x3de1bb+'px';},_0x21ca0f=()=>{const _0x2f0a37=_0x178486;document[_0x2f0a37(0xce)][_0x2f0a37(0xdc)][_0x2f0a37(0x117)]=_0x2f0a37(0xed),window['removeEventListener'](_0x2f0a37(0x11f),_0x868163),window['removeEventListener']('mouseup',_0x21ca0f);if(app[_0x2f0a37(0x170)])app['editor'][_0x2f0a37(0xfb)]();};window['addEventListener']('mousemove',_0x868163),window['addEventListener'](_0x178486(0x1ac),_0x21ca0f);});}},router={'navigate'(_0x216f75){const _0x3d9b5f=_0x585094;[_0x3d9b5f(0x9f),_0x3d9b5f(0xf8),_0x3d9b5f(0xf5)]['forEach'](_0x2fbfd1=>{const _0x4b4d1c=_0x3d9b5f,_0x5d0aae=document[_0x4b4d1c(0xee)](_0x2fbfd1);if(_0x5d0aae)_0x5d0aae['classList'][_0x4b4d1c(0x159)]('hidden-view');});const _0x5116c4=document[_0x3d9b5f(0xee)]('view-'+_0x216f75);if(_0x5116c4)_0x5116c4[_0x3d9b5f(0x151)][_0x3d9b5f(0xe0)](_0x3d9b5f(0x1b6));if(_0x216f75===_0x3d9b5f(0x193))authManager[_0x3d9b5f(0xcc)]();}},authManager={'login'(){const _0x59f013=_0x585094;if(app[_0x59f013(0xbc)]['mode']===_0x59f013(0xe4)){const _0x5302f0=window[_0x59f013(0x155)],_0x723c59=new _0x5302f0[(_0x59f013(0x9d))]();_0x5302f0[_0x59f013(0xff)](app['state'][_0x59f013(0x1a3)],_0x723c59)[_0x59f013(0xda)](_0x2bfc40=>alert(_0x2bfc40[_0x59f013(0x10a)]));}else{const _0x2f12e9={'uid':_0x59f013(0x186),'displayName':_0x59f013(0x172),'photoURL':_0x59f013(0x1ba)};localStorage['setItem'](_0x59f013(0x14c),JSON[_0x59f013(0x10b)](_0x2f12e9)),app[_0x59f013(0xbc)][_0x59f013(0x17c)]=_0x2f12e9,this['updateUI'](_0x2f12e9);}},'logout'(){const _0x3dfd8e=_0x585094;app[_0x3dfd8e(0xbc)][_0x3dfd8e(0x156)]==='firebase'?window[_0x3dfd8e(0x155)][_0x3dfd8e(0xb2)](app['state'][_0x3dfd8e(0x1a3)]):(localStorage['removeItem'](_0x3dfd8e(0x14c)),app[_0x3dfd8e(0xbc)][_0x3dfd8e(0x17c)]=null,this[_0x3dfd8e(0x110)](null)),router[_0x3dfd8e(0x13e)]('landing');},'checkLocalAuth'(){const _0x4ae62d=_0x585094,_0x1d222e=localStorage[_0x4ae62d(0x185)](_0x4ae62d(0x14c));_0x1d222e&&(app[_0x4ae62d(0xbc)][_0x4ae62d(0x17c)]=JSON[_0x4ae62d(0x177)](_0x1d222e),this[_0x4ae62d(0x110)](app['state']['user']));},'updateUI'(_0x3d7cd7){const _0x5a002c=_0x585094;if(_0x3d7cd7){document[_0x5a002c(0xee)](_0x5a002c(0xaf))[_0x5a002c(0x151)]['add'](_0x5a002c(0xa5)),document[_0x5a002c(0xee)](_0x5a002c(0x10e))[_0x5a002c(0x151)][_0x5a002c(0xe0)](_0x5a002c(0xa5)),document['getElementById']('user-profile-menu')[_0x5a002c(0x151)][_0x5a002c(0x159)](_0x5a002c(0x112));const _0x141962=document['getElementById'](_0x5a002c(0xc5));_0x141962&&(_0x3d7cd7[_0x5a002c(0x102)]&&_0x3d7cd7[_0x5a002c(0x102)][_0x5a002c(0x1b5)]>0x5?_0x141962['innerHTML']='<img\x20src=\x22'+_0x3d7cd7[_0x5a002c(0x102)]+_0x5a002c(0x13a):_0x141962[_0x5a002c(0xb3)]=_0x5a002c(0xd8));}else document[_0x5a002c(0xee)](_0x5a002c(0xaf))['classList']['remove']('hidden'),document[_0x5a002c(0xee)]('user-profile-menu')[_0x5a002c(0x151)][_0x5a002c(0x159)](_0x5a002c(0xa5)),document[_0x5a002c(0xee)](_0x5a002c(0x10e))[_0x5a002c(0x151)][_0x5a002c(0xe0)]('flex');},async 'loadProfileData'(){const _0x39fe1a=_0x585094;if(!app[_0x39fe1a(0xbc)]['user']){alert(_0x39fe1a(0x137)),router[_0x39fe1a(0x13e)](_0x39fe1a(0x183));return;}const _0x4e6718=app[_0x39fe1a(0xbc)][_0x39fe1a(0x17c)],_0x137179=_0x4e6718[_0x39fe1a(0x102)]||_0x39fe1a(0x1b8)+(_0x4e6718['displayName']||_0x39fe1a(0x17d))+_0x39fe1a(0x9a);if(document[_0x39fe1a(0xee)](_0x39fe1a(0x1b0)))document[_0x39fe1a(0xee)]('profile-view-name')['innerText']=_0x4e6718['displayName'];if(document[_0x39fe1a(0xee)](_0x39fe1a(0xe2)))document['getElementById'](_0x39fe1a(0xe2))['src']=_0x137179;const _0x52035a=await persistence['getHistory'](app[_0x39fe1a(0xbc)][_0x39fe1a(0x17c)][_0x39fe1a(0x9e)]),_0x1afb12=new Set(_0x52035a[_0x39fe1a(0x14e)](_0x26550e=>_0x26550e[_0x39fe1a(0x103)]===_0x39fe1a(0x11d))[_0x39fe1a(0xa4)](_0x4a6d0e=>_0x4a6d0e[_0x39fe1a(0x109)]))[_0x39fe1a(0x187)];if(document[_0x39fe1a(0xee)](_0x39fe1a(0xdf)))document[_0x39fe1a(0xee)](_0x39fe1a(0xdf))[_0x39fe1a(0x132)]=_0x1afb12;if(document['getElementById'](_0x39fe1a(0x1a6)))document['getElementById'](_0x39fe1a(0x1a6))[_0x39fe1a(0x132)]=Math[_0x39fe1a(0x16b)](_0x1afb12/problemsDB[_0x39fe1a(0x1b5)]*0x64)+'%';const _0x194b3a=document[_0x39fe1a(0xee)](_0x39fe1a(0xef));if(!_0x194b3a)return;_0x194b3a['innerHTML']='';if(_0x52035a[_0x39fe1a(0x1b5)]===0x0){if(document[_0x39fe1a(0xee)](_0x39fe1a(0x116)))document['getElementById']('empty-history')['classList'][_0x39fe1a(0xe0)](_0x39fe1a(0xa5));}else{if(document[_0x39fe1a(0xee)](_0x39fe1a(0x116)))document['getElementById']('empty-history')['classList']['add'](_0x39fe1a(0xa5));_0x52035a[_0x39fe1a(0xa6)]((_0x3de726,_0x2f701f)=>_0x2f701f['timestamp']-_0x3de726[_0x39fe1a(0x1a4)])[_0x39fe1a(0x188)](_0x3bba53=>{const _0x486227=_0x39fe1a,_0x3719d5=document[_0x486227(0x179)]('tr');_0x3719d5[_0x486227(0x113)]=_0x486227(0x126),_0x3719d5[_0x486227(0xb3)]=_0x486227(0xeb)+_0x3bba53[_0x486227(0x13d)]+_0x486227(0xf3)+_0x3bba53[_0x486227(0x106)]+'</span></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22px-6\x20py-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x3bba53[_0x486227(0x103)]===_0x486227(0x11d)?_0x486227(0xf4):'<span\x20class=\x22text-red-600\x20dark:text-red-400\x22><i\x20class=\x22fa-solid\x20fa-xmark\x22></i>\x20Failed</span>')+_0x486227(0xb9)+new Date(_0x3bba53['timestamp'])[_0x486227(0x196)]()+_0x486227(0xba),_0x194b3a[_0x486227(0x195)](_0x3719d5);});}}},verifier={'normalizeSQL'(_0x3e88e5){const _0x251454=_0x585094;if(!Array['isArray'](_0x3e88e5))return[];const _0xa38f38=_0x3e88e5['map'](_0x36a996=>{const _0xfdce16=_0x474a;return Object[_0xfdce16(0x97)](_0x36a996)[_0xfdce16(0xa6)]()[_0xfdce16(0x11c)]((_0x4bf448,_0x15f7e4)=>{return _0x4bf448[_0x15f7e4]=_0x36a996[_0x15f7e4],_0x4bf448;},{});});return _0xa38f38[_0x251454(0xa6)]((_0x232ee9,_0x35667c)=>JSON[_0x251454(0x10b)](_0x232ee9)[_0x251454(0x174)](JSON[_0x251454(0x10b)](_0x35667c)));},'compare'(_0x3c64cc,_0x309bb3){const _0x4803f9=_0x585094,_0x4113c1=this[_0x4803f9(0x19c)](_0x3c64cc),_0x469490=this['normalizeSQL'](_0x309bb3);return JSON[_0x4803f9(0x10b)](_0x4113c1)===JSON[_0x4803f9(0x10b)](_0x469490);}},runner={'log'(_0x45791c,_0x2b6a75=![],_0x4a957a=''){const _0x5638a8=_0x585094,_0xe8dddd=document[_0x5638a8(0xee)](_0x5638a8(0x115));if(_0xe8dddd){let _0x23ff91=_0x2b6a75?_0x5638a8(0xac):_0x5638a8(0x176);if(_0x4a957a)_0x23ff91=_0x4a957a;_0xe8dddd[_0x5638a8(0xb3)]+='<div\x20class=\x22'+_0x23ff91+_0x5638a8(0x98)+_0x45791c+_0x5638a8(0x189),_0xe8dddd[_0x5638a8(0x12e)]=_0xe8dddd[_0x5638a8(0x17b)];}},'logTable'(_0x57120a){const _0x1f951f=_0x585094,_0x2b50d2=document[_0x1f951f(0xee)](_0x1f951f(0x115));if(!_0x2b50d2||!Array[_0x1f951f(0x127)](_0x57120a)||_0x57120a['length']===0x0)return;const _0x382b95=0xa,_0x39b50f=_0x57120a[_0x1f951f(0x17f)](0x0,_0x382b95),_0x4d1700=Object[_0x1f951f(0x97)](_0x39b50f[0x0]);let _0x227262='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22overflow-x-auto\x20my-2\x20border\x20border-gray-300\x20dark:border-gray-700\x20rounded\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table\x20class=\x22min-w-full\x20text-xs\x20text-left\x20text-gray-700\x20dark:text-gray-300\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead\x20class=\x22bg-gray-100\x20dark:bg-gray-800\x20text-gray-600\x20dark:text-gray-400\x20uppercase\x20font-medium\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>'+_0x4d1700[_0x1f951f(0xa4)](_0x4e174e=>_0x1f951f(0x119)+_0x4e174e+_0x1f951f(0x121))['join']('')+_0x1f951f(0xaa)+_0x39b50f[_0x1f951f(0xa4)](_0x3c7a23=>'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr\x20class=\x22hover:bg-gray-50\x20dark:hover:bg-gray-800/50\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x4d1700['map'](_0x4b95a6=>_0x1f951f(0x15c)+(_0x3c7a23[_0x4b95a6]!==null?_0x3c7a23[_0x4b95a6]:_0x1f951f(0x1b3))+'</td>')[_0x1f951f(0x19a)]('')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20')['join']('')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20';if(_0x57120a[_0x1f951f(0x1b5)]>_0x382b95)_0x227262+=_0x1f951f(0x199)+_0x382b95+'\x20of\x20'+_0x57120a[_0x1f951f(0x1b5)]+_0x1f951f(0x1aa);_0x2b50d2[_0x1f951f(0xb3)]+=_0x227262,_0x2b50d2[_0x1f951f(0x12e)]=_0x2b50d2[_0x1f951f(0x17b)];},'setLoading'(_0x49ddce){const _0xe6a68a=_0x585094,_0x1b92c8=document['getElementById'](_0xe6a68a(0x9c));if(!_0x1b92c8)return;_0x49ddce?(_0x1b92c8[_0xe6a68a(0xb6)]=!![],_0x1b92c8[_0xe6a68a(0x151)]['add'](_0xe6a68a(0xa3),'cursor-not-allowed')):(_0x1b92c8['disabled']=![],_0x1b92c8[_0xe6a68a(0x151)][_0xe6a68a(0xe0)](_0xe6a68a(0xa3),_0xe6a68a(0x120)));},async 'run'(_0x2a9eb9=![]){const _0x421fc7=_0x585094;if(!app[_0x421fc7(0xbc)][_0x421fc7(0x1b7)]){alert(_0x421fc7(0xa7));return;}this['setLoading'](!![]),document[_0x421fc7(0xee)](_0x421fc7(0x115))['innerHTML']='',document['getElementById']('save-status')[_0x421fc7(0x132)]='';const _0x1d44af=app['editor'][_0x421fc7(0xc9)](),_0x3560b7=app[_0x421fc7(0xbc)][_0x421fc7(0x1b7)];try{let _0x4bfde4=![];_0x3560b7['type']==='python'?_0x4bfde4=await this[_0x421fc7(0x123)](_0x1d44af,_0x3560b7,_0x2a9eb9):_0x4bfde4=this[_0x421fc7(0x152)](_0x1d44af,_0x3560b7,_0x2a9eb9),_0x2a9eb9&&(app[_0x421fc7(0xbc)]['user']?(document[_0x421fc7(0xee)]('save-status')[_0x421fc7(0x132)]=_0x421fc7(0xc3),await persistence[_0x421fc7(0xa9)]({'userId':app[_0x421fc7(0xbc)]['user'][_0x421fc7(0x9e)],'problemId':_0x3560b7['id'],'problemTitle':_0x3560b7[_0x421fc7(0x16d)],'track':_0x3560b7['type'],'code':_0x1d44af,'status':_0x4bfde4?_0x421fc7(0x11d):_0x421fc7(0xbe),'timestamp':Date[_0x421fc7(0x180)]()}),document[_0x421fc7(0xee)]('save-status')[_0x421fc7(0x132)]=_0x421fc7(0x162),_0x4bfde4&&(app['state'][_0x421fc7(0xfd)]['add'](_0x3560b7['id']),app[_0x421fc7(0x136)]())):alert(_0x421fc7(0x178)));}catch(_0x38f214){console[_0x421fc7(0xa8)](_0x38f214),this[_0x421fc7(0x149)](_0x421fc7(0xb5)+_0x38f214[_0x421fc7(0x10a)],!![]);}finally{this[_0x421fc7(0xe9)](![]);}},'submit'(){this['run'](!![]);},async 'runPython'(_0x453100,_0x21250f,_0x1614a7){const _0x5115af=_0x585094;if(!window['pyodide']&&typeof loadPyodide!=='undefined')try{window['pyodide']=await loadPyodide();}catch(_0x205b9a){}if(!window[_0x5115af(0x1af)])return this[_0x5115af(0x149)](_0x5115af(0x12c),!![]),![];try{let _0x51ff0b=![];window['pyodide'][_0x5115af(0x150)]({'batched':_0x47a2b7=>{this['log'](_0x47a2b7),_0x51ff0b=!![];}});const _0x270feb=await window[_0x5115af(0x1af)][_0x5115af(0x12b)](_0x453100);if(!_0x1614a7){if(_0x270feb!==undefined)this[_0x5115af(0x149)](_0x5115af(0xe8)+_0x270feb,![],'text-blue-600\x20dark:text-blue-400\x20font-bold');else!_0x51ff0b&&(this[_0x5115af(0x149)]('ℹ️\x20Code\x20ran\x20successfully.',![],_0x5115af(0xc7)),this[_0x5115af(0x149)](_0x5115af(0x166),![],_0x5115af(0x1a2)));}if(_0x1614a7){this[_0x5115af(0x149)](_0x5115af(0x10f));if(!_0x21250f['test_code'])return this[_0x5115af(0x149)](_0x5115af(0xe3),!![]),![];await window[_0x5115af(0x1af)][_0x5115af(0x12b)](_0x453100+'\x0a'+_0x21250f[_0x5115af(0x158)]);const _0x3de65e=document[_0x5115af(0xee)](_0x5115af(0x115))[_0x5115af(0x132)];return _0x3de65e[_0x5115af(0xd6)](_0x5115af(0xbf));}return!![];}catch(_0xe66a4a){return this[_0x5115af(0x149)](_0xe66a4a,!![]),![];}},'runSQL'(_0x17046a,_0x2c7201,_0x98e92a){const _0x365d8b=_0x585094;if(typeof alasql===_0x365d8b(0xb7))return this[_0x365d8b(0x149)]('⚠️\x20SQL\x20Engine\x20not\x20loaded.',!![]),![];try{alasql(_0x365d8b(0x18c)),alasql('CREATE\x20DATABASE\x20testdb'),alasql(_0x365d8b(0x129));}catch(_0x5e46e2){return this[_0x365d8b(0x149)](_0x365d8b(0x18e)+_0x5e46e2[_0x365d8b(0x10a)],!![]),![];}if(_0x2c7201[_0x365d8b(0xd2)])try{alasql(_0x2c7201[_0x365d8b(0xd2)]);}catch(_0xd46040){return this[_0x365d8b(0x149)](_0x365d8b(0x15d)+_0xd46040[_0x365d8b(0x10a)],!![]),![];}try{const _0x2cf537=alasql(_0x17046a);Array['isArray'](_0x2cf537)?_0x2cf537[_0x365d8b(0x1b5)]===0x0?this[_0x365d8b(0x149)](_0x365d8b(0x153)):(this[_0x365d8b(0x149)](_0x365d8b(0xb1),![],'text-blue-600\x20dark:text-blue-400'),this[_0x365d8b(0xf1)](_0x2cf537)):this['log'](_0x365d8b(0x128));if(_0x98e92a){this[_0x365d8b(0x149)](_0x365d8b(0x10f)),alasql('DROP\x20DATABASE\x20IF\x20EXISTS\x20testdb'),alasql('CREATE\x20DATABASE\x20testdb'),alasql(_0x365d8b(0x129));if(_0x2c7201['setup_sql'])alasql(_0x2c7201[_0x365d8b(0xd2)]);let _0x5bd4f6;try{_0x5bd4f6=alasql(_0x2c7201[_0x365d8b(0xdd)]);}catch(_0x414f36){return this[_0x365d8b(0x149)]('Configuration\x20Error:\x20Solution\x20SQL\x20is\x20invalid.',!![]),![];}alasql(_0x365d8b(0x18c)),alasql('CREATE\x20DATABASE\x20testdb'),alasql(_0x365d8b(0x129));if(_0x2c7201[_0x365d8b(0xd2)])alasql(_0x2c7201['setup_sql']);const _0x3c566b=alasql(_0x17046a);return verifier[_0x365d8b(0x130)](_0x3c566b,_0x5bd4f6)?(this[_0x365d8b(0x149)]('✅\x20Passed!\x20Good\x20job.'),!![]):(this[_0x365d8b(0x149)](_0x365d8b(0x11a),!![]),![]);}return!![];}catch(_0x3a7bc9){return this['log']('SQL\x20Error:\x20'+_0x3a7bc9[_0x365d8b(0x10a)],!![]),![];}}},persistence={async 'saveSubmission'(_0x3df7e9){const _0x5c18a2=_0x585094;if(app['state'][_0x5c18a2(0x156)]==='firebase'){const _0x4f4109=window['firebaseModules'];await _0x4f4109[_0x5c18a2(0xf0)](_0x4f4109[_0x5c18a2(0x14d)](app['state']['db'],_0x5c18a2(0x138)),_0x3df7e9);}else{let _0x4dc796=JSON['parse'](localStorage[_0x5c18a2(0x185)](_0x5c18a2(0xd9))||'[]');_0x4dc796[_0x5c18a2(0xfe)](_0x3df7e9),localStorage[_0x5c18a2(0x197)](_0x5c18a2(0xd9),JSON[_0x5c18a2(0x10b)](_0x4dc796));}},async 'getHistory'(_0x280bbe){const _0x45dba8=_0x585094;if(app['state'][_0x45dba8(0x156)]===_0x45dba8(0xe4)){const _0x2e8b61=window[_0x45dba8(0x155)],_0x18f1dd=_0x2e8b61[_0x45dba8(0x148)](_0x2e8b61[_0x45dba8(0x14d)](app[_0x45dba8(0xbc)]['db'],_0x45dba8(0x138)),_0x2e8b61[_0x45dba8(0x122)](_0x45dba8(0x15b),'==',_0x280bbe)),_0x4bd87f=await _0x2e8b61['getDocs'](_0x18f1dd);return _0x4bd87f['docs'][_0x45dba8(0xa4)](_0x182ad0=>_0x182ad0[_0x45dba8(0x1b2)]());}else{let _0xe7bfc9=JSON[_0x45dba8(0x177)](localStorage[_0x45dba8(0x185)]('polyglot_history')||'[]');return _0xe7bfc9[_0x45dba8(0x14e)](_0x1025ac=>_0x1025ac[_0x45dba8(0x15b)]===_0x280bbe);}}};window[_0x585094(0x1a8)]=app[_0x585094(0x184)][_0x585094(0x1ad)](app);
+// --- APPLICATION LOGIC ---
+
+const app = {
+    state: {
+        user: null,
+        currentTrack: null,
+        currentProblem: null,
+        filterTopic: 'All',
+        filterDifficulty: 'All',
+        filterStatus: 'All',
+        solvedProblemIds: new Set(), 
+        db: null,
+        auth: null,
+        mode: 'local'
+    },
+
+    async init() {
+        // Check config
+        if (typeof GOOGLE_SHEET_API === 'undefined') {
+            alert("CRITICAL: config.js missing or variables undefined.");
+            return;
+        }
+
+        themeManager.init();
+        const editorEl = document.getElementById('code-editor');
+        if(editorEl) {
+            this.editor = CodeMirror.fromTextArea(editorEl, {
+                lineNumbers: true, 
+                theme: themeManager.isDark() ? 'dracula' : 'eclipse',
+                tabSize: 4, 
+                indentUnit: 4, 
+                lineWrapping: true
+            });
+        }
+
+        try {
+            if(document.getElementById('problem-list')) document.getElementById('problem-list').innerHTML = '<div class="text-gray-500 p-4">Loading...</div>';
+            const response = await fetch(GOOGLE_SHEET_API);
+            problemsDB = await response.json();
+            this.updateLandingCounts();
+            this.initDailyChallenge();
+        } catch (e) {
+            console.error("Failed", e);
+            if(document.getElementById('problem-list')) document.getElementById('problem-list').innerHTML = '<div class="text-red-500 p-4">Error loading data.</div>';
+        }
+
+        this.initEngines();
+        this.initAuth();
+        ui.initResizers();
+        
+        if(!window.location.hash) router.navigate('landing');
+    },
+
+    updateLandingCounts() {
+        const pyCount = problemsDB.filter(p => p.type === 'python').length;
+        const sqlCount = problemsDB.filter(p => p.type === 'sql').length;
+        const pyEl = document.getElementById('python-count');
+        const sqlEl = document.getElementById('sql-count');
+        if (pyEl) pyEl.innerText = `${pyCount} Problems`;
+        if (sqlEl) sqlEl.innerText = `${sqlCount} Problems`;
+    },
+
+    initDailyChallenge() {
+        const card = document.getElementById('daily-challenge-card');
+        if (!card || problemsDB.length === 0) return;
+
+        const todayStr = new Date().toDateString();
+        let hash = 0;
+        for (let i = 0; i < todayStr.length; i++) hash = todayStr.charCodeAt(i) + ((hash << 5) - hash);
+        const index = Math.abs(hash) % problemsDB.length;
+        const dailyProblem = problemsDB[index];
+
+        const titleEl = document.getElementById('daily-title');
+        if(titleEl) titleEl.innerText = dailyProblem.title;
+        card.classList.remove('hidden');
+        
+        card.onclick = () => {
+            app.selectTrack(dailyProblem.type);
+            setTimeout(() => app.loadProblem(dailyProblem.id), 100);
+        };
+    },
+    
+    loadDailyProblem() { },
+
+    initAuth() {
+        if (typeof firebaseConfig !== 'undefined' && firebaseConfig.apiKey && window.firebaseModules) {
+            try {
+                const fb = window.firebaseModules;
+                const appInst = fb.initializeApp(firebaseConfig);
+                this.state.auth = fb.getAuth(appInst);
+                this.state.db = fb.getFirestore(appInst);
+                this.state.mode = 'firebase';
+                fb.onAuthStateChanged(this.state.auth, (user) => {
+                    this.state.user = user;
+                    authManager.updateUI(user);
+                    if(user) this.fetchUserProgress();
+                });
+            } catch(e) { console.error("Firebase Init Failed:", e); }
+        } else {
+            authManager.checkLocalAuth();
+        }
+    },
+
+    async fetchUserProgress() {
+        if (!this.state.user) return;
+        try {
+            const history = await persistence.getHistory(this.state.user.uid);
+            const solved = new Set();
+            history.forEach(sub => {
+                if (sub.status === 'Passed') solved.add(sub.problemId);
+            });
+            this.state.solvedProblemIds = solved;
+            if(this.state.currentTrack) this.applyFilters();
+        } catch(e) {
+            console.error("Error fetching progress", e);
+        }
+    },
+
+    async initEngines() {
+        if (!window.pyodide && typeof loadPyodide !== 'undefined') {
+            try { window.pyodide = await loadPyodide(); } catch (e) { }
+        }
+    },
+
+    selectTrack(track) {
+        this.state.currentTrack = track;
+        
+        this.state.filterTopic = 'All';
+        this.state.filterDifficulty = 'All';
+        this.state.filterStatus = 'All';
+        
+        const navDiff = document.getElementById('nav-difficulty');
+        if(navDiff) navDiff.value = 'All';
+        
+        this.renderTopicFilters(); 
+        this.applyFilters(); 
+        
+        const filtered = this.getFilteredProblems();
+        if(filtered.length > 0) {
+            this.loadProblem(filtered[0].id);
+        }
+        
+        router.navigate('playground');
+        setTimeout(() => { if(this.editor) this.editor.refresh(); }, 100);
+    },
+
+    setDifficulty(level) {
+        this.state.filterDifficulty = level;
+        this.applyFilters();
+    },
+
+    setTopic(topic) {
+        this.state.filterTopic = topic;
+        this.applyFilters();
+    },
+
+    setStatus(status) {
+        this.state.filterStatus = status;
+        this.applyFilters();
+    },
+
+    applyFilters() {
+        const problems = this.getFilteredProblems();
+        this.renderSidebar(problems);
+    },
+
+    getFilteredProblems() {
+        return problemsDB.filter(p => {
+            const matchType = p.type === this.state.currentTrack;
+            const matchDiff = this.state.filterDifficulty === 'All' || p.difficulty === this.state.filterDifficulty;
+            const matchTopic = this.state.filterTopic === 'All' || p.topic === this.state.filterTopic;
+            
+            let matchStatus = true;
+            const isSolved = this.state.solvedProblemIds.has(p.id);
+            if (this.state.filterStatus === 'Solved') matchStatus = isSolved;
+            if (this.state.filterStatus === 'Unsolved') matchStatus = !isSolved;
+
+            return matchType && matchDiff && matchTopic && matchStatus;
+        });
+    },
+
+    renderTopicFilters() {
+        const select = document.getElementById('topic-select');
+        if(!select) return;
+        select.innerHTML = '';
+
+        const trackProblems = problemsDB.filter(p => p.type === this.state.currentTrack);
+        const topics = new Set();
+        trackProblems.forEach(p => { if (p.topic) topics.add(p.topic); });
+        
+        const sortedTopics = Array.from(topics).sort();
+        const allOptions = ['All', ...sortedTopics];
+
+        allOptions.forEach(topic => {
+            const option = document.createElement('option');
+            option.value = topic;
+            option.innerText = topic === 'All' ? 'All Topics' : topic;
+            if (topic === this.state.filterTopic) option.selected = true;
+            select.appendChild(option);
+        });
+    },
+
+    renderSidebar(problems) {
+        const list = document.getElementById('problem-list');
+        if(!list) return;
+        list.innerHTML = '';
+        if (problems.length === 0) {
+            list.innerHTML = '<div class="p-4 text-xs text-gray-500 italic">No problems match filters.</div>';
+            return;
+        }
+        problems.forEach(p => {
+            const item = document.createElement('div');
+            item.id = `prob-item-${p.id}`;
+            
+            const isActive = this.state.currentProblem && this.state.currentProblem.id === p.id;
+            const baseStyles = 'p-3 cursor-pointer border-l-2 transition text-sm mb-1';
+            const inactiveStyles = 'border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-yellow-500 hover:text-black dark:hover:text-white';
+            const activeStyles = 'bg-gray-100 dark:bg-gray-800 border-yellow-500 text-black dark:text-white font-medium';
+            
+            item.className = `${baseStyles} ${isActive ? activeStyles : inactiveStyles}`;
+            
+            let diffColor = 'bg-gray-400';
+            if(p.difficulty === 'Easy') diffColor = 'bg-green-500';
+            if(p.difficulty === 'Medium') diffColor = 'bg-yellow-500';
+            if(p.difficulty === 'Hard') diffColor = 'bg-red-500';
+
+            const isSolved = this.state.solvedProblemIds.has(p.id);
+            const iconHtml = isSolved 
+                ? '<i class="fa-solid fa-circle-check text-green-500 mr-2"></i>' 
+                : '<i class="fa-regular fa-circle text-gray-400 mr-2 text-[10px]"></i>';
+
+            item.innerHTML = `
+                <div class="flex justify-between items-start">
+                    <div class="flex items-center overflow-hidden">
+                        ${iconHtml}
+                        <span class="truncate w-32">${p.title}</span>
+                    </div>
+                    <span class="w-2 h-2 rounded-full ${diffColor} flex-shrink-0 mt-1" title="${p.difficulty}"></span>
+                </div>
+                <div class="text-[10px] text-gray-400 dark:text-gray-500 mt-1 ml-5 truncate">${p.topic || 'General'}</div>
+            `;
+            item.onclick = () => this.loadProblem(p.id);
+            list.appendChild(item);
+        });
+    },
+
+    loadProblem(id) {
+        const problem = problemsDB.find(p => String(p.id) === String(id)); 
+        if(!problem) return;
+        
+        this.state.currentProblem = problem;
+        this.updateSidebarSelection(id);
+        
+        let htmlContent = `
+            <h2 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">${problem.title}</h2>
+            <div class="flex gap-2 mb-4">
+                <span class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-xs text-gray-700 dark:text-gray-300">${problem.difficulty}</span>
+                <span class="px-2 py-1 rounded bg-blue-100 dark:bg-blue-900/50 text-xs text-blue-600 dark:text-blue-300 border border-blue-200 dark:border-blue-800">${problem.topic || 'General'}</span>
+            </div>
+            <div class="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">${problem.description}</div>
+        `;
+
+        if (problem.type === 'sql' && problem.setup_sql) {
+            htmlContent += schemaUtils.generateHTML(problem.setup_sql);
+        }
+
+        const container = document.getElementById('problem-desc-container');
+        if(container) container.innerHTML = htmlContent;
+
+        if(this.editor) {
+            this.editor.setValue(problem.starter);
+            const mode = problem.type === 'sql' ? 'text/x-sql' : 'python';
+            this.editor.setOption('mode', mode);
+        }
+        
+        if(document.getElementById('lang-indicator')) document.getElementById('lang-indicator').innerText = problem.type.toUpperCase();
+        if(document.getElementById('console-output')) document.getElementById('console-output').innerHTML = '';
+        if(document.getElementById('save-status')) document.getElementById('save-status').innerText = '';
+    },
+
+    updateSidebarSelection(activeId) {
+        document.querySelectorAll('#problem-list > div').forEach(el => {
+            el.className = 'p-3 cursor-pointer border-l-2 transition text-sm mb-1 border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-yellow-500 hover:text-black dark:hover:text-white';
+        });
+        const activeItem = document.getElementById(`prob-item-${activeId}`);
+        if(activeItem) {
+            activeItem.className = 'p-3 cursor-pointer border-l-2 transition text-sm mb-1 bg-gray-100 dark:bg-gray-800 border-yellow-500 text-black dark:text-white font-medium';
+        }
+    }
+};
+
+// --- AUTH MANAGER (Fixed Avatar Logic) ---
+const authManager = {
+    login() {
+        if (app.state.mode === 'firebase') {
+            const fb = window.firebaseModules;
+            const provider = new fb.GoogleAuthProvider();
+            fb.signInWithPopup(app.state.auth, provider).catch(e => alert(e.message));
+        } else {
+            const mockUser = { uid: 'local-user-1', displayName: 'Demo Student', photoURL: 'https://ui-avatars.com/api/?name=Demo+Student&background=random' };
+            localStorage.setItem('mockUser', JSON.stringify(mockUser));
+            app.state.user = mockUser;
+            this.updateUI(mockUser);
+        }
+    },
+    logout() {
+        if (app.state.mode === 'firebase') {
+            window.firebaseModules.signOut(app.state.auth);
+        } else {
+            localStorage.removeItem('mockUser');
+            app.state.user = null;
+            this.updateUI(null);
+        }
+        router.navigate('landing');
+    },
+    checkLocalAuth() {
+        const saved = localStorage.getItem('mockUser');
+        if (saved) {
+            app.state.user = JSON.parse(saved);
+            this.updateUI(app.state.user);
+        }
+    },
+    updateUI(user) {
+        if (user) {
+            document.getElementById('btn-login').classList.add('hidden');
+            document.getElementById('user-profile-menu').classList.remove('hidden');
+            document.getElementById('user-profile-menu').classList.add('flex');
+            
+            // --- FIXED AVATAR LOGIC ---
+            const container = document.getElementById('user-avatar-container');
+            if(container) {
+                const safeName = encodeURIComponent(user.displayName || 'User');
+                const fallbackUrl = `https://ui-avatars.com/api/?name=${safeName}&background=random`;
+                
+                if (user.photoURL && user.photoURL.length > 5) {
+                    // Try Google image, fallback to generated avatar on error
+                    container.innerHTML = `<img src="${user.photoURL}" referrerpolicy="no-referrer" class="w-full h-full object-cover rounded-full" onerror="this.onerror=null;this.src='${fallbackUrl}';">`;
+                } else {
+                    // No image? Use generated avatar directly
+                    container.innerHTML = `<img src="${fallbackUrl}" class="w-full h-full object-cover rounded-full">`;
+                }
+            }
+        } else {
+            document.getElementById('btn-login').classList.remove('hidden');
+            document.getElementById('user-profile-menu').classList.add('hidden');
+            document.getElementById('user-profile-menu').classList.remove('flex');
+        }
+    },
+    // --- LOAD LEADERBOARD ---
+    async loadLeaderboard() {
+        const tbody = document.getElementById('leaderboard-body');
+        const loading = document.getElementById('leaderboard-loading');
+        if(!tbody) return;
+        
+        tbody.innerHTML = '';
+        loading.classList.remove('hidden');
+
+        try {
+            let users = [];
+            if(app.state.mode === 'firebase') {
+                const fb = window.firebaseModules;
+                const q = fb.query(fb.collection(app.state.db, 'users'), fb.orderBy('solvedCount', 'desc'), fb.limit(50));
+                const snapshot = await fb.getDocs(q);
+                users = snapshot.docs.map(d => d.data());
+            } else {
+                users = [
+                    { displayName: 'Alice', solvedCount: 15, photoURL: '' },
+                    { displayName: 'Bob', solvedCount: 10, photoURL: '' }
+                ];
+            }
+
+            loading.classList.add('hidden');
+            
+            users.forEach((u, index) => {
+                let medal = '';
+                if(index === 0) medal = '🥇';
+                if(index === 1) medal = '🥈';
+                if(index === 2) medal = '🥉';
+                
+                const safeName = encodeURIComponent(u.displayName || 'User');
+                const fallbackUrl = `https://ui-avatars.com/api/?name=${safeName}&background=random`;
+                const displayPhoto = u.photoURL || fallbackUrl;
+
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-gray-100 dark:hover:bg-gray-800 transition";
+                tr.innerHTML = `
+                    <td class="px-6 py-4 font-bold text-gray-500">${medal || (index + 1)}</td>
+                    <td class="px-6 py-4 flex items-center gap-3">
+                        <img src="${displayPhoto}" referrerpolicy="no-referrer" class="w-8 h-8 rounded-full object-cover" onerror="this.onerror=null;this.src='${fallbackUrl}';">
+                        <span class="font-medium text-gray-900 dark:text-white">${u.displayName || 'Unknown'}</span>
+                    </td>
+                    <td class="px-6 py-4 text-right font-bold text-blue-500">${u.solvedCount || 0}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        } catch(e) {
+            console.error(e);
+            loading.innerText = "Failed to load leaderboard.";
+        }
+    },
+    async loadProfileData() {
+        if (!app.state.user) {
+            alert("Please login to view profile");
+            router.navigate('landing');
+            return;
+        }
+        const user = app.state.user;
+        
+        // --- FIXED PROFILE AVATAR LOGIC ---
+        const safeName = encodeURIComponent(user.displayName || 'User');
+        const fallbackUrl = `https://ui-avatars.com/api/?name=${safeName}&background=random`;
+        const avatarUrl = user.photoURL || fallbackUrl;
+        
+        if(document.getElementById('profile-view-name')) document.getElementById('profile-view-name').innerText = user.displayName;
+        
+        // Handle profile image error fallback
+        const profileImg = document.getElementById('profile-view-avatar');
+        if(profileImg) {
+            profileImg.src = avatarUrl;
+            profileImg.onerror = function() { this.src = fallbackUrl; };
+        }
+
+        const history = await persistence.getHistory(app.state.user.uid);
+        const uniqueSolved = new Set(history.filter(h => h.status === 'Passed').map(h => h.problemId)).size;
+        
+        if(document.getElementById('stat-solved')) document.getElementById('stat-solved').innerText = uniqueSolved;
+        if(document.getElementById('stat-rate')) document.getElementById('stat-rate').innerText = Math.round((uniqueSolved / problemsDB.length) * 100) + '%';
+        
+        const tbody = document.getElementById('history-table-body');
+        if(!tbody) return;
+        
+        tbody.innerHTML = '';
+        if(history.length === 0) {
+            if(document.getElementById('empty-history')) document.getElementById('empty-history').classList.remove('hidden');
+        } else {
+            if(document.getElementById('empty-history')) document.getElementById('empty-history').classList.add('hidden');
+            history.sort((a,b) => b.timestamp - a.timestamp).forEach(h => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-gray-100 dark:hover:bg-gray-800 transition";
+                tr.innerHTML = `
+                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">${h.problemTitle}</td>
+                    <td class="px-6 py-4"><span class="px-2 py-1 rounded text-xs bg-gray-200 dark:bg-gray-700 uppercase">${h.track}</span></td>
+                    <td class="px-6 py-4">
+                        ${h.status === 'Passed' ? '<span class="text-green-600 dark:text-green-400"><i class="fa-solid fa-check"></i> Passed</span>' : '<span class="text-red-600 dark:text-red-400"><i class="fa-solid fa-xmark"></i> Failed</span>'}
+                    </td>
+                    <td class="px-6 py-4 text-right text-gray-500">${new Date(h.timestamp).toLocaleDateString()}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+    }
+};
+
+// ... (Keep Theme Manager, Schema Utils, UI, Router, Verifier, Runner, Persistence) ...
+const themeManager = {
+    init() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') { this.setLight(); } else { this.setDark(); }
+    },
+    isDark() { return document.documentElement.classList.contains('dark'); },
+    setDark() {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        this.updateButton(true);
+        if(app.editor) app.editor.setOption('theme', 'dracula');
+    },
+    setLight() {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        this.updateButton(false);
+        if(app.editor) app.editor.setOption('theme', 'eclipse');
+    },
+    toggle() { if (this.isDark()) { this.setLight(); } else { this.setDark(); } },
+    updateButton(isDark) {
+        const btn = document.getElementById('theme-btn');
+        if(btn) {
+            btn.innerHTML = isDark ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun text-orange-500"></i>';
+            btn.className = isDark 
+                ? 'w-8 h-8 rounded-full bg-gray-800 text-yellow-400 flex items-center justify-center hover:bg-gray-700 transition'
+                : 'w-8 h-8 rounded-full bg-gray-200 text-orange-500 flex items-center justify-center hover:bg-gray-300 transition';
+        }
+    }
+};
+
+const schemaUtils = {
+    generateHTML(sql) {
+        const tableRegex = /CREATE\s+TABLE\s+(\w+)\s*\(([^)]+)\)/gi;
+        let match;
+        let html = '<div class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-4"><h3 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase mb-4">Database Schema</h3>';
+
+        let found = false;
+        while ((match = tableRegex.exec(sql)) !== null) {
+            found = true;
+            const tableName = match[1];
+            const columnsStr = match[2];
+            const columns = columnsStr.split(',').map(c => {
+                const parts = c.trim().split(/\s+/);
+                return { name: parts[0], type: parts.slice(1).join(' ') };
+            });
+            html += `
+                <div class="mb-4 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900/50 p-4">
+                    <div class="flex items-center gap-2 mb-3 border-b border-gray-200 dark:border-gray-700 pb-2">
+                        <i class="fa-solid fa-table text-blue-500 dark:text-blue-400"></i>
+                        <span class="font-bold text-gray-800 dark:text-white">${tableName}</span>
+                    </div>
+                    <div class="grid grid-cols-1 gap-y-1">
+                        ${columns.map(col => `
+                            <div class="flex justify-between text-xs font-mono">
+                                <span class="text-gray-600 dark:text-gray-300">${col.name}</span>
+                                <span class="text-gray-400 dark:text-gray-500 uppercase">${col.type}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        html += '</div>';
+        return found ? html : '';
+    }
+};
+
+const ui = {
+    sidebarOpen: true,
+    consoleOpen: true,
+    toggleSidebar() {
+        const sidebar = document.getElementById('app-sidebar');
+        if(!sidebar) return;
+        this.sidebarOpen = !this.sidebarOpen;
+        if (this.sidebarOpen) {
+            sidebar.style.width = '250px'; sidebar.classList.remove('w-0', 'p-0'); sidebar.classList.add('p-4', 'border-r');
+        } else {
+            sidebar.style.width = '0px'; sidebar.classList.add('w-0', 'p-0'); sidebar.classList.remove('p-4', 'border-r');
+        }
+        setTimeout(() => app.editor && app.editor.refresh(), 300);
+    },
+    toggleConsole() {
+        const panel = document.getElementById('console-panel');
+        if(!panel) return;
+        this.consoleOpen = !this.consoleOpen;
+        panel.style.height = this.consoleOpen ? '200px' : '40px';
+    },
+    initResizers() {
+        const resizerConsole = document.getElementById('resizer-console');
+        const consolePanel = document.getElementById('console-panel');
+        if(resizerConsole && consolePanel) {
+            resizerConsole.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                document.body.style.cursor = 'row-resize';
+                const startY = e.clientY;
+                const startH = parseInt(window.getComputedStyle(consolePanel).height, 10);
+                const onMouseMove = (e) => {
+                    const newH = startH - (e.clientY - startY);
+                    if (newH > 40 && newH < 600) consolePanel.style.height = `${newH}px`;
+                };
+                const onMouseUp = () => {
+                    document.body.style.cursor = 'default';
+                    window.removeEventListener('mousemove', onMouseMove);
+                    window.removeEventListener('mouseup', onMouseUp);
+                    if(app.editor) app.editor.refresh();
+                };
+                window.addEventListener('mousemove', onMouseMove);
+                window.addEventListener('mouseup', onMouseUp);
+            });
+        }
+        const resizerSidebar = document.getElementById('resizer-sidebar');
+        const sidebar = document.getElementById('app-sidebar');
+        if(resizerSidebar) {
+            resizerSidebar.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                document.body.style.cursor = 'col-resize';
+                const startX = e.clientX;
+                const startW = parseInt(window.getComputedStyle(sidebar).width, 10);
+                const onMouseMove = (e) => {
+                    const newW = startW + (e.clientX - startX);
+                    if (newW > 150 && newW < 500) sidebar.style.width = `${newW}px`;
+                };
+                const onMouseUp = () => {
+                    document.body.style.cursor = 'default';
+                    window.removeEventListener('mousemove', onMouseMove);
+                    window.removeEventListener('mouseup', onMouseUp);
+                    if(app.editor) app.editor.refresh();
+                };
+                window.addEventListener('mousemove', onMouseMove);
+                window.addEventListener('mouseup', onMouseUp);
+            });
+        }
+        const resizerDesc = document.getElementById('resizer-desc');
+        const descPanel = document.getElementById('desc-panel');
+        if(resizerDesc) {
+            resizerDesc.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                document.body.style.cursor = 'col-resize';
+                const startX = e.clientX;
+                const startW = parseInt(window.getComputedStyle(descPanel).width, 10);
+                const onMouseMove = (e) => {
+                    const newW = startW + (e.clientX - startX);
+                    if (newW > 200 && newW < 800) descPanel.style.width = `${newW}px`;
+                };
+                const onMouseUp = () => {
+                    document.body.style.cursor = 'default';
+                    window.removeEventListener('mousemove', onMouseMove);
+                    window.removeEventListener('mouseup', onMouseUp);
+                    if(app.editor) app.editor.refresh();
+                };
+                window.addEventListener('mousemove', onMouseMove);
+                window.addEventListener('mouseup', onMouseUp);
+            });
+        }
+    }
+};
+
+const router = {
+    navigate(viewId) {
+        ['view-landing', 'view-playground', 'view-leaderboard', 'view-profile'].forEach(id => {
+            const el = document.getElementById(id);
+            if(el) el.classList.add('hidden-view');
+        });
+        const target = document.getElementById(`view-${viewId}`);
+        if(target) target.classList.remove('hidden-view');
+        if(viewId === 'profile') authManager.loadProfileData();
+        if(viewId === 'leaderboard') authManager.loadLeaderboard();
+    }
+};
+
+const verifier = {
+    normalizeSQL(result) {
+        if (!Array.isArray(result)) return [];
+        const sortedKeys = result.map(row => {
+            return Object.keys(row).sort().reduce((obj, key) => {
+                obj[key] = row[key];
+                return obj;
+            }, {});
+        });
+        return sortedKeys.sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)));
+    },
+    compare(actual, expected) {
+        const normActual = this.normalizeSQL(actual);
+        const normExpected = this.normalizeSQL(expected);
+        return JSON.stringify(normActual) === JSON.stringify(normExpected);
+    }
+};
+
+const runner = {
+    log(msg, isError = false, customClass = '') {
+        const div = document.getElementById('console-output');
+        if (div) {
+            let colorClass = isError ? 'text-red-500 dark:text-red-400' : 'text-gray-700 dark:text-gray-300';
+            if (customClass) colorClass = customClass;
+            div.innerHTML += `<div class="${colorClass} border-b border-gray-200 dark:border-gray-800 py-1 font-mono text-xs">> ${msg}</div>`;
+            div.scrollTop = div.scrollHeight;
+        }
+    },
+    logTable(data) {
+        const div = document.getElementById('console-output');
+        if (!div || !Array.isArray(data) || data.length === 0) return;
+        const limit = 10;
+        const slicedData = data.slice(0, limit);
+        const headers = Object.keys(slicedData[0]);
+        let html = `
+            <div class="overflow-x-auto my-2 border border-gray-300 dark:border-gray-700 rounded">
+                <table class="min-w-full text-xs text-left text-gray-700 dark:text-gray-300">
+                    <thead class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 uppercase font-medium">
+                        <tr>${headers.map(h => `<th class="px-4 py-2 border-b border-gray-300 dark:border-gray-700">${h}</th>`).join('')}</tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+                        ${slicedData.map(row => `
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                                ${headers.map(h => `<td class="px-4 py-2 whitespace-nowrap font-mono">${row[h] !== null ? row[h] : '<span class="text-gray-400 dark:text-gray-600">NULL</span>'}</td>`).join('')}
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `;
+        if (data.length > limit) html += `<div class="text-[10px] text-gray-500 italic px-2 pb-2">... showing first ${limit} of ${data.length} rows</div>`;
+        div.innerHTML += html;
+        div.scrollTop = div.scrollHeight;
+    },
+    setLoading(isLoading) {
+        const btn = document.getElementById('run-btn');
+        if (!btn) return;
+        if (isLoading) {
+            btn.disabled = true;
+            btn.classList.add('opacity-50', 'cursor-not-allowed');
+        } else {
+            btn.disabled = false;
+            btn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+    },
+    async run(isSubmission = false) {
+        if (!app.state.currentProblem) { alert("No problem loaded!"); return; }
+        this.setLoading(true);
+        document.getElementById('console-output').innerHTML = ''; 
+        document.getElementById('save-status').innerText = '';
+        const code = app.editor.getValue();
+        const problem = app.state.currentProblem;
+        try {
+            let passed = false;
+            if (problem.type === 'python') {
+                passed = await this.runPython(code, problem, isSubmission);
+            } else {
+                passed = this.runSQL(code, problem, isSubmission);
+            }
+            if (isSubmission) {
+                if (app.state.user) {
+                    document.getElementById('save-status').innerText = "Saving...";
+                    await persistence.saveSubmission({
+                        userId: app.state.user.uid,
+                        userDisplayName: app.state.user.displayName,
+                        userPhoto: app.state.user.photoURL,
+                        problemId: problem.id,
+                        problemTitle: problem.title,
+                        track: problem.type,
+                        code: code,
+                        status: passed ? 'Passed' : 'Failed',
+                        timestamp: Date.now()
+                    }, passed);
+                    
+                    document.getElementById('save-status').innerText = "Saved to Portal";
+                    if (passed) {
+                        app.state.solvedProblemIds.add(problem.id);
+                        app.applyFilters(); 
+                    }
+                } else {
+                    alert("Please login to save your progress!");
+                }
+            }
+        } catch (e) {
+            console.error(e); 
+            this.log("System Error: " + e.message, true);
+        } finally {
+            this.setLoading(false);
+        }
+    },
+    submit() { this.run(true); },
+    async runPython(code, problem, isSubmission) {
+        if (!window.pyodide && typeof loadPyodide !== 'undefined') { try { window.pyodide = await loadPyodide(); } catch (e) {} }
+        if (!window.pyodide) { this.log("⚠️ Python engine is still loading... wait 5s", true); return false; }
+        try {
+            let outputCaptured = false;
+            window.pyodide.setStdout({ batched: (msg) => { this.log(msg); outputCaptured = true; }});
+            const result = await window.pyodide.runPythonAsync(code); 
+            if (!isSubmission) {
+                if (result !== undefined) {
+                    this.log("Result: " + result, false, "text-blue-600 dark:text-blue-400 font-bold");
+                } else if (!outputCaptured) {
+                    this.log("ℹ️ Code ran successfully.", false, "text-yellow-600 dark:text-yellow-500");
+                    this.log("   (Tip: Use print() to see output)", false, "text-yellow-700 dark:text-yellow-600 italic");
+                }
+            }
+            if (isSubmission) {
+                this.log("\n--- Verifying Solution ---");
+                if (!problem.test_code) { this.log("⚠️ No test code found.", true); return false; }
+                await window.pyodide.runPythonAsync(code + "\n" + problem.test_code);
+                const output = document.getElementById('console-output').innerText;
+                return output.includes("✅ Passed");
+            }
+            return true; 
+        } catch (err) {
+            this.log(err, true);
+            return false;
+        }
+    },
+    runSQL(code, problem, isSubmission) {
+        if (typeof alasql === 'undefined') { this.log("⚠️ SQL Engine not loaded.", true); return false; }
+        try { alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb'); } catch (e) { this.log("System Error (DB Init): " + e.message, true); return false; }
+        if (problem.setup_sql) { try { alasql(problem.setup_sql); } catch (e) { this.log("Setup Error: " + e.message, true); return false; } }
+        try {
+            const userResult = alasql(code);
+            if(Array.isArray(userResult)) {
+                if(userResult.length === 0) { this.log("Query executed. Result: [] (Empty)"); } 
+                else { this.log("Query Result:", false, "text-blue-600 dark:text-blue-400"); this.logTable(userResult); }
+            } else {
+                this.log("Query Executed Successfully.");
+            }
+            if(isSubmission) {
+                this.log("\n--- Verifying Solution ---");
+                alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb');
+                if (problem.setup_sql) alasql(problem.setup_sql);
+                let expectedResult;
+                try { expectedResult = alasql(problem.solution_sql); } catch(e) { this.log("Configuration Error: Solution SQL is invalid.", true); return false; }
+                alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb');
+                if (problem.setup_sql) alasql(problem.setup_sql);
+                const actualResult = alasql(code);
+                if (verifier.compare(actualResult, expectedResult)) { this.log("✅ Passed! Good job."); return true; } 
+                else { this.log("❌ Failed. Result does not match expected output.", true); return false; }
+            }
+            return true;
+        } catch(e) { this.log("SQL Error: " + e.message, true); return false; }
+    }
+};
+
+const persistence = {
+    async saveSubmission(data, isPassed) {
+        if (app.state.mode === 'firebase') {
+            const fb = window.firebaseModules;
+            await fb.addDoc(fb.collection(app.state.db, "submissions"), data);
+            
+            if (isPassed && !app.state.solvedProblemIds.has(data.problemId)) {
+                const userRef = fb.doc(app.state.db, "users", data.userId);
+                try {
+                    await fb.setDoc(userRef, {
+                        displayName: data.userDisplayName,
+                        photoURL: data.userPhoto,
+                        solvedCount: fb.increment(1)
+                    }, { merge: true });
+                } catch(e) {
+                    console.error("Leaderboard update failed:", e);
+                }
+            }
+        } else {
+            let history = JSON.parse(localStorage.getItem('polyglot_history') || '[]');
+            history.push(data);
+            localStorage.setItem('polyglot_history', JSON.stringify(history));
+        }
+    },
+    async getHistory(userId) {
+        if (app.state.mode === 'firebase') {
+            const fb = window.firebaseModules;
+            const q = fb.query(fb.collection(app.state.db, "submissions"), fb.where("userId", "==", userId));
+            const snapshot = await fb.getDocs(q);
+            return snapshot.docs.map(d => d.data());
+        } else {
+            let history = JSON.parse(localStorage.getItem('polyglot_history') || '[]');
+            return history.filter(h => h.userId === userId);
+        }
+    }
+};
+
+window.onload = app.init.bind(app);

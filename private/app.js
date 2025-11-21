@@ -164,16 +164,37 @@ const app = {
         const container = document.getElementById('topic-filters');
         if(!container) return;
         container.innerHTML = '';
-        const trackProblems = problemsDB.filter(p => p.type === this.state.currentTrack);
-        const topics = new Set(['All']);
-        trackProblems.forEach(p => { if (p.topic) topics.add(p.topic); });
 
-        topics.forEach(topic => {
+        // 1. Get Topics
+        const trackProblems = problemsDB.filter(p => p.type === this.state.currentTrack);
+        const topics = new Set();
+        trackProblems.forEach(p => { if (p.topic) topics.add(p.topic); });
+        
+        // Convert to array and sort alphabetically
+        const sortedTopics = Array.from(topics).sort();
+        
+        // Add 'All' option first
+        const allOptions = ['All', ...sortedTopics];
+
+        allOptions.forEach(topic => {
             const btn = document.createElement('button');
-            btn.className = `topic-tag px-3 py-1 text-[10px] border border-gray-200 dark:border-gray-700 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-500 hover:text-blue-600 dark:hover:text-white transition whitespace-nowrap`;
+            const isActive = (topic === 'All' && this.state.filterTopic === 'All') || (topic === this.state.filterTopic);
+            
+            // NEW STYLE: Tag Cloud / Chips
+            // Active: Blue Background
+            // Inactive: Gray Background
+            let classes = "px-2.5 py-1 text-[10px] rounded-md border transition font-medium ";
+            
+            if (isActive) {
+                classes += "bg-blue-600 border-blue-600 text-white shadow-sm";
+            } else {
+                classes += "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-500 dark:hover:text-blue-400";
+            }
+
+            btn.className = classes;
             btn.innerText = topic;
+            
             btn.onclick = () => app.setTopic(topic);
-            if (topic === 'All') btn.classList.add('active');
             container.appendChild(btn);
         });
     },
