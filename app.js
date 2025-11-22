@@ -1000,7 +1000,7 @@ const runner = {
                             <div class="flex items-center gap-3 w-full p-2 mt-2 bg-green-100 dark:bg-green-900/40 border border-green-300 dark:border-green-700 rounded text-green-900 dark:text-green-100 shadow-sm">
                                 <i class="fa-solid fa-circle-check text-green-600 dark:text-green-400 text-lg"></i>
                                 <div class="flex flex-col leading-none">
-                                    <span class="font-bold text-xs">Submission Received</span>
+                                    <span class="font-bold text-xs">It's Correct</span>
                                     <span class="text-[10px] opacity-80">${this.getRandomPraise()}</span>
                                 </div>
                                 ${nextButton}
