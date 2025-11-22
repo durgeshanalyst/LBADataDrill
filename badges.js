@@ -1,1 +1,159 @@
-const _0x4015fa=_0x5758;(function(_0x4ae632,_0x15cc4e){const _0x48a27=_0x5758,_0x5a40a6=_0x4ae632();while(!![]){try{const _0xc501c2=parseInt(_0x48a27(0x200))/0x1+parseInt(_0x48a27(0x1f9))/0x2*(-parseInt(_0x48a27(0x1d8))/0x3)+-parseInt(_0x48a27(0x1e0))/0x4+parseInt(_0x48a27(0x1fd))/0x5*(parseInt(_0x48a27(0x1f1))/0x6)+-parseInt(_0x48a27(0x1fa))/0x7+-parseInt(_0x48a27(0x1f3))/0x8*(-parseInt(_0x48a27(0x1da))/0x9)+parseInt(_0x48a27(0x1e6))/0xa;if(_0xc501c2===_0x15cc4e)break;else _0x5a40a6['push'](_0x5a40a6['shift']());}catch(_0x2de115){_0x5a40a6['push'](_0x5a40a6['shift']());}}}(_0xb151,0x93b08));function _0x5758(_0x104efa,_0x1dac61){const _0xb15154=_0xb151();return _0x5758=function(_0x575809,_0x3f63e8){_0x575809=_0x575809-0x1d2;let _0x3a69b0=_0xb15154[_0x575809];return _0x3a69b0;},_0x5758(_0x104efa,_0x1dac61);}const badgeManager={'badges':[{'id':_0x4015fa(0x1dd),'track':_0x4015fa(0x20a),'count':0x1,'title':_0x4015fa(0x1e4),'color':'#60A5FA'},{'id':_0x4015fa(0x1f0),'track':_0x4015fa(0x20a),'count':0xa,'title':'SQL\x20Analyst','color':_0x4015fa(0x20b)},{'id':_0x4015fa(0x203),'track':_0x4015fa(0x20a),'count':0x19,'title':'SQL\x20Master','color':_0x4015fa(0x1f8)},{'id':'py_novice','track':_0x4015fa(0x1e3),'count':0x1,'title':_0x4015fa(0x1ea),'color':_0x4015fa(0x208)},{'id':_0x4015fa(0x204),'track':_0x4015fa(0x1e3),'count':0xa,'title':'Python\x20Coder','color':'#F59E0B'},{'id':_0x4015fa(0x1db),'track':_0x4015fa(0x1e3),'count':0x19,'title':'Algo\x20Expert','color':_0x4015fa(0x1f6)}],'generateSVG'(_0xe0809c,_0x4c37fb){const _0xf2ddcf=_0x4015fa;return(_0xf2ddcf(0x1dc)+_0xe0809c['id']+_0xf2ddcf(0x1eb)+_0xe0809c[_0xf2ddcf(0x1ee)]+_0xf2ddcf(0x1ff)+_0xe0809c['id']+')\x22\x20rx=\x2210\x22\x20ry=\x2210\x22/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<text\x20x=\x2215\x22\x20y=\x2225\x22\x20font-family=\x22Arial,\x20sans-serif\x22\x20font-size=\x2210\x22\x20fill=\x22white\x22\x20opacity=\x220.8\x22>POWERED\x20BY\x20LETSBEANALYST</text>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<text\x20x=\x2250%\x22\x20y=\x2260%\x22\x20dominant-baseline=\x22middle\x22\x20text-anchor=\x22middle\x22\x20font-family=\x22Arial,\x20sans-serif\x22\x20font-size=\x2224\x22\x20font-weight=\x22bold\x22\x20fill=\x22white\x22>'+_0xe0809c[_0xf2ddcf(0x201)]+_0xf2ddcf(0x1fc)+_0x4c37fb+_0xf2ddcf(0x1e9))[_0xf2ddcf(0x1e2)]();},'render'(_0x1219b0){const _0x5c17a8=_0x4015fa,_0x1d8d7a=document[_0x5c17a8(0x1ec)](_0x5c17a8(0x1f2));if(!_0x1d8d7a)return;const _0x5243bc={'sql':0x0,'python':0x0},_0xac2494=new Set();_0x1219b0[_0x5c17a8(0x1d4)](_0x241a6c=>{const _0x1fe877=_0x5c17a8;_0x241a6c[_0x1fe877(0x209)]==='Passed'&&!_0xac2494[_0x1fe877(0x1df)](_0x241a6c['problemId'])&&(_0xac2494[_0x1fe877(0x206)](_0x241a6c[_0x1fe877(0x1f5)]),(_0x241a6c['track']===_0x1fe877(0x20a)||_0x241a6c[_0x1fe877(0x1e1)]===_0x1fe877(0x1e3))&&_0x5243bc[_0x241a6c[_0x1fe877(0x1e1)]]++);});const _0x8da3cb=this[_0x5c17a8(0x1d7)][_0x5c17a8(0x1fe)](_0x145d3e=>_0x5243bc[_0x145d3e['track']]>=_0x145d3e[_0x5c17a8(0x1de)]);if(_0x8da3cb[_0x5c17a8(0x207)]===0x0){_0x1d8d7a[_0x5c17a8(0x202)]=_0x5c17a8(0x1ed);return;}const _0x41c539=app[_0x5c17a8(0x1d5)][_0x5c17a8(0x1d9)]?app[_0x5c17a8(0x1d5)][_0x5c17a8(0x1d9)][_0x5c17a8(0x1e5)]:'Student';let _0x1f038a=_0x5c17a8(0x1f7);_0x8da3cb[_0x5c17a8(0x1d4)](_0x31c0f7=>{const _0x2277ee=_0x5c17a8,_0x492b5d=this['generateSVG'](_0x31c0f7,_0x41c539),_0x393c53=btoa(unescape(encodeURIComponent(_0x492b5d))),_0x38343b='data:image/svg+xml;base64,'+_0x393c53;_0x1f038a+=_0x2277ee(0x1d6)+_0x38343b+_0x2277ee(0x1d3)+_0x31c0f7[_0x2277ee(0x201)]+'\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20gap-2\x20mt-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22badgeManager.copyImage(\x27'+_0x38343b+_0x2277ee(0x1e8)+encodeURIComponent(_0x31c0f7[_0x2277ee(0x201)])+_0x2277ee(0x1ef);}),_0x1f038a+=_0x5c17a8(0x1f4),_0x1d8d7a[_0x5c17a8(0x202)]=_0x1f038a;},async 'copyImage'(_0x2851e5){const _0x1305e3=_0x4015fa;try{const _0x32aaa2=await fetch(_0x2851e5),_0x2ccc92=await _0x32aaa2[_0x1305e3(0x205)]();await navigator[_0x1305e3(0x1d2)][_0x1305e3(0x1e7)]([new ClipboardItem({'image/png':_0x2ccc92})]),alert('Badge\x20copied!\x20You\x20can\x20paste\x20it\x20into\x20your\x20email\x20signature.');}catch(_0x76fba6){alert(_0x1305e3(0x1fb));}}};function _0xb151(){const _0x1caa84=['#3B82F6','clipboard','\x22\x20class=\x22w-full\x20h-auto\x20object-contain\x22\x20alt=\x22','forEach','state','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-white\x20dark:bg-gray-900\x20p-4\x20rounded-xl\x20border\x20border-gray-200\x20dark:border-gray-800\x20shadow-sm\x20hover:shadow-md\x20transition\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-3\x20overflow-hidden\x20rounded-lg\x20border\x20border-gray-100\x20dark:border-gray-700\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','badges','1935195vRinzi','user','153uTLFAA','py_expert','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20width=\x22300\x22\x20height=\x22150\x22\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20style=\x22background:\x20white;\x20border-radius:\x2010px;\x20box-shadow:\x200\x204px\x206px\x20rgba(0,0,0,0.1);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<defs>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<linearGradient\x20id=\x22grad_','sql_novice','count','has','2216592CDbILy','track','trim','python','SQL\x20Novice','displayName','13580210EEZlhY','write','\x27)\x22\x20class=\x22flex-1\x20px-3\x20py-1.5\x20bg-gray-100\x20hover:bg-gray-200\x20dark:bg-gray-800\x20dark:hover:bg-gray-700\x20text-xs\x20font-bold\x20text-gray-700\x20dark:text-gray-300\x20rounded\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-regular\x20fa-copy\x22></i>\x20Signature\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://www.linkedin.com/feed/?shareActive=true&text=I%20just%20earned%20the%20','</text>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<circle\x20cx=\x22260\x22\x20cy=\x2230\x22\x20r=\x2215\x22\x20fill=\x22white\x22\x20opacity=\x220.2\x22/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<text\x20x=\x22260\x22\x20y=\x2234\x22\x20text-anchor=\x22middle\x22\x20font-size=\x2214\x22\x20fill=\x22white\x22>★</text>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</svg>','Python\x20Starter','\x22\x20x1=\x220%\x22\x20y1=\x220%\x22\x20x2=\x22100%\x22\x20y2=\x22100%\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<stop\x20offset=\x220%\x22\x20style=\x22stop-color:','getElementById','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22p-6\x20text-center\x20border-2\x20border-dashed\x20border-gray-300\x20dark:border-gray-700\x20rounded-xl\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-gray-500\x22>Solve\x20problems\x20to\x20earn\x20branded\x20badges!</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','color','%20badge%20on%20DataDrill%20by%20LetsBeAnalyst!%20%23DataScience%20%23Learning\x22\x20target=\x22_blank\x22\x20class=\x22flex-1\x20px-3\x20py-1.5\x20bg-blue-600\x20hover:bg-blue-700\x20text-white\x20text-xs\x20font-bold\x20rounded\x20transition\x20text-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-brands\x20fa-linkedin\x22></i>\x20Share\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','sql_intermediate','2454AvRCPp','badges-container','195376ELmAml','</div>','problemId','#B45309','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20justify-between\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-sm\x20font-bold\x20text-gray-500\x20dark:text-gray-400\x20uppercase\x20tracking-wider\x22>Your\x20Certifications</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-1\x20md:grid-cols-2\x20lg:grid-cols-3\x20gap-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','#1E40AF','2FMbtOv','3887646tfQOmL','Right-click\x20the\x20badge\x20image\x20and\x20select\x20\x27Copy\x20Image\x27\x20to\x20add\x20it\x20to\x20your\x20email\x20signature.','</text>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<text\x20x=\x2250%\x22\x20y=\x2280%\x22\x20dominant-baseline=\x22middle\x22\x20text-anchor=\x22middle\x22\x20font-family=\x22Arial,\x20sans-serif\x22\x20font-size=\x2212\x22\x20fill=\x22white\x22>Awarded\x20to:\x20','3220naoXyY','filter',';stop-opacity:1\x22\x20/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<stop\x20offset=\x22100%\x22\x20style=\x22stop-color:#111827;stop-opacity:1\x22\x20/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</linearGradient>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</defs>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<rect\x20width=\x22100%\x22\x20height=\x22100%\x22\x20fill=\x22url(#grad_','322936HMZzpx','title','innerHTML','sql_expert','py_intermediate','blob','add','length','#FCD34D','status','sql'];_0xb151=function(){return _0x1caa84;};return _0xb151();}
+// badges.js
+const badgeManager = {
+    // DEFINITIONS
+    badges: [
+        // --- TRACK BADGES ---
+        { id: 'sql_novice', type: 'track', target: 'sql', count: 1, title: 'SQL Novice', color: '#60A5FA' },
+        { id: 'sql_intermediate', type: 'track', target: 'sql', count: 10, title: 'SQL Analyst', color: '#3B82F6' },
+        { id: 'sql_expert', type: 'track', target: 'sql', count: 25, title: 'SQL Master', color: '#1E40AF' },
+        { id: 'py_novice', type: 'track', target: 'python', count: 1, title: 'Python Starter', color: '#FCD34D' },
+        { id: 'py_intermediate', type: 'track', target: 'python', count: 10, title: 'Python Coder', color: '#F59E0B' },
+        { id: 'py_expert', type: 'track', target: 'python', count: 25, title: 'Algo Expert', color: '#B45309' },
+        
+        // --- TOPIC BADGES (Examples - Add more based on your DB topics) ---
+        { id: 'topic_joins', type: 'topic', target: 'Group By', count: 3, title: 'Join Specialist', color: '#8B5CF6' }, // Purple
+        { id: 'topic_agg', type: 'topic', target: 'Aggregations', count: 3, title: 'Aggregation Pro', color: '#EC4899' }, // Pink
+        { id: 'topic_arrays', type: 'topic', target: 'Arrays', count: 3, title: 'Array Ninja', color: '#10B981' }    // Emerald
+    ],
+
+    // GENERATE SVG (Unchanged visual, just template)
+    generateSVG(badge, userName) {
+        return `
+        <svg width="300" height="150" xmlns="http://www.w3.org/2000/svg" style="background: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <defs>
+                <linearGradient id="grad_${badge.id}" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:${badge.color};stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grad_${badge.id})" rx="10" ry="10"/>
+            <text x="15" y="25" font-family="Arial, sans-serif" font-size="10" fill="white" opacity="0.8">POWERED BY LETSBEANALYST</text>
+            <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">${badge.title}</text>
+            <text x="50%" y="80%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Awarded to: ${userName}</text>
+            <circle cx="260" cy="30" r="15" fill="white" opacity="0.2"/>
+            <text x="260" y="34" text-anchor="middle" font-size="14" fill="white">★</text>
+        </svg>`.trim();
+    },
+
+    render(history) {
+        const container = document.getElementById('badges-container');
+        if (!container) return;
+
+        // 1. Calculate Counts (Tracks & Topics)
+        const counts = { tracks: {}, topics: {} };
+        const passedIds = new Set();
+        
+        history.forEach(h => {
+            // Only count unique passed problems
+            if (h.status === 'Passed' && !passedIds.has(h.problemId)) {
+                passedIds.add(h.problemId);
+                
+                // Count Track
+                const track = h.track || 'unknown';
+                counts.tracks[track] = (counts.tracks[track] || 0) + 1;
+
+                // Count Topic (Look up in global problemsDB)
+                if (typeof problemsDB !== 'undefined') {
+                    const problem = problemsDB.find(p => String(p.id) === String(h.problemId));
+                    if (problem && problem.topic) {
+                        // Normalize topic (trim spaces)
+                        const topicName = problem.topic.trim();
+                        counts.topics[topicName] = (counts.topics[topicName] || 0) + 1;
+                    }
+                }
+            }
+        });
+
+        // 2. Determine Earned Badges
+        const earned = this.badges.filter(b => {
+            if (b.type === 'track') {
+                return (counts.tracks[b.target] || 0) >= b.count;
+            }
+            if (b.type === 'topic') {
+                // Check exact topic match
+                return (counts.topics[b.target] || 0) >= b.count;
+            }
+            return false;
+        });
+
+        if (earned.length === 0) {
+            container.innerHTML = `
+                <div class="p-6 text-center border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-xl">
+                    <p class="text-gray-500">Solve problems to earn branded badges!</p>
+                </div>`;
+            return;
+        }
+
+        // 3. Render
+        const userName = app.state.user ? app.state.user.displayName : 'Student';
+        
+        let html = `
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Your Certifications</h3>
+                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full font-bold">${earned.length} Earned</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        `;
+
+        earned.forEach(b => {
+            const svg = this.generateSVG(b, userName);
+            const base64 = btoa(unescape(encodeURIComponent(svg)));
+            const imgSrc = `data:image/svg+xml;base64,${base64}`;
+
+            // Updated LinkedIn Share Button Logic
+            html += `
+                <div class="bg-white dark:bg-gray-900 p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition group">
+                    <div class="mb-3 overflow-hidden rounded-lg border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+                        <img src="${imgSrc}" class="w-full h-auto object-contain shadow-inner" alt="${b.title}">
+                    </div>
+                    <div class="flex gap-2 mt-2">
+                        <button onclick="badgeManager.copyImage('${imgSrc}')" class="flex-1 px-3 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-xs font-bold text-gray-700 dark:text-gray-300 rounded transition flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy
+                        </button>
+                        <button onclick="badgeManager.shareBadge('${b.title}', '${imgSrc}')" class="flex-1 px-3 py-2 bg-[#0077b5] hover:bg-[#006396] text-white text-xs font-bold rounded transition text-center flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-linkedin"></i> Post
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+
+        html += '</div>';
+        container.innerHTML = html;
+    },
+
+    // Copy to Clipboard (Utility)
+    async copyImage(src) {
+        try {
+            const response = await fetch(src);
+            const blob = await response.blob();
+            await navigator.clipboard.write([ new ClipboardItem({ 'image/png': blob }) ]);
+            // Use simple toast or alert
+            const btn = event.target.closest('button');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = originalHTML, 2000);
+        } catch (err) {
+            alert("Right-click image -> Copy Image");
+        }
+    },
+
+    // NEW: Smart LinkedIn Share Flow
+    async shareBadge(title, imgSrc) {
+        // 1. Copy Image First
+        try {
+            const response = await fetch(imgSrc);
+            const blob = await response.blob();
+            await navigator.clipboard.write([ new ClipboardItem({ 'image/png': blob }) ]);
+            alert(`Image Copied! 📋\n\n1. LinkedIn will open.\n2. Paste (Ctrl+V) the image into your post.\n3. Share your success!`);
+        } catch (e) {
+            alert("Could not auto-copy image. Please right-click the badge, 'Copy Image', then click Share again.");
+            return;
+        }
+
+        // 2. Open LinkedIn with Pre-filled Text
+        const text = `I just earned the ${title} certification on DataDrill by LetsBeAnalyst! 🚀\n\nPracticing SQL and Python daily to master data analytics.\n\n#DataScience #SQL #Python #Learning #DataDrill`;
+        const url = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
+    }
+};
