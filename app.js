@@ -791,59 +791,68 @@ const router = {
 
 const verifier = {
     /**
-     * Standardizes a single value for robust comparison.
-     * - Trims strings (ignores whitespace/indentation differences).
-     * - Preserves numbers/booleans.
-     * - Normalizes null/undefined.
+     * Cleans individual cell values for robust comparison.
+     * - Trims whitespace from strings (e.g., " Item " -> "Item")
+     * - Normalizes null/undefined to null
+     * - (Optional) Could round numbers here if floating point math causes issues
      */
     cleanValue(val) {
         if (val === null || val === undefined) return null;
-        if (typeof val === 'string') return val.trim(); // Robust: Ignore indentation/padding
+        if (typeof val === 'string') return val.trim();
+        // Handle potential string-numbers (optional, remove if strict type checking is desired)
+        if (!isNaN(parseFloat(val)) && isFinite(val) && typeof val === 'string') {
+             // return Number(val); // Uncomment if you want "100" to equal 100
+        }
         return val;
     },
 
     /**
-     * Normalizes a list of rows:
-     * 1. Lowercases column headers (SQL is case-insensitive).
-     * 2. Sorts column headers (SELECT A, B == SELECT B, A).
-     * 3. Cleans values.
+     * Normalizes the entire result set:
+     * 1. Lowercases all column headers (SQL case-insensitivity).
+     * 2. Sorts columns alphabetically (Ignore column order).
+     * 3. Sorts rows content-wise (Ignore row order).
      */
-    normalizeDataset(rows) {
-        if (!Array.isArray(rows)) return [];
-        return rows.map(row => {
-            const normalizedRow = {};
-            // Sort keys to ignore column order
-            Object.keys(row).sort().forEach(key => {
-                // Lowercase key to ignore column case
-                normalizedRow[key.toLowerCase()] = this.cleanValue(row[key]);
+    normalizeDataset(dataset) {
+        if (!Array.isArray(dataset)) return [];
+        
+        const normalizedRows = dataset.map(row => {
+            const cleanRow = {};
+            // Get keys, sort them case-insensitively to ensure stable JSON order
+            const keys = Object.keys(row).sort((a, b) => 
+                a.toLowerCase().localeCompare(b.toLowerCase())
+            );
+            
+            keys.forEach(key => {
+                // Lowercase the key for comparison (Revenue == revenue)
+                const lowerKey = key.toLowerCase();
+                cleanRow[lowerKey] = this.cleanValue(row[key]);
             });
-            return normalizedRow;
+            return cleanRow;
         });
+
+        // Sort the rows themselves to handle unordered results (unless ORDER BY is strict, but this helps robustness)
+        return normalizedRows.sort((a, b) => 
+            JSON.stringify(a).localeCompare(JSON.stringify(b))
+        );
     },
 
     compare(actual, expected) {
-        // 1. Safety Checks
-        if (!Array.isArray(actual) || !Array.isArray(expected)) return false;
-        if (actual.length !== expected.length) return false;
-        if (actual.length === 0) return true;
-
-        // 2. Normalize Data (Case & Column Order)
-        const normActual = this.normalizeDataset(actual);
-        const normExpected = this.normalizeDataset(expected);
-
-        // 3. Comparison Level 1: Strict Order (Ideal)
-        // (Checks if the user output matches the solution exactly, including order)
-        const actualJson = JSON.stringify(normActual);
-        const expectedJson = JSON.stringify(normExpected);
-        if (actualJson === expectedJson) return true;
-
-        // 4. Comparison Level 2: Set Equality (Robust)
-        // (Ignores row order entirely. Useful if the problem didn't ask for ORDER BY)
-        const sorter = (a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b));
-        normActual.sort(sorter);
-        normExpected.sort(sorter);
-
-        return JSON.stringify(normActual) === JSON.stringify(normExpected);
+        try {
+            const normActual = this.normalizeDataset(actual);
+            const normExpected = this.normalizeDataset(expected);
+            
+            // Debugging: Log mismatch to console if needed
+            const isMatch = JSON.stringify(normActual) === JSON.stringify(normExpected);
+            if (!isMatch) {
+                console.log("Verifier Mismatch Details:");
+                console.log("Normalized User Output:", normActual);
+                console.log("Normalized Expected Output:", normExpected);
+            }
+            return isMatch;
+        } catch (e) {
+            console.error("Verifier System Error:", e);
+            return false; // Fail gracefully rather than crashing
+        }
     }
 };
 
