@@ -878,9 +878,9 @@ const verifier = {
 
 const runner = {
     praiseWords: [
-        "Magnificent! 🌟", "Outstanding work! 🚀", "Brilliant solution! 💎", 
-        "You nailed it! 🔨", "Fantastic job! 🔥", "Spot on! 🎯", 
-        "Impressive coding! 💻", "You're on fire! 🧨", "Perfect execution! ✨"
+        "Magnificent!", "Outstanding!", "Brilliant!", 
+        "Nailed it!", "Fantastic!", "Spot on!", 
+        "Impressive!", "On fire!", "Perfect!"
     ],
 
     getRandomPraise() {
@@ -944,7 +944,6 @@ const runner = {
         if (!app.state.currentProblem) { alert("No problem loaded!"); return; }
         this.setLoading(true);
         
-        // Clear previous output
         document.getElementById('console-output').innerHTML = ''; 
         document.getElementById('save-status').innerText = '';
         
@@ -976,40 +975,35 @@ const runner = {
                     
                     document.getElementById('save-status').innerText = "Saved";
 
-                    // --- 1. Submission Confirmation ---
-                    this.log(`
-                        <div class="flex items-center gap-2 mt-2 py-1">
-                            <i class="fa-solid fa-circle-check text-green-500"></i> 
-                            <span class="font-bold text-gray-600 dark:text-gray-300 text-xs uppercase tracking-wide">Submission Received</span>
-                        </div>
-                    `);
-
                     if (passed) {
                         app.state.solvedProblemIds.add(problem.id);
                         app.applyFilters(); 
                         if(typeof starManager !== 'undefined') starManager.render();
                         
-                        // --- 2. Next Problem Logic ---
+                        // --- NEXT PROBLEM LOGIC ---
                         const currentIndex = problemsDB.findIndex(p => String(p.id) === String(problem.id));
-                        // Try to find the next problem in the list
                         const nextProblem = problemsDB[currentIndex + 1];
                         
-                        let nextActionHtml = '';
+                        let nextButton = '';
                         if (nextProblem) {
-                            nextActionHtml = `
-                                <button onclick="app.loadProblem('${nextProblem.id}')" class="mt-3 px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded shadow-sm transition flex items-center gap-2 group">
-                                    <span>Next Problem</span> 
-                                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            nextButton = `
+                                <button onclick="app.loadProblem('${nextProblem.id}')" class="ml-auto px-3 py-1 bg-green-700 hover:bg-green-800 text-white text-[10px] font-bold uppercase rounded transition flex items-center gap-1 whitespace-nowrap shadow-sm">
+                                    Next <i class="fa-solid fa-arrow-right"></i>
                                 </button>
                             `;
                         } else {
-                            nextActionHtml = `<div class="mt-2 text-[10px] text-gray-400">You've reached the end of the list! Check other tracks.</div>`;
+                            nextButton = `<span class="ml-auto text-[10px] italic opacity-70">All done!</span>`;
                         }
 
+                        // --- THE GREEN RECTANGLE ---
                         this.log(`
-                            <div class="mt-2 pt-2 border-t border-dashed border-gray-200 dark:border-gray-700">
-                                <div class="text-sm font-bold text-green-600 dark:text-green-400">🚀 ${this.getRandomPraise()}</div>
-                                ${nextActionHtml}
+                            <div class="flex items-center gap-3 w-full p-2 mt-2 bg-green-100 dark:bg-green-900/40 border border-green-300 dark:border-green-700 rounded text-green-900 dark:text-green-100 shadow-sm">
+                                <i class="fa-solid fa-circle-check text-green-600 dark:text-green-400 text-lg"></i>
+                                <div class="flex flex-col leading-none">
+                                    <span class="font-bold text-xs">Submission Received</span>
+                                    <span class="text-[10px] opacity-80">${this.getRandomPraise()}</span>
+                                </div>
+                                ${nextButton}
                             </div>
                         `);
                     }
@@ -1044,7 +1038,6 @@ const runner = {
             }
             
             if (isSubmission) {
-                this.log("\n--- Verifying ---");
                 if (!problem.test_code) { this.log("⚠️ No test code found.", true); return false; }
                 
                 await window.pyodide.runPythonAsync(code + "\n" + problem.test_code);
@@ -1052,9 +1045,7 @@ const runner = {
                 const output = document.getElementById('console-output').innerText;
                 const passed = output.includes("Passed"); 
                 
-                if(passed) {
-                    // Success handled in run()
-                } else {
+                if(!passed) {
                     this.log("❌ FAILED: Solution did not pass tests.", true);
                 }
                 return passed;
@@ -1111,7 +1102,6 @@ const runner = {
                 const isMatch = verifier.compare(actualResult, expectedResult);
                 
                 if (isMatch) { 
-                    // Success handled in run()
                     return true; 
                 } else { 
                     this.log("❌ Wrong Answer"); 
