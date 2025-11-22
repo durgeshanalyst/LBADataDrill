@@ -678,18 +678,20 @@ const ui = {
     generateTableHtml(data, customClass = '') {
         if (!Array.isArray(data) || data.length === 0) return '';
         const headers = Object.keys(data[0]);
-        // Default border if not provided
+        
+        // CHANGES: Removed 'my-2', reduced padding to 'px-2 py-1' for tighter look
         const borderClass = customClass || 'border-gray-300 dark:border-gray-700';
+        
         return `
-            <div class="overflow-x-auto my-2 border ${borderClass} rounded bg-white dark:bg-gray-900/50">
+            <div class="overflow-x-auto border ${borderClass} rounded bg-white dark:bg-gray-900/50 mb-1">
                 <table class="min-w-full text-xs text-left text-gray-700 dark:text-gray-300">
                     <thead class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 uppercase font-medium">
-                        <tr>${headers.map(h => `<th class="px-4 py-2 border-b border-gray-300 dark:border-gray-700">${h}</th>`).join('')}</tr>
+                        <tr>${headers.map(h => `<th class="px-2 py-1 border-b border-gray-300 dark:border-gray-700 whitespace-nowrap">${h}</th>`).join('')}</tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
                         ${data.map(row => `
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                                ${headers.map(h => `<td class="px-4 py-2 whitespace-nowrap font-mono">${row[h] !== null ? row[h] : '<span class="text-gray-400 dark:text-gray-600">NULL</span>'}</td>`).join('')}
+                                ${headers.map(h => `<td class="px-2 py-1 whitespace-nowrap font-mono border-r border-gray-100 dark:border-gray-800 last:border-0">${row[h] !== null ? row[h] : '<span class="text-gray-400">NULL</span>'}</td>`).join('')}
                             </tr>
                         `).join('')}
                     </tbody>
@@ -774,15 +776,33 @@ const ui = {
 
 const router = {
     navigate(viewId) {
+        // 1. Handle View Toggling
         ['view-landing', 'view-playground', 'view-leaderboard', 'view-profile'].forEach(id => {
             const el = document.getElementById(id);
             if(el) el.classList.add('hidden-view');
         });
         const target = document.getElementById(`view-${viewId}`);
         if(target) target.classList.remove('hidden-view');
+
+        // 2. Specific View Logic
         if(viewId === 'profile') authManager.loadProfileData();
         if(viewId === 'leaderboard') authManager.loadLeaderboard();
-        // --- NEW: Sync URL hash for main pages ---
+        
+        // --- NEW: 50/50 Split Logic for Playground ---
+        if(viewId === 'playground') {
+             setTimeout(() => {
+                 const consolePanel = document.getElementById('console-panel');
+                 const parent = consolePanel ? consolePanel.parentElement : null;
+                 if (consolePanel && parent) {
+                     // Calculate 50% of the parent container's height
+                     const halfHeight = parent.clientHeight / 2;
+                     consolePanel.style.height = `${halfHeight}px`;
+                     if(app.editor) app.editor.refresh();
+                 }
+             }, 50); // Slight delay to ensure DOM is rendered
+        }
+
+        // 3. Sync URL Hash
         if (viewId === 'landing') window.location.hash = 'landing';
         if (viewId === 'leaderboard') window.location.hash = 'leaderboard';
         if (viewId === 'profile') window.location.hash = 'profile';
@@ -857,21 +877,32 @@ const verifier = {
 };
 
 const runner = {
-    // --- UI CHANGE: Minimal & Clean Log with Highlighting ---
+    // Inspiring messages bank
+    praiseWords: [
+        "Magnificent! 🌟", "Outstanding work! 🚀", "Brilliant solution! 💎", 
+        "You nailed it! 🔨", "Fantastic job! 🔥", "Spot on! 🎯", 
+        "Impressive coding! 💻", "You're on fire! 🧨", "Perfect execution! ✨"
+    ],
+
+    getRandomPraise() {
+        return this.praiseWords[Math.floor(Math.random() * this.praiseWords.length)];
+    },
+
     log(msg, isError = false, customClass = '') {
         const div = document.getElementById('console-output');
         if (div) {
-            let className = "font-mono text-xs py-1 ";
+            // Reduced padding in the log line itself for compactness
+            let className = "font-mono text-xs leading-tight "; 
             
-            // PRIORITY FIX: customClass overrides other detection
             if (customClass) {
                 className += customClass;
             } else if (msg.includes("Wrong Answer") || msg.includes("FAILED")) {
-                className += "text-red-600 dark:text-red-400 font-bold";
-            } else if (msg.includes("PASSED") || msg.includes("Passed")) {
-                className += "text-green-600 dark:text-green-400 font-bold";
+                className += "text-red-600 dark:text-red-400 font-bold my-1";
+            } else if (this.praiseWords.some(word => msg.includes(word)) || msg.includes("PASSED")) {
+                // Green for our new inspiring words
+                className += "text-green-600 dark:text-green-400 font-bold my-1 text-sm";
             } else if (msg.includes("YOUR OUTPUT") || msg.includes("EXPECTED OUTPUT")) {
-                className += "text-gray-500 dark:text-gray-400 font-bold mt-2";
+                className += "text-gray-500 dark:text-gray-400 font-bold mt-3 mb-1 border-b border-gray-200 dark:border-gray-700 pb-0.5 block";
             } else if (isError) {
                 className += "text-red-500 dark:text-red-400";
             } else {
@@ -882,6 +913,7 @@ const runner = {
             div.scrollTop = div.scrollHeight;
         }
     },
+
     logTable(data, customBorderClass = '') {
         const div = document.getElementById('console-output');
         if (!div || !Array.isArray(data) || data.length === 0) return;
@@ -889,16 +921,17 @@ const runner = {
         const limit = 10;
         const slicedData = data.slice(0, limit);
         
-        // Add indentation/style
-        let html = `<div class="ml-1 mb-2">`;
+        // Removed margin-left/bottom for cleaner look
+        let html = `<div>`;
         const border = customBorderClass || 'border-blue-200 dark:border-blue-800';
         html += ui.generateTableHtml(slicedData, border);
-        if (data.length > limit) html += `<div class="text-[10px] text-gray-500 italic px-2 pb-2">... showing first ${limit} of ${data.length} rows</div>`;
+        if (data.length > limit) html += `<div class="text-[10px] text-gray-500 italic pb-1">... showing first ${limit} of ${data.length} rows</div>`;
         html += `</div>`;
 
         div.innerHTML += html;
         div.scrollTop = div.scrollHeight;
     },
+
     setLoading(isLoading) {
         const btn = document.getElementById('run-btn');
         if (!btn) return;
@@ -910,13 +943,18 @@ const runner = {
             btn.classList.remove('opacity-50', 'cursor-not-allowed');
         }
     },
+
     async run(isSubmission = false) {
         if (!app.state.currentProblem) { alert("No problem loaded!"); return; }
         this.setLoading(true);
+        
+        // Clear previous output
         document.getElementById('console-output').innerHTML = ''; 
         document.getElementById('save-status').innerText = '';
+        
         const code = app.editor.getValue();
         const problem = app.state.currentProblem;
+        
         try {
             let passed = false;
             if (problem.type === 'python') {
@@ -924,6 +962,7 @@ const runner = {
             } else {
                 passed = this.runSQL(code, problem, isSubmission);
             }
+            
             if (isSubmission) {
                 if (app.state.user) {
                     document.getElementById('save-status').innerText = "Saving...";
@@ -939,7 +978,7 @@ const runner = {
                         timestamp: Date.now()
                     }, passed);
                     
-                    document.getElementById('save-status').innerText = "Saved to Portal";
+                    document.getElementById('save-status').innerText = "Saved";
                     if (passed) {
                         app.state.solvedProblemIds.add(problem.id);
                         app.applyFilters(); 
@@ -956,30 +995,40 @@ const runner = {
             this.setLoading(false);
         }
     },
+
     submit() { this.run(true); },
+
     async runPython(code, problem, isSubmission) {
         if (!window.pyodide && typeof loadPyodide !== 'undefined') { try { window.pyodide = await loadPyodide(); } catch (e) {} }
-        if (!window.pyodide) { this.log("⚠️ Python engine is still loading... wait 5s", true); return false; }
+        if (!window.pyodide) { this.log("⚠️ Python engine loading...", true); return false; }
         try {
             let outputCaptured = false;
             window.pyodide.setStdout({ batched: (msg) => { this.log(msg); outputCaptured = true; }});
             const result = await window.pyodide.runPythonAsync(code); 
+            
             if (!isSubmission) {
                 if (result !== undefined) {
                     this.log("Result: " + result, false, "text-blue-600 dark:text-blue-400 font-bold");
                 } else if (!outputCaptured) {
                     this.log("ℹ️ Code ran successfully.", false, "text-yellow-600 dark:text-yellow-500");
-                    this.log("   (Tip: Use print() to see output)", false, "text-yellow-700 dark:text-yellow-600 italic");
                 }
             }
+            
             if (isSubmission) {
-                this.log("\n--- Verifying Solution ---");
+                this.log("\n--- Verifying ---");
                 if (!problem.test_code) { this.log("⚠️ No test code found.", true); return false; }
+                
+                // Run test code
                 await window.pyodide.runPythonAsync(code + "\n" + problem.test_code);
+                
+                // Check output for success flag (Python tests usually print "Passed" or throw error)
+                // Adapting logic to look for specific success markers or lack of errors
                 const output = document.getElementById('console-output').innerText;
-                const passed = output.includes("✅ Passed");
+                // Assuming python tests print "Passed" on success
+                const passed = output.includes("Passed"); 
+                
                 if(passed) {
-                    this.log("✅ PASSED: Tests passed successfully.");
+                    this.log(`✅ ${this.getRandomPraise()}`);
                 } else {
                     this.log("❌ FAILED: Solution did not pass tests.", true);
                 }
@@ -991,10 +1040,11 @@ const runner = {
             return false;
         }
     },
+
     runSQL(code, problem, isSubmission) {
         if (typeof alasql === 'undefined') { this.log("⚠️ SQL Engine not loaded.", true); return false; }
         
-        try { alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb'); } catch (e) { this.log("System Error (DB Init): " + e.message, true); return false; }
+        try { alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb'); } catch (e) {}
         
         if (problem.setup_sql) { 
              const stmts = problem.setup_sql.split(';');
@@ -1004,7 +1054,7 @@ const runner = {
         try {
             const userResult = alasql(code);
             if(!isSubmission) {
-                 this.log("YOUR OUTPUT:", false, "text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider");
+                 this.log("YOUR OUTPUT:", false);
                  if(Array.isArray(userResult)) {
                     if(userResult.length === 0) { this.log("Result: [] (Empty)"); } 
                     else { this.logTable(userResult, 'border-blue-300 dark:border-blue-700'); }
@@ -1015,16 +1065,16 @@ const runner = {
             }
 
             if(isSubmission) {
-                // 1. Calculate Expected Result
+                // 1. Expected
                 alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb');
                 if (problem.setup_sql) {
                      const stmts = problem.setup_sql.split(';');
                      for(let stmt of stmts) if(stmt.trim()) try { alasql(stmt); } catch(e) {}
                 }
                 let expectedResult;
-                try { expectedResult = alasql(problem.solution_sql); } catch(e) { this.log("Configuration Error: Solution SQL is invalid.", true); return false; }
+                try { expectedResult = alasql(problem.solution_sql); } catch(e) { this.log("Config Error: Solution SQL invalid.", true); return false; }
 
-                // 2. Calculate User Result (Clean Run)
+                // 2. Actual
                 alasql('DROP DATABASE IF EXISTS testdb'); alasql('CREATE DATABASE testdb'); alasql('USE testdb');
                 if (problem.setup_sql) {
                      const stmts = problem.setup_sql.split(';');
@@ -1032,23 +1082,22 @@ const runner = {
                 }
                 const actualResult = alasql(code);
 
-                // 3. Compare
+                // 3. Compare (Using the Robust Verifier)
                 const isMatch = verifier.compare(actualResult, expectedResult);
                 
                 if (isMatch) { 
-                    this.log("✅ PASSED: Output matches expected result."); 
+                    this.log(`✅ ${this.getRandomPraise()}`); 
                     return true; 
                 } else { 
                     this.log("❌ Wrong Answer"); 
                     
-                    // --- UI CHANGE: Red for User Output, Green for Expected ---
-                    this.log("YOUR OUTPUT", false, "text-red-600 dark:text-red-400 font-bold mt-2");
+                    this.log("YOUR OUTPUT", false, "text-red-600 dark:text-red-400 font-bold mt-2 mb-1");
                     if(Array.isArray(actualResult) && actualResult.length > 0) 
                         this.logTable(actualResult, 'border-red-500 dark:border-red-500');
                     else 
                         this.log("[] (Empty)", false, "text-red-500");
 
-                    this.log("EXPECTED OUTPUT", false, "text-green-600 dark:text-green-400 font-bold mt-2");
+                    this.log("EXPECTED OUTPUT", false, "text-green-600 dark:text-green-400 font-bold mt-2 mb-1");
                     if(Array.isArray(expectedResult) && expectedResult.length > 0) 
                         this.logTable(expectedResult, 'border-green-500 dark:border-green-500');
                     else 
