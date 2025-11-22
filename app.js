@@ -877,7 +877,6 @@ const verifier = {
 };
 
 const runner = {
-    // Inspiring messages bank
     praiseWords: [
         "Magnificent! 🌟", "Outstanding work! 🚀", "Brilliant solution! 💎", 
         "You nailed it! 🔨", "Fantastic job! 🔥", "Spot on! 🎯", 
@@ -891,18 +890,16 @@ const runner = {
     log(msg, isError = false, customClass = '') {
         const div = document.getElementById('console-output');
         if (div) {
-            // Reduced padding in the log line itself for compactness
-            let className = "font-mono text-xs leading-tight "; 
+            let className = "font-mono text-xs leading-snug "; 
             
             if (customClass) {
                 className += customClass;
             } else if (msg.includes("Wrong Answer") || msg.includes("FAILED")) {
                 className += "text-red-600 dark:text-red-400 font-bold my-1";
             } else if (this.praiseWords.some(word => msg.includes(word)) || msg.includes("PASSED")) {
-                // Green for our new inspiring words
                 className += "text-green-600 dark:text-green-400 font-bold my-1 text-sm";
             } else if (msg.includes("YOUR OUTPUT") || msg.includes("EXPECTED OUTPUT")) {
-                className += "text-gray-500 dark:text-gray-400 font-bold mt-3 mb-1 border-b border-gray-200 dark:border-gray-700 pb-0.5 block";
+                className += "text-gray-500 dark:text-gray-400 font-bold mt-2 mb-0.5 border-b border-gray-200 dark:border-gray-700 pb-0.5 block";
             } else if (isError) {
                 className += "text-red-500 dark:text-red-400";
             } else {
@@ -921,7 +918,6 @@ const runner = {
         const limit = 10;
         const slicedData = data.slice(0, limit);
         
-        // Removed margin-left/bottom for cleaner look
         let html = `<div>`;
         const border = customBorderClass || 'border-blue-200 dark:border-blue-800';
         html += ui.generateTableHtml(slicedData, border);
@@ -979,10 +975,43 @@ const runner = {
                     }, passed);
                     
                     document.getElementById('save-status').innerText = "Saved";
+
+                    // --- 1. Submission Confirmation ---
+                    this.log(`
+                        <div class="flex items-center gap-2 mt-2 py-1">
+                            <i class="fa-solid fa-circle-check text-green-500"></i> 
+                            <span class="font-bold text-gray-600 dark:text-gray-300 text-xs uppercase tracking-wide">Submission Received</span>
+                        </div>
+                    `);
+
                     if (passed) {
                         app.state.solvedProblemIds.add(problem.id);
                         app.applyFilters(); 
                         if(typeof starManager !== 'undefined') starManager.render();
+                        
+                        // --- 2. Next Problem Logic ---
+                        const currentIndex = problemsDB.findIndex(p => String(p.id) === String(problem.id));
+                        // Try to find the next problem in the list
+                        const nextProblem = problemsDB[currentIndex + 1];
+                        
+                        let nextActionHtml = '';
+                        if (nextProblem) {
+                            nextActionHtml = `
+                                <button onclick="app.loadProblem('${nextProblem.id}')" class="mt-3 px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded shadow-sm transition flex items-center gap-2 group">
+                                    <span>Next Problem</span> 
+                                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            `;
+                        } else {
+                            nextActionHtml = `<div class="mt-2 text-[10px] text-gray-400">You've reached the end of the list! Check other tracks.</div>`;
+                        }
+
+                        this.log(`
+                            <div class="mt-2 pt-2 border-t border-dashed border-gray-200 dark:border-gray-700">
+                                <div class="text-sm font-bold text-green-600 dark:text-green-400">🚀 ${this.getRandomPraise()}</div>
+                                ${nextActionHtml}
+                            </div>
+                        `);
                     }
                 } else {
                     alert("Please login to save your progress!");
@@ -1018,17 +1047,13 @@ const runner = {
                 this.log("\n--- Verifying ---");
                 if (!problem.test_code) { this.log("⚠️ No test code found.", true); return false; }
                 
-                // Run test code
                 await window.pyodide.runPythonAsync(code + "\n" + problem.test_code);
                 
-                // Check output for success flag (Python tests usually print "Passed" or throw error)
-                // Adapting logic to look for specific success markers or lack of errors
                 const output = document.getElementById('console-output').innerText;
-                // Assuming python tests print "Passed" on success
                 const passed = output.includes("Passed"); 
                 
                 if(passed) {
-                    this.log(`✅ ${this.getRandomPraise()}`);
+                    // Success handled in run()
                 } else {
                     this.log("❌ FAILED: Solution did not pass tests.", true);
                 }
@@ -1082,11 +1107,11 @@ const runner = {
                 }
                 const actualResult = alasql(code);
 
-                // 3. Compare (Using the Robust Verifier)
+                // 3. Compare
                 const isMatch = verifier.compare(actualResult, expectedResult);
                 
                 if (isMatch) { 
-                    this.log(`✅ ${this.getRandomPraise()}`); 
+                    // Success handled in run()
                     return true; 
                 } else { 
                     this.log("❌ Wrong Answer"); 
