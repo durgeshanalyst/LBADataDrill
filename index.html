@@ -58,57 +58,66 @@
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-white h-screen flex flex-col overflow-hidden font-sans transition-colors duration-200">
 
-    <!-- NAVBAR -->
-    <nav class="h-16 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 md:px-6 shrink-0 z-20 transition-colors duration-200">
-        <div class="flex items-center gap-4">
-            <button onclick="ui.toggleSidebar()" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition focus:outline-none">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="flex items-center gap-2 cursor-pointer" onclick="router.navigate('landing')">
-                <div class="bg-gradient-to-br from-yellow-400 to-orange-600 text-white w-7 h-7 rounded flex items-center justify-center font-bold shadow-lg shadow-orange-500/20">
-                    <i class="fa-solid fa-code text-xs"></i>
-                </div>
-                <h1 class="font-bold text-lg tracking-tight hidden md:block">Data<span class="text-yellow-500">Drill</span></h1>
-            </div>
-        </div>
+<nav class="h-16 bg-white/90 dark:bg-[#0f172a]/90 backdrop-blur-lg border-b border-gray-200 dark:border-slate-800 flex items-center justify-between px-4 md:px-6 shrink-0 z-50 transition-colors duration-300">
+    
+    <div class="flex items-center gap-4">
+        <button onclick="ui.toggleSidebar()" class="text-slate-500 hover:text-lba-purple dark:text-slate-400 dark:hover:text-white transition focus:outline-none p-1">
+            <i class="fa-solid fa-bars text-lg"></i>
+        </button>
         
-        <div class="flex items-center gap-3 md:gap-4">
-            <div class="relative group hidden sm:block">
-                <select id="nav-difficulty" onchange="app.setDifficulty(this.value)" class="appearance-none bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded px-3 py-1.5 pr-8 focus:outline-none focus:border-blue-500 cursor-pointer">
-                    <option value="All">All Levels</option>
-                    <option value="Easy">Easy</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Hard">Hard</option>
-                </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500"><i class="fa-solid fa-chevron-down text-[10px]"></i></div>
-            </div>
-
-            <button onclick="router.navigate('landing')" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white text-xs font-medium transition hidden sm:block">Tracks</button>
-            
-            <!-- NEW: Leaderboard Button -->
-            <button onclick="router.navigate('leaderboard')" class="text-gray-500 dark:text-gray-400 hover:text-yellow-500 dark:hover:text-yellow-400 transition" title="Leaderboard">
-                <i class="fa-solid fa-trophy"></i>
-            </button>
-
-            <button onclick="themeManager.toggle()" id="theme-btn" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-yellow-400 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-
-            <div id="auth-section">
-                <button onclick="authManager.login()" id="btn-login" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded text-xs font-semibold transition shadow-lg shadow-blue-900/20 flex items-center gap-2">
-                    <i class="fa-brands fa-google"></i> <span class="hidden sm:inline">Login</span>
-                </button>
-                <div id="user-profile-menu" class="hidden flex items-center gap-2">
-                    <button onclick="router.navigate('profile')" class="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800 px-2 py-1 rounded transition group">
-                        <img id="user-avatar" src="" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=User&background=random';" class="w-8 h-8 rounded-full border border-gray-300 dark:border-gray-600 object-cover">
-                    </button>
-                    <button onclick="authManager.logout()" class="text-gray-500 hover:text-red-500 transition" title="Logout">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </button>
+        <div class="flex items-center gap-3 cursor-pointer group" onclick="router.navigate('landing')">
+            <div class="relative w-8 h-8 rounded-full p-[1px] bg-gradient-to-br from-purple-600 to-blue-500 shadow-md group-hover:shadow-purple-500/30 transition-all">
+                <div class="bg-white dark:bg-slate-900 w-full h-full rounded-full flex items-center justify-center">
+                    <img src="https://www.letsbeanalyst.com/asset/LBA-wb.png" alt="LBA" class="w-6 h-6 rounded-full">
                 </div>
             </div>
+            <div class="flex flex-col leading-none">
+                <span class="font-extrabold text-lg tracking-tight text-slate-900 dark:text-white group-hover:text-lba-purple transition-colors">DataDrill</span>
+                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">by LBA Analytics & AI</span>
+            </div>
         </div>
-    </nav>
+    </div>
+    
+    <div class="flex items-center gap-3 md:gap-4">
+        
+        <div class="relative group hidden sm:block">
+            <select id="nav-difficulty" onchange="app.setDifficulty(this.value)" class="appearance-none bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 rounded-lg px-3 py-1.5 pr-8 focus:outline-none focus:ring-2 focus:ring-lba-purple cursor-pointer hover:border-purple-400 transition">
+                <option value="All">All Levels</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400"><i class="fa-solid fa-chevron-down text-[10px]"></i></div>
+        </div>
+
+        <button onclick="router.navigate('landing')" class="text-slate-500 dark:text-slate-400 hover:text-lba-purple dark:hover:text-white text-xs font-bold uppercase tracking-wider transition hidden sm:block">Tracks</button>
+        
+        <button onclick="router.navigate('leaderboard')" class="text-slate-400 hover:text-yellow-500 transition p-2" title="Leaderboard">
+            <i class="fa-solid fa-trophy"></i>
+        </button>
+
+        <button onclick="themeManager.toggle()" id="theme-btn" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-800 text-slate-500 dark:text-yellow-400 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-slate-700 transition">
+            <i class="fa-solid fa-moon hidden dark:block"></i>
+            <i class="fa-solid fa-sun block dark:hidden"></i>
+        </button>
+
+        <div id="auth-section">
+            <button onclick="authManager.login()" id="btn-login" class="bg-lba-purple hover:bg-purple-900 text-white px-4 py-1.5 rounded-lg text-xs font-bold transition shadow-lg shadow-purple-900/20 flex items-center gap-2">
+                <i class="fa-brands fa-google"></i> <span class="hidden sm:inline">Login</span>
+            </button>
+            
+            <div id="user-profile-menu" class="hidden flex items-center gap-3">
+                <button onclick="router.navigate('profile')" class="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-slate-800 px-2 py-1 rounded-lg transition border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                    <img id="user-avatar" src="" class="w-7 h-7 rounded-full object-cover border border-slate-300 dark:border-slate-600">
+                    <span id="nav-user-name" class="text-xs font-bold hidden md:block truncate max-w-[80px]">User</span>
+                </button>
+                <button onclick="authManager.logout()" class="text-slate-400 hover:text-red-500 transition" title="Logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
 
     <!-- MAIN -->
     <main class="flex-1 relative overflow-hidden">
