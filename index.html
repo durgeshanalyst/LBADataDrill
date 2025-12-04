@@ -1,36 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DataDrill - Letsbeanalyst</title>
+    <title>DataDrill | Master Real-World Data Skills</title>
+    <meta name="description" content="The active practice platform for Data Analysts. Master SQL & Python with real company questions and guided projects.">
     
-    <meta name="keywords" content="Data Analytics, Data Engineering, SQL, Python, Machine Learning">
-    <link rel="icon" href="LBA.png" type="image/svg+xml">
+    <!-- Favicon -->
+    <link rel="icon" href="LBA.png" type="image/png">
     
+    <!-- Google Fonts: Inter for UI, Fira Code for Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { 
             darkMode: 'class', 
             theme: { 
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    mono: ['Fira Code', 'monospace'],
+                },
                 extend: {
                     colors: {
-                        lba: { purple: '#7e22ce', blue: '#3b82f6' }
+                        brand: { 
+                            dark: '#020617', 
+                            card: '#0f172a',
+                            accent: '#6366f1', // Indigo
+                            success: '#10b981', // Emerald
+                            purple: '#8b5cf6'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        },
+                        fadeIn: {
+                            'from': { opacity: '0', transform: 'translateY(10px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' }
+                        }
                     }
                 } 
             } 
         }
     </script>
     
+    <!-- Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/eclipse.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/sql/sql.min.js"></script>
-    
     <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alasql@1.7.3/dist/alasql.min.js"></script>
+    
+    <!-- Firebase -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
@@ -41,287 +81,447 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .CodeMirror { height: 100%; font-size: 14px; border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        .dark ::-webkit-scrollbar-track { background: #1f2937; }
-        .dark ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 3px; }
-        ::-webkit-scrollbar-track { background: #f3f4f6; }
-        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .CodeMirror { height: 100%; font-family: 'Fira Code', monospace; font-size: 13px; border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem; }
         .hidden-view { display: none !important; }
-        .fade-in { animation: fadeIn 0.3s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
+        /* Modern Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Glassmorphism & Utilities */
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.5); }
+        .dark .glass-panel { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        .text-gradient { background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .dark .text-gradient { background: linear-gradient(135deg, #a78bfa 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
         /* Resizers */
-        .resizer-v { width: 4px; cursor: col-resize; background: #e5e7eb; z-index: 10; }
-        .dark .resizer-v { background: #374151; }
-        .resizer-v:hover { background: #3b82f6 !important; }
-        .resizer-h { height: 4px; cursor: row-resize; background: #e5e7eb; z-index: 10; }
-        .dark .resizer-h { background: #374151; }
-        .resizer-h:hover { background: #3b82f6 !important; }
+        .resizer-v { width: 4px; cursor: col-resize; background: #e2e8f0; transition: background 0.2s; z-index: 20; }
+        .dark .resizer-v { background: #1e293b; }
+        .resizer-v:hover { background: #6366f1; }
+        .resizer-h { height: 4px; cursor: row-resize; background: #e2e8f0; transition: background 0.2s; z-index: 20; }
+        .dark .resizer-h { background: #1e293b; }
+        .resizer-h:hover { background: #6366f1; }
+        
+        /* Dropdown Animation */
+        .group:hover .group-hover\:visible { visibility: visible; }
+        .group:hover .group-hover\:opacity-100 { opacity: 1; }
+        .group:hover .group-hover\:translate-y-0 { transform: translateY(0); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-white h-screen flex flex-col overflow-hidden font-sans transition-colors duration-200">
+<body class="bg-white text-gray-900 dark:bg-brand-dark dark:text-gray-100 h-screen flex flex-col overflow-hidden font-sans transition-colors duration-300 selection:bg-brand-accent selection:text-white">
 
-<nav class="h-16 bg-white/90 dark:bg-[#0f172a]/90 backdrop-blur-lg border-b border-gray-200 dark:border-slate-800 flex items-center justify-between px-4 md:px-6 shrink-0 z-50 transition-colors duration-300">
-    
-    <div class="flex items-center gap-4">
-        <button onclick="ui.toggleSidebar()" class="md:hidden text-slate-500 hover:text-purple-600 dark:text-slate-400 dark:hover:text-white transition focus:outline-none p-1">
-            <i class="fa-solid fa-bars text-lg"></i>
-        </button>
+<!-- NAVBAR -->
+<nav class="h-16 bg-white/80 dark:bg-brand-dark/80 backdrop-blur-md border-b border-gray-100 dark:border-white/5 flex items-center justify-between px-4 md:px-8 shrink-0 z-50 fixed w-full top-0">
+    <div class="flex items-center gap-8">
+        <button onclick="ui.toggleSidebar()" class="md:hidden text-gray-500 hover:text-brand-accent dark:text-gray-400 transition p-1"><i class="fa-solid fa-bars text-lg"></i></button>
         
-        <div class="flex items-center gap-3 cursor-pointer group" onclick="router.navigate('landing')">
-            <div class="relative w-8 h-8 rounded-full p-[1px] bg-gradient-to-br from-purple-600 to-blue-500 shadow-md group-hover:shadow-purple-500/30 transition-all">
-                <div class="bg-white dark:bg-slate-900 w-full h-full rounded-full flex items-center justify-center">
-                    <img src="LBA.png" onerror="this.src='https://ui-avatars.com/api/?name=LB&background=random'" alt="LBA" class="w-6 h-6 rounded-full object-cover">
-                </div>
-            </div>
-            <div class="flex flex-col leading-none">
-                <span class="font-bold text-lg tracking-tight text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">DataDrill</span>
-                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">by LBA Analytics</span>
-            </div>
+        <!-- Logo -->
+        <div class="flex items-center gap-2.5 cursor-pointer hover:opacity-90 transition" onclick="router.navigate('landing')">
+            <img src="LBA.png" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=DD&background=6366f1&color=fff'" class="w-8 h-8 rounded-lg object-contain shadow-sm" alt="Logo">
+            <span class="font-extrabold text-xl tracking-tight text-gray-900 dark:text-white">DataDrill</span>
         </div>
 
-        <div class="hidden md:flex items-center gap-1 ml-4">
-            <button onclick="router.navigate('landing')" class="px-3 py-1.5 text-xs font-bold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white rounded-lg transition">Practice</button>
-            <button onclick="router.navigate('projects')" class="px-3 py-1.5 text-xs font-bold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white rounded-lg transition flex items-center gap-1"><i class="fa-solid fa-briefcase"></i> Projects</button>
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-1 text-sm font-medium">
+            <button onclick="router.navigate('landing')" class="px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-brand-accent dark:hover:text-white transition">Home</button>
+            
+            <!-- Practice Dropdown -->
+            <div class="relative group">
+                <button class="px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-brand-accent dark:hover:text-white transition flex items-center gap-1">
+                    Practice <i class="fa-solid fa-chevron-down text-[10px] opacity-70 mt-0.5"></i>
+                </button>
+                
+                <div class="absolute top-full left-0 pt-2 w-48 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+                    <div class="bg-white dark:bg-[#1e293b] rounded-xl shadow-xl border border-gray-100 dark:border-white/5 overflow-hidden p-1">
+                        <a onclick="app.selectTrack('sql')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer group/item transition">
+                            <div class="w-8 h-8 rounded-md bg-orange-100 dark:bg-orange-500/20 flex items-center justify-center text-orange-500"><i class="fa-solid fa-database"></i></div>
+                            <div>
+                                <div class="text-xs font-bold text-gray-900 dark:text-white">SQL Track</div>
+                                <div class="text-[10px] text-gray-500 dark:text-gray-400">Queries & Joins</div>
+                            </div>
+                        </a>
+                        <a onclick="app.selectTrack('python')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer group/item transition">
+                            <div class="w-8 h-8 rounded-md bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center text-blue-500"><i class="fa-brands fa-python"></i></div>
+                            <div>
+                                <div class="text-xs font-bold text-gray-900 dark:text-white">Python Track</div>
+                                <div class="text-[10px] text-gray-500 dark:text-gray-400">Algos & Pandas</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="router.navigate('projects')" class="px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-brand-accent dark:hover:text-white transition">Projects</button>
+            <button onclick="router.navigate('leaderboard')" class="px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-brand-accent dark:hover:text-white transition">Leaderboard</button>
         </div>
     </div>
     
-    <div class="flex items-center gap-3 md:gap-4">
-        
-        <div class="relative group hidden sm:block">
-            <select id="nav-difficulty" onchange="app.setDifficulty(this.value)" class="appearance-none bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 rounded-lg px-3 py-1.5 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer hover:border-purple-400 transition">
+    <div class="flex items-center gap-3">
+        <!-- Difficulty (Playground Only - Controlled by JS visibility usually, keeping hidden for general views) -->
+        <div id="nav-difficulty-wrapper" class="relative hidden">
+            <select id="nav-difficulty" onchange="app.setDifficulty(this.value)" class="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-xs font-bold rounded-md px-3 py-1.5 pr-8 focus:ring-2 focus:ring-brand-accent cursor-pointer outline-none">
                 <option value="All">All Levels</option>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>
             </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400"><i class="fa-solid fa-chevron-down text-[10px]"></i></div>
         </div>
-        
-        <button onclick="router.navigate('leaderboard')" class="text-slate-400 hover:text-yellow-500 transition p-2" title="Leaderboard">
-            <i class="fa-solid fa-trophy"></i>
+
+        <!-- Theme Toggle -->
+        <button onclick="themeManager.toggle()" id="theme-btn" class="w-9 h-9 rounded-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-transparent flex items-center justify-center transition hover:bg-gray-100 dark:hover:bg-white/10 text-gray-500 dark:text-gray-400">
+            <i class="fa-solid fa-moon hidden dark:block text-sm"></i>
+            <i class="fa-solid fa-sun block dark:hidden text-sm text-amber-500"></i>
         </button>
 
-        <button onclick="themeManager.toggle()" id="theme-btn" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-800 text-slate-500 dark:text-yellow-400 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-slate-700 transition">
-            <i class="fa-solid fa-moon hidden dark:block"></i>
-            <i class="fa-solid fa-sun block dark:hidden"></i>
-        </button>
-
+        <!-- Auth -->
         <div id="auth-section">
-            <button onclick="authManager.login()" id="btn-login" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-1.5 rounded-lg text-xs font-bold transition shadow-lg shadow-purple-600/20 flex items-center gap-2">
-                <i class="fa-brands fa-google"></i> <span class="hidden sm:inline">Login</span>
+            <button onclick="authManager.login()" id="btn-login" class="bg-brand-accent hover:bg-indigo-600 text-white px-5 py-2 rounded-full text-xs font-bold transition shadow-lg shadow-indigo-500/20 hover:-translate-y-0.5">
+                Sign In
             </button>
-            
             <div id="user-profile-menu" class="hidden flex items-center gap-3">
-                <button onclick="router.navigate('profile')" class="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-slate-800 px-2 py-1 rounded-lg transition border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
-                    <img id="user-avatar" src="" class="w-7 h-7 rounded-full object-cover border border-slate-300 dark:border-slate-600">
-                    <span id="nav-user-name" class="text-xs font-bold hidden md:block truncate max-w-[80px]">User</span>
-                </button>
-                <button onclick="authManager.logout()" class="text-slate-400 hover:text-red-500 transition" title="Logout">
-                    <i class="fa-solid fa-right-from-bracket"></i>
+                <div id="navbar-stars"></div> <!-- Injected Stars -->
+                <button onclick="router.navigate('profile')" class="hover:opacity-80 transition">
+                    <img id="user-avatar" src="" class="w-9 h-9 rounded-full border-2 border-white dark:border-gray-700 shadow-sm object-cover">
                 </button>
             </div>
         </div>
     </div>
 </nav>
 
-    <main class="flex-1 relative overflow-hidden">
+<!-- MAIN APP CONTAINER -->
+<main class="flex-1 relative overflow-hidden pt-16">
+
+    <!-- ==============================
+         VIEW 1: LANDING PAGE
+         ============================== -->
+    <section id="view-landing" class="absolute inset-0 overflow-y-auto bg-white dark:bg-brand-dark text-gray-900 dark:text-gray-100 fade-in z-40">
         
-        <section id="view-landing" class="absolute inset-0 overflow-y-auto bg-white dark:bg-[#0B1120] text-gray-900 dark:text-white fade-in z-40">
-            <div class="relative overflow-hidden">
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
-                
-                <div class="max-w-7xl mx-auto px-6 pt-16 pb-20 text-center">
-                    <span class="inline-block py-1 px-3 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-[10px] font-bold uppercase tracking-wider mb-6 border border-purple-200 dark:border-purple-800">
-                        🚀 The Ultimate Data Interview Platform
-                    </span>
-                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                        Master SQL & Python <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">Like a Senior Analyst</span>
+        <!-- HERO AREA -->
+        <div class="relative pt-24 pb-20 overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none overflow-hidden">
+                <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[120px] animate-blob"></div>
+                <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px] animate-blob" style="animation-delay: 2s;"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Copy -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-500/20 mb-8 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                        <span class="text-xs font-bold text-brand-accent tracking-wide uppercase">Live: Interactive Projects</span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+                        Master Data Skills.<br>
+                        <span class="text-gradient">Get Hired.</span>
                     </h1>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                        Practice real interview questions from top tech companies. Build portfolio-ready projects directly in your browser. No setup required.
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        The gap between tutorials and the job is active practice. DataDrill gives you a gym for SQL & Python. Solve real problems, build portfolio projects, and debug in real-time.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                        <button onclick="app.selectTrack('sql')" class="px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl font-bold text-sm hover:scale-105 transition shadow-xl shadow-purple-500/20 flex items-center gap-2">
-                            <i class="fa-solid fa-database"></i> Start SQL Practice
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <button onclick="app.selectTrack('sql')" class="px-8 py-4 bg-brand-accent hover:bg-indigo-600 text-white rounded-xl font-bold text-sm shadow-xl shadow-indigo-600/20 transition transform hover:-translate-y-1 flex items-center gap-2">
+                            <i class="fa-solid fa-bolt"></i> Start SQL Practice
                         </button>
-                        <button onclick="router.navigate('projects')" class="px-8 py-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white rounded-xl font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition flex items-center gap-2">
-                            <i class="fa-solid fa-folder-open text-blue-500"></i> View Projects
+                        <button onclick="router.navigate('projects')" class="px-8 py-4 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white rounded-xl font-bold text-sm hover:bg-gray-50 dark:hover:bg-white/10 transition flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-folder-open"></i> View Projects
                         </button>
                     </div>
 
-                    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
-                         <div onclick="app.selectTrack('python')" class="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl p-6 hover:border-blue-500 cursor-pointer transition group">
-                            <div class="flex items-center gap-4 mb-2">
-                                <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400"><i class="fa-brands fa-python text-xl"></i></div>
-                                <div>
-                                    <h3 class="font-bold text-gray-900 dark:text-white">Python Track</h3>
-                                    <p class="text-xs text-gray-500" id="python-count">Loading...</p>
-                                </div>
-                                <div class="ml-auto text-blue-500 opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-12 flex items-center justify-center lg:justify-start gap-8 text-sm font-medium text-gray-500 dark:text-gray-400">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-brand-success"></i> No Setup</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-brand-success"></i> Real DBs</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-brand-success"></i> Free Tier</div>
+                    </div>
+                </div>
+
+                <!-- Right: UI Mockup -->
+                <div class="relative animate-float hidden lg:block">
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-10 -right-10 w-24 h-24 bg-orange-400/20 rounded-full blur-xl"></div>
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-400/20 rounded-full blur-xl"></div>
+
+                    <div class="rounded-2xl bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-700 shadow-2xl overflow-hidden relative z-10">
+                        <!-- Fake Browser Header -->
+                        <div class="bg-gray-100 dark:bg-[#2d2d2d] px-4 py-3 flex items-center gap-2 border-b border-gray-200 dark:border-white/10">
+                            <div class="flex gap-1.5">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
                             </div>
-                         </div>
-                         <div onclick="app.selectTrack('sql')" class="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl p-6 hover:border-orange-500 cursor-pointer transition group">
-                            <div class="flex items-center gap-4 mb-2">
-                                <div class="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center text-orange-600 dark:text-orange-400"><i class="fa-solid fa-database text-xl"></i></div>
-                                <div>
-                                    <h3 class="font-bold text-gray-900 dark:text-white">SQL Track</h3>
-                                    <p class="text-xs text-gray-500" id="sql-count">Loading...</p>
+                            <div class="ml-4 px-3 py-1 bg-white dark:bg-black/20 rounded text-[10px] text-gray-500 dark:text-gray-400 font-mono flex-1 text-center border border-gray-200 dark:border-transparent shadow-sm">interview_q1.sql</div>
+                        </div>
+                        <!-- Code Area -->
+                        <div class="p-6 font-mono text-xs md:text-sm text-gray-800 dark:text-gray-300 leading-relaxed">
+                            <p><span class="text-purple-600 dark:text-purple-400">SELECT</span></p>
+                            <p class="pl-4">marketing_channel,</p>
+                            <p class="pl-4"><span class="text-amber-600 dark:text-yellow-400">COUNT</span>(user_id) <span class="text-purple-600 dark:text-purple-400">AS</span> conversions</p>
+                            <p><span class="text-purple-600 dark:text-purple-400">FROM</span> campaign_data</p>
+                            <p><span class="text-purple-600 dark:text-purple-400">WHERE</span> status = <span class="text-brand-success">'Converted'</span></p>
+                            <p><span class="text-purple-600 dark:text-purple-400">GROUP BY</span> 1</p>
+                            <p><span class="text-purple-600 dark:text-purple-400">ORDER BY</span> 2 <span class="text-purple-600 dark:text-purple-400">DESC</span>;</p>
+                            
+                            <!-- Fake Result -->
+                            <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
+                                <div class="flex items-center gap-2 text-brand-success text-xs mb-3 font-bold">
+                                    <i class="fa-solid fa-circle-check"></i> Query Successful
                                 </div>
-                                <div class="ml-auto text-orange-500 opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-arrow-right"></i></div>
+                                <div class="w-full rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+                                    <div class="flex bg-gray-50 dark:bg-white/5 text-[10px] font-bold text-gray-500 uppercase p-2">
+                                        <div class="w-1/2">Channel</div><div class="w-1/2 text-right">Conversions</div>
+                                    </div>
+                                    <div class="flex bg-white dark:bg-transparent text-xs p-2 border-t border-gray-100 dark:border-gray-700">
+                                        <div class="w-1/2">Organic Search</div><div class="w-1/2 text-right font-mono">1,240</div>
+                                    </div>
+                                    <div class="flex bg-gray-50 dark:bg-white/5 text-xs p-2 border-t border-gray-100 dark:border-gray-700">
+                                        <div class="w-1/2">Paid Social</div><div class="w-1/2 text-right font-mono">985</div>
+                                    </div>
+                                </div>
                             </div>
-                         </div>
+                        </div>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 dark:border-gray-700 flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                        <div class="w-10 h-10 bg-green-100 dark:bg-green-500/20 rounded-full flex items-center justify-center text-green-600 dark:text-green-400"><i class="fa-solid fa-certificate"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Status</p>
+                            <p class="font-bold text-gray-900 dark:text-white">SQL Expert 🚀</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="max-w-4xl mx-auto px-6 pb-20">
-                <div id="daily-challenge-card" class="hidden"></div>
+        <!-- TRUST SIGNALS -->
+        <div class="py-12 border-y border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/5">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-8">Practice questions from top tech companies</p>
+                <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition duration-500 dark:invert">
+                    <i class="fa-brands fa-google text-2xl md:text-3xl"></i>
+                    <i class="fa-brands fa-amazon text-2xl md:text-3xl"></i>
+                    <i class="fa-brands fa-meta text-2xl md:text-3xl"></i>
+                    <i class="fa-brands fa-uber text-2xl md:text-3xl"></i>
+                    <i class="fa-brands fa-microsoft text-2xl md:text-3xl"></i>
+                    <i class="fa-brands fa-airbnb text-2xl md:text-3xl"></i>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <section id="view-projects" class="absolute inset-0 overflow-y-auto p-8 hidden-view fade-in bg-gray-50 dark:bg-[#0B1120] z-40">
-            <div class="max-w-6xl mx-auto w-full pt-8">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <!-- FEATURES GRID -->
+        <div class="py-24 bg-white dark:bg-brand-dark">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Why Analysts Choose DataDrill</h2>
+                    <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Stop watching videos. Start solving problems.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="group p-8 rounded-2xl bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-indigo-500/30 hover:shadow-lg transition">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-code"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Active Recall Engine</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Run Python and SQLite directly in your browser. No configuration, just code. Immediate feedback on your logic.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="group p-8 rounded-2xl bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-purple-500/30 hover:shadow-lg transition">
+                        <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-layer-group"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Real-World Projects</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Move beyond "Hello World". Tackle end-to-end case studies involving cleaning, analyzing, and reporting on messy data.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="group p-8 rounded-2xl bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-green-500/30 hover:shadow-lg transition">
+                        <div class="w-12 h-12 rounded-xl bg-green-50 dark:bg-green-500/20 text-green-600 dark:text-green-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-trophy"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Gamified Growth</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Earn badges, maintain streaks, and climb the global leaderboard. Prove your skills to future employers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="bg-gray-50 dark:bg-[#020617] border-t border-gray-200 dark:border-white/5 py-12">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white font-bold text-xl mb-6 shadow-lg">D</div>
+                <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Ready to start drilling?</h2>
+                <button onclick="app.selectTrack('sql')" class="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-bold transition hover:opacity-90">Get Started for Free</button>
+                <div class="mt-12 flex justify-center gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-gray-900 dark:hover:text-white transition">Privacy</a>
+                    <a href="#" class="hover:text-gray-900 dark:hover:text-white transition">Terms</a>
+                    <a href="#" class="hover:text-gray-900 dark:hover:text-white transition">Twitter</a>
+                </div>
+                <p class="mt-8 text-xs text-gray-400">© 2025 LBA Analytics. Built for the community.</p>
+            </div>
+        </footer>
+
+        <!-- Daily Challenge Hidden (Logic Requirement) -->
+        <div id="daily-challenge-card" class="hidden"></div>
+    </section>
+
+    <!-- ==============================
+         VIEW 2: PROJECTS
+         ============================== -->
+    <section id="view-projects" class="absolute inset-0 overflow-y-auto p-8 hidden-view fade-in bg-gray-50 dark:bg-brand-dark z-40">
+        <div class="max-w-7xl mx-auto w-full pt-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-3">Project Library</h2>
+                    <p class="text-gray-500 dark:text-gray-400">Deep-dive case studies to demonstrate your expertise.</p>
+                </div>
+                <div class="flex bg-white dark:bg-white/5 p-1 rounded-lg border border-gray-200 dark:border-white/10 shadow-sm">
+                    <button onclick="app.filterProjects('All')" class="px-6 py-2 text-sm font-bold rounded-md hover:bg-gray-50 dark:hover:bg-white/10 text-gray-700 dark:text-gray-200 transition">All</button>
+                    <button onclick="app.filterProjects('Guided')" class="px-6 py-2 text-sm font-bold rounded-md hover:bg-purple-50 dark:hover:bg-purple-500/20 text-purple-600 dark:text-purple-400 transition">Guided</button>
+                    <button onclick="app.filterProjects('Unguided')" class="px-6 py-2 text-sm font-bold rounded-md hover:bg-orange-50 dark:hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 transition">Unguided</button>
+                </div>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
+                <!-- JS Injects Here -->
+                <div class="col-span-full text-center py-20">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-500"></div>
+                    <p class="mt-4 text-gray-500">Loading projects library...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         VIEW 3: PLAYGROUND (APP)
+         ============================== -->
+    <section id="view-playground" class="absolute inset-0 flex hidden-view bg-gray-100 dark:bg-brand-dark z-30">
+        <!-- Sidebar -->
+        <aside id="app-sidebar" class="w-72 bg-white dark:bg-[#0f172a] flex flex-col shrink-0 border-r border-gray-200 dark:border-white/5 z-30 relative" style="width: 0px;">
+            <div class="p-4 border-b border-gray-200 dark:border-white/5 bg-gray-50/50 dark:bg-white/5">
+                <div id="sidebar-filters" class="space-y-4">
+                    <!-- Filters Injected via JS -->
                     <div>
-                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Real-World Projects</h2>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">Build your portfolio with end-to-end data case studies.</p>
+                        <div class="flex justify-between items-center mb-2">
+                            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Status</h2>
+                            <button onclick="ui.toggleSidebar()" class="md:hidden text-gray-400"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <select onchange="app.setStatus(this.value)" class="w-full bg-white dark:bg-black/20 border border-gray-200 dark:border-white/10 text-xs rounded-lg p-2.5 focus:outline-none focus:border-indigo-500 text-gray-700 dark:text-gray-300">
+                            <option value="All">All Problems</option>
+                            <option value="Solved">✅ Solved</option>
+                            <option value="Unsolved">○ Unsolved</option>
+                        </select>
                     </div>
-                    <div class="flex bg-white dark:bg-gray-800 p-1 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm self-start">
-                        <button onclick="app.filterProjects('All')" class="px-4 py-1.5 text-xs font-bold rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 transition">All</button>
-                        <button onclick="app.filterProjects('Guided')" class="px-4 py-1.5 text-xs font-bold rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-purple-600 dark:text-purple-400 transition">Guided</button>
-                        <button onclick="app.filterProjects('Unguided')" class="px-4 py-1.5 text-xs font-bold rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-orange-600 dark:text-orange-400 transition">Unguided</button>
-                    </div>
-                </div>
-
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-20">
-                    <div class="col-span-full text-center py-20">
-                        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white"></div>
-                        <p class="mt-2 text-gray-500 text-sm">Loading projects...</p>
+                    <div>
+                        <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Topic</h2>
+                        <select id="topic-select" onchange="app.setTopic(this.value)" class="w-full bg-white dark:bg-black/20 border border-gray-200 dark:border-white/10 text-xs rounded-lg p-2.5 focus:outline-none focus:border-indigo-500 text-gray-700 dark:text-gray-300">
+                            <option value="All">All Topics</option>
+                        </select>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="view-playground" class="absolute inset-0 flex hidden-view bg-gray-50 dark:bg-gray-950 z-30">
-            <aside id="app-sidebar" class="w-64 bg-white dark:bg-gray-900 flex flex-col shrink-0 transition-all duration-300 overflow-hidden border-r border-gray-200 dark:border-gray-800 z-30 absolute md:relative h-full" style="width: 0px;">
-                <div class="p-4 border-b border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900">
-                    <div id="sidebar-filters" class="space-y-4">
-                        <div>
-                            <div class="flex justify-between items-center mb-1">
-                                <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Status</h2>
-                                <button onclick="ui.toggleSidebar()" class="md:hidden text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
-                            </div>
-                            <select onchange="app.setStatus(this.value)" class="w-full appearance-none bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded px-2 py-1.5 focus:outline-none cursor-pointer hover:border-blue-500 transition"><option value="All">All Problems</option><option value="Solved">✅ Solved</option><option value="Unsolved">○ Unsolved</option></select>
-                        </div>
-                        
-                        <div>
-                            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Topic</h2>
-                            <select id="topic-select" onchange="app.setTopic(this.value)" class="w-full appearance-none bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded px-2 py-1.5 focus:outline-none cursor-pointer hover:border-blue-500 transition"><option value="All">All Topics</option></select>
-                        </div>
-                        
-                        </div>
+            <div id="problem-list" class="flex-1 overflow-y-auto p-2 space-y-1 custom-scroll"></div>
+        </aside>
+        
+        <div class="resizer-v hidden md:block" id="resizer-sidebar"></div>
+        
+        <div class="flex-1 flex flex-col min-w-0">
+            <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+                <!-- Description Panel -->
+                <div class="w-full md:w-5/12 h-1/3 md:h-full border-b md:border-b-0 md:border-r border-gray-200 dark:border-white/5 bg-white dark:bg-[#0f172a] flex flex-col shrink-0" id="desc-panel">
+                    <div class="p-6 overflow-y-auto flex-1 prose prose-sm max-w-none dark:prose-invert" id="problem-desc-container"></div>
                 </div>
-                <div id="problem-list" class="flex-1 overflow-y-auto p-2 space-y-1"></div>
-            </aside>
-            
-            <div class="resizer-v hidden md:block" id="resizer-sidebar"></div>
-            
-            <div class="flex-1 flex flex-col min-w-0">
-                <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
-                    <div class="w-full md:w-1/3 h-1/3 md:h-full border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 flex flex-col shrink-0" id="desc-panel">
-                        <div class="p-6 overflow-y-auto flex-1 prose prose-sm max-w-none dark:prose-invert" id="problem-desc-container"></div>
+                <div class="resizer-v hidden md:block" id="resizer-desc"></div>
+                
+                <!-- Editor & Console -->
+                <div class="flex-1 flex flex-col bg-gray-50 dark:bg-[#1e1e1e] min-w-0 h-2/3 md:h-full">
+                    <div class="h-12 bg-white dark:bg-[#1e1e1e] border-b border-gray-200 dark:border-white/5 flex items-center justify-between px-4 shrink-0">
+                        <div class="flex items-center gap-3">
+                            <span id="lang-indicator" class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 uppercase tracking-wider">SQL</span>
+                            <span id="save-status" class="text-[10px] text-gray-400 italic"></span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button id="run-btn" onclick="runner.run()" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/20 text-gray-700 dark:text-white transition flex items-center gap-2"><i class="fa-solid fa-play"></i> Run</button>
+                            <button id="submit-btn" onclick="runner.submit()" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-brand-success hover:bg-emerald-600 text-white transition flex items-center gap-2 shadow-lg shadow-emerald-500/20"><i class="fa-solid fa-check"></i> Submit</button>
+                        </div>
                     </div>
-                    <div class="resizer-v hidden md:block" id="resizer-desc"></div>
+                    <div class="flex-1 relative min-h-0"><textarea id="code-editor"></textarea></div>
+                    <div class="resizer-h" id="resizer-console"></div>
                     
-                    <div class="flex-1 flex flex-col bg-white dark:bg-gray-950 min-w-0 h-2/3 md:h-full">
-                        <div class="h-10 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 shrink-0">
-                            <div class="flex items-center gap-3">
-                                <span id="lang-indicator" class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300">...</span>
-                                <span id="save-status" class="text-[10px] text-gray-500 italic hidden sm:inline"></span>
-                            </div>
-                            <div class="flex gap-2">
-                                <button id="run-btn" onclick="runner.run()" class="px-3 py-1 rounded text-xs bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 transition border border-gray-300 dark:border-gray-700 flex items-center gap-1"><i class="fa-solid fa-play"></i> <span class="hidden sm:inline">Run</span></button>
-                                <button id="submit-btn" onclick="runner.submit()" class="px-3 py-1 rounded text-xs bg-green-600 hover:bg-green-700 text-white font-medium transition shadow-lg flex items-center gap-1"><i class="fa-solid fa-cloud-arrow-up"></i> <span class="hidden sm:inline">Submit</span></button>
+                    <div id="console-panel" class="bg-white dark:bg-[#0f172a] flex flex-col shrink-0 border-t border-gray-200 dark:border-white/5" style="height: 200px;">
+                        <div class="h-8 bg-gray-50 dark:bg-white/5 flex items-center justify-between px-4 border-b border-gray-200 dark:border-white/5 select-none">
+                            <span class="text-[10px] font-bold text-gray-500 uppercase">Output Console</span>
+                            <div class="flex gap-3">
+                                <button onclick="ui.toggleConsole()" class="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white"><i class="fa-solid fa-chevron-down"></i></button>
+                                <button onclick="document.getElementById('console-output').innerHTML=''" class="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white">Clear</button>
                             </div>
                         </div>
-                        <div class="flex-1 relative min-h-0"><textarea id="code-editor"></textarea></div>
-                        <div class="resizer-h" id="resizer-console"></div>
-                        
-                        <div id="console-panel" class="bg-white dark:bg-gray-900 flex flex-col shrink-0" style="height: 150px; min-height: 30px;">
-                            <div class="h-8 bg-gray-50 dark:bg-gray-800/50 flex items-center justify-between px-4 border-b border-gray-200 dark:border-gray-800 select-none">
-                                <span class="text-[10px] font-mono text-gray-500">CONSOLE</span>
-                                <div class="flex gap-3">
-                                    <button onclick="ui.toggleConsole()" class="text-xs text-gray-500 hover:text-black dark:hover:text-white"><i class="fa-solid fa-chevron-down"></i></button>
-                                    <button onclick="document.getElementById('console-output').innerHTML=''" class="text-xs text-gray-500 hover:text-black dark:hover:text-white">Clear</button>
-                                </div>
-                            </div>
-                            <div id="console-output" class="flex-1 p-4 font-mono text-sm overflow-y-auto text-gray-800 dark:text-gray-300 whitespace-pre-wrap bg-white dark:bg-gray-900 transition-colors duration-200"></div>
-                        </div>
+                        <div id="console-output" class="flex-1 p-4 font-mono text-sm overflow-y-auto text-gray-800 dark:text-gray-300 bg-white dark:bg-[#0f172a]"></div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="view-leaderboard" class="absolute inset-0 overflow-y-auto p-8 hidden-view fade-in bg-gray-50 dark:bg-gray-950 z-40">
-            <div class="max-w-4xl w-full mx-auto">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2"><i class="fa-solid fa-trophy text-yellow-500 mr-2"></i>Leaderboard</h2>
-                    <p class="text-gray-500 dark:text-gray-400">Top performers on DataDrill</p>
-                </div>
-                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-lg">
-                    <table class="w-full text-left text-sm text-gray-600 dark:text-gray-400">
-                        <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 uppercase text-xs">
-                            <tr>
-                                <th class="px-6 py-4 w-16">Rank</th>
-                                <th class="px-6 py-4">Student</th>
-                                <th class="px-6 py-4 text-right">Problems Solved</th>
-                            </tr>
-                        </thead>
-                        <tbody id="leaderboard-body" class="divide-y divide-gray-200 dark:divide-gray-800">
-                            </tbody>
-                    </table>
-                    <div id="leaderboard-loading" class="p-8 text-center text-gray-500">Loading rankings...</div>
+    <!-- ==============================
+         VIEW 4: LEADERBOARD
+         ============================== -->
+    <section id="view-leaderboard" class="absolute inset-0 overflow-y-auto p-8 hidden-view fade-in bg-gray-50 dark:bg-brand-dark z-40">
+        <div class="max-w-4xl w-full mx-auto pt-10">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-2"><i class="fa-solid fa-trophy text-amber-500 mr-2"></i>Leaderboard</h2>
+                <p class="text-gray-500 dark:text-gray-400">Top performers this month.</p>
+            </div>
+            <div class="bg-white dark:bg-[#0f172a] rounded-xl border border-gray-200 dark:border-white/5 overflow-hidden shadow-2xl">
+                <table class="w-full text-left text-sm text-gray-600 dark:text-gray-400">
+                    <thead class="bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-gray-200 uppercase text-xs font-bold tracking-wider">
+                        <tr>
+                            <th class="px-6 py-4 w-20">Rank</th>
+                            <th class="px-6 py-4">Analyst</th>
+                            <th class="px-6 py-4 text-right">Solved</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body" class="divide-y divide-gray-200 dark:divide-white/5"></tbody>
+                </table>
+                <div id="leaderboard-loading" class="p-10 text-center text-gray-500">Loading rankings...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         VIEW 5: PROFILE
+         ============================== -->
+    <section id="view-profile" class="absolute inset-0 overflow-y-auto p-8 hidden-view fade-in bg-gray-50 dark:bg-brand-dark z-40">
+        <div class="max-w-5xl mx-auto w-full pt-10">
+            <div class="flex items-center gap-6 mb-10">
+                <img id="profile-view-avatar" src="" class="w-24 h-24 rounded-full border-4 border-white dark:border-gray-800 shadow-2xl bg-white">
+                <div>
+                    <h2 id="profile-view-name" class="text-3xl font-bold text-gray-900 dark:text-white">Student Name</h2>
+                    <p class="text-brand-accent font-bold text-sm">Pro Member</p>
                 </div>
             </div>
-        </section>
-
-        <section id="view-profile" class="absolute inset-0 overflow-y-auto p-8 hidden-view fade-in bg-gray-50 dark:bg-gray-950 z-40">
-            <div class="max-w-4xl mx-auto w-full pt-8">
-                <div class="mb-8 flex items-end gap-4">
-                    <img id="profile-view-avatar" src="" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=User&background=random';" class="w-24 h-24 rounded-full border-4 border-white dark:border-gray-800 shadow-2xl object-cover">
-                    <div class="mb-2"><h2 id="profile-view-name" class="text-3xl font-bold text-gray-900 dark:text-white">Student Name</h2><p class="text-gray-500 dark:text-gray-400">Student Portal Dashboard</p></div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm"><div class="text-gray-500 text-sm uppercase tracking-wider mb-1">Problems Solved</div><div class="text-3xl font-bold text-gray-900 dark:text-white" id="stat-solved">0</div></div>
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm"><div class="text-gray-500 text-sm uppercase tracking-wider mb-1">Completion Rate</div><div class="text-3xl font-bold text-blue-600 dark:text-blue-400" id="stat-rate">0%</div></div>
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm"><div class="text-gray-500 text-sm uppercase tracking-wider mb-1">Account Type</div><div class="text-3xl font-bold text-yellow-500">Student</div></div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-800 pb-2 text-gray-900 dark:text-white">Submission History</h3>
-                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm mb-20">
-                    <table class="w-full text-left text-sm text-gray-600 dark:text-gray-400">
-                        <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 uppercase text-xs"><tr><th class="px-6 py-3">Problem</th><th class="px-6 py-3">Track</th><th class="px-6 py-3">Status</th><th class="px-6 py-3 text-right">Date</th></tr></thead>
-                        <tbody id="history-table-body" class="divide-y divide-gray-200 dark:divide-gray-800"></tbody>
-                    </table>
-                    <div id="empty-history" class="p-8 text-center text-gray-500 hidden">No submissions yet. Go solve some problems!</div>
-                </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="glass-panel p-6 rounded-xl shadow-sm"><div class="text-gray-500 dark:text-gray-400 text-xs uppercase font-bold mb-2">Problems Solved</div><div class="text-4xl font-extrabold text-gray-900 dark:text-white" id="stat-solved">0</div></div>
+                <div class="glass-panel p-6 rounded-xl shadow-sm"><div class="text-gray-500 dark:text-gray-400 text-xs uppercase font-bold mb-2">Accuracy</div><div class="text-4xl font-extrabold text-brand-accent" id="stat-rate">0%</div></div>
+                <div class="glass-panel p-6 rounded-xl shadow-sm"><div class="text-gray-500 dark:text-gray-400 text-xs uppercase font-bold mb-2">Current Streak</div><div class="text-4xl font-extrabold text-brand-success">1 Day</div></div>
             </div>
-        </section>
+            
+            <!-- JS Injects Chart/Badges Here -->
 
-    </main>
+            <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">Recent Activity</h3>
+            <div class="glass-panel rounded-xl overflow-hidden mb-20 shadow-sm">
+                <table class="w-full text-left text-sm text-gray-600 dark:text-gray-400">
+                    <thead class="bg-gray-50 dark:bg-white/5 text-gray-800 dark:text-gray-200 text-xs uppercase font-bold"><tr><th class="px-6 py-4">Problem</th><th class="px-6 py-4">Status</th><th class="px-6 py-4 text-right">Date</th></tr></thead>
+                    <tbody id="history-table-body" class="divide-y divide-gray-100 dark:divide-white/5"></tbody>
+                </table>
+                <div id="empty-history" class="p-8 text-center text-gray-500 hidden">No activity yet.</div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="w-full h-10 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 flex items-center justify-center z-50 shrink-0">
-        <p class="text-[11px] text-gray-600 dark:text-gray-400 tracking-wide">© 2025 LBA Analytics and AI | letsbeanalyst.com — All rights reserved.</p>
-    </footer>
+</main>
 
-    <script src="config.js"></script>
-    <script src="app.js"></script>
-    <script src="badges.js"></script>
+<!-- SCRIPTS -->
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script src="badges.js"></script>
 </body>
 </html>
