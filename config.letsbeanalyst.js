@@ -1,7 +1,9 @@
-// --- CONFIGURATION TEMPLATE ---
-// This file is used by Netlify to generate the real config.js
+// --- CONFIGURATION ---
 
 const GOOGLE_SHEET_API = "__SHEET_API__";
+
+// 1. ADD YOUR RAZORPAY KEY ID HERE
+const RAZORPAY_KEY_ID = "__RAZORPAY_KEY_ID__"; 
 
 const firebaseConfig = {
     apiKey: "__API_KEY__",
