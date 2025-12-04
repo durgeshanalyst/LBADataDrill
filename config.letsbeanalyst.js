@@ -3,7 +3,7 @@
 const GOOGLE_SHEET_API = "__SHEET_API__";
 
 // 1. ADD YOUR RAZORPAY KEY ID HERE
-const RAZORPAY_KEY_ID = "__RAZORPAY_KEY_ID__"; 
+const RAZORPAY_KEY_ID = "rzp_live_AJIT6E4VURDFpT"; 
 
 const firebaseConfig = {
     apiKey: "__API_KEY__",
